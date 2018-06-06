@@ -6,10 +6,7 @@ Vue.use(Router)
 export default new Router({
   mode: 'history',
   routes: [
-    {
-      path: '/',
-      name: 'HelloWorld',
-      component: () => import('@/components/HelloWorld'),
-    },
+    { path: '/', component: () => import('@/components/Home') },
+    { path: '*', component: () => import('@/components/NotFound') },
   ],
 })

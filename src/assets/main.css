@@ -1,0 +1,34 @@
+:root {
+  --background-color: #eeeeee;
+  --text-color: #2c3e50;
+  --dark-background: #272b30;
+  --dark-background-text: #dddddd;
+  --brand-primary: #f7bd3c;
+  --brand-primary-dark: #ab8124;
+}
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  /* https://css-tricks.com/snippets/css/font-stacks/ */
+  font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: var(--brand-primary-dark);
+  transition: opacity .2s;
+}
+a:hover {
+  opacity: .7;
+}
