@@ -21,14 +21,12 @@ module.exports = {
   ],
   // add your custom rules here
   rules: {
+    // always use dangling comma for multiline
+    'comma-dangle': ['error', 'always-multiline'],
     // allow async-await
     'generator-star-spacing': 'off',
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    // always use dangling comma for multiline
-    'comma-dangle': ['error', 'always-multiline'],
-    // no space before function parens
-    'space-before-function-paren': ['error', 'never'],
     // no unused variables (allow if preceeded by _)
     'no-unused-vars': ['error', {
       'args': 'after-used',
@@ -38,5 +36,9 @@ module.exports = {
     }],
     // always use let or const
     'no-var': 'error',
+    // no space before function parens
+    'space-before-function-paren': ['error', 'never'],
+    // allow 2 attributes on a single line
+    'vue/max-attributes-per-line': ['error', { 'singleline': 2 }],
   },
 }

@@ -1,11 +1,6 @@
 <template>
   <header>
-    <router-link
-      to="/"
-      class="brand"
-    >
-      Star Wars Browser
-    </router-link>
+    <router-link to="/" class="brand">Star Wars Browser</router-link>
   </header>
 </template>
 
