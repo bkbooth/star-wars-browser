@@ -26,6 +26,15 @@ export default new Router({
       component: () => import(/* webpackChunkName: "planets" */ '@/components/planets/Detail'),
     },
 
+    {
+      path: '/films',
+      component: () => import(/* webpackChunkName: "films" */ '@/components/films/List'),
+    },
+    {
+      path: '/films/:filmId',
+      component: () => import(/* webpackChunkName: "films" */ '@/components/films/Detail'),
+    },
+
     { path: '*', component: () => import('@/components/pages/NotFound') },
   ],
 })
