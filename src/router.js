@@ -53,6 +53,15 @@ export default new Router({
       component: () => import(/* webpackChunkName: "vehicles" */ '@/components/vehicles/Detail'),
     },
 
+    {
+      path: '/starships',
+      component: () => import(/* webpackChunkName: "starships" */ '@/components/starships/List'),
+    },
+    {
+      path: '/starships/:starshipId',
+      component: () => import(/* webpackChunkName: "starships" */ '@/components/starships/Detail'),
+    },
+
     { path: '*', component: () => import('@/components/pages/NotFound') },
   ],
 })
