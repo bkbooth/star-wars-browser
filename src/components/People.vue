@@ -17,12 +17,8 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex'
-import LoadingSpinner from '@/components/LoadingSpinner'
 
 export default {
-  components: {
-    LoadingSpinner,
-  },
   computed: {
     ...mapState('people', {
       people: 'data',
