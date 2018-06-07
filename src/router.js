@@ -6,26 +6,26 @@ Vue.use(Router)
 export default new Router({
   mode: 'history',
   routes: [
-    { path: '/', component: () => import('@/components/Home') },
+    { path: '/', component: () => import('@/components/pages/Home') },
 
     {
       path: '/people',
-      component: () => import(/* webpackChunkName: "people" */ '@/components/People'),
+      component: () => import(/* webpackChunkName: "people" */ '@/components/people/List'),
     },
     {
       path: '/people/:personId',
-      component: () => import(/* webpackChunkName: "people" */ '@/components/Person'),
+      component: () => import(/* webpackChunkName: "people" */ '@/components/people/Detail'),
     },
 
     {
       path: '/planets',
-      component: () => import(/* webpackChunkName: "planets" */ '@/components/Planets'),
+      component: () => import(/* webpackChunkName: "planets" */ '@/components/planets/List'),
     },
     {
       path: '/planets/:planetId',
-      component: () => import(/* webpackChunkName: "planets" */ '@/components/Planet'),
+      component: () => import(/* webpackChunkName: "planets" */ '@/components/planets/Detail'),
     },
 
-    { path: '*', component: () => import('@/components/NotFound') },
+    { path: '*', component: () => import('@/components/pages/NotFound') },
   ],
 })

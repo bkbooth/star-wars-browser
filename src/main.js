@@ -6,7 +6,7 @@ import store from './store'
 import './assets/main.css'
 
 // Register global components
-import LoadingSpinner from '@/components/LoadingSpinner'
+import LoadingSpinner from '@/components/ui/LoadingSpinner'
 Vue.component('LoadingSpinner', LoadingSpinner)
 
 Vue.config.productionTip = false
