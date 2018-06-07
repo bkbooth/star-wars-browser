@@ -11,6 +11,9 @@ export default new Router({
     { path: '/people', component: () => import('@/components/People') },
     { path: '/people/:personId', component: () => import('@/components/Person') },
 
+    { path: '/planets', component: () => import('@/components/Planets') },
+    { path: '/planets/:planetId', component: () => import('@/components/Planet') },
+
     { path: '*', component: () => import('@/components/NotFound') },
   ],
 })
