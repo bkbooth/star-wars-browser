@@ -1,3 +1,6 @@
+[Settings]
+ID = "star-wars-browser"
+
 # SPA routing with history pushState
 [[redirects]]
   from = "/*"
