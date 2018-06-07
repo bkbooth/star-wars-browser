@@ -31,6 +31,8 @@ export default function createModule(name) {
     },
 
     async loadOne({ commit, state }, itemId) {
+      if (state.data[itemId]) return
+
       commit('setLoading', true)
       let pageToLoad = Math.ceil(Number(itemId) / MAX_RESULTS)
       let { count, results } = await loadData(name, pageToLoad)
