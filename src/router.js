@@ -8,11 +8,23 @@ export default new Router({
   routes: [
     { path: '/', component: () => import('@/components/Home') },
 
-    { path: '/people', component: () => import('@/components/People') },
-    { path: '/people/:personId', component: () => import('@/components/Person') },
+    {
+      path: '/people',
+      component: () => import(/* webpackChunkName: "people" */ '@/components/People'),
+    },
+    {
+      path: '/people/:personId',
+      component: () => import(/* webpackChunkName: "people" */ '@/components/Person'),
+    },
 
-    { path: '/planets', component: () => import('@/components/Planets') },
-    { path: '/planets/:planetId', component: () => import('@/components/Planet') },
+    {
+      path: '/planets',
+      component: () => import(/* webpackChunkName: "planets" */ '@/components/Planets'),
+    },
+    {
+      path: '/planets/:planetId',
+      component: () => import(/* webpackChunkName: "planets" */ '@/components/Planet'),
+    },
 
     { path: '*', component: () => import('@/components/NotFound') },
   ],
