@@ -44,6 +44,15 @@ export default new Router({
       component: () => import(/* webpackChunkName: "species" */ '@/components/species/Detail'),
     },
 
+    {
+      path: '/vehicles',
+      component: () => import(/* webpackChunkName: "vehicles" */ '@/components/vehicles/List'),
+    },
+    {
+      path: '/vehicles/:vehicleId',
+      component: () => import(/* webpackChunkName: "vehicles" */ '@/components/vehicles/Detail'),
+    },
+
     { path: '*', component: () => import('@/components/pages/NotFound') },
   ],
 })
