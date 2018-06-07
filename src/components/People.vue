@@ -4,11 +4,11 @@
 
     <loading-spinner :loading="loading"/>
 
-    <div v-if="people.length > 0">
+    <div v-if="loadedCount > 0">
       <p>Total: {{ totalCount }}, Loaded: {{ loadedCount }}</p>
       <ul>
-        <li v-for="person in people" :key="person.url">
-          {{ person.name }}
+        <li v-for="(person, id) in people" :key="id">
+          <router-link :to="`people/${id}`">{{ person.name }}</router-link>
         </li>
       </ul>
     </div>

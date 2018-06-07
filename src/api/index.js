@@ -16,7 +16,6 @@ const VALID_RESOURCES = [
  * @returns {Promise}
  */
 export function loadData(resource, page = 1) {
-  console.log('loadData', { resource, page })
   if (!VALID_RESOURCES.includes(resource)) {
     return Promise.reject(new Error(`Unknown API resource: ${resource}`))
   }

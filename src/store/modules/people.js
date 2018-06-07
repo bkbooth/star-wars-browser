@@ -1,20 +1,22 @@
 import { loadData } from '../../api'
 
+const MAX_RESULTS = 10
+
 let state = {
   count: 0,
-  data: [],
+  data: {},
   loading: false,
 }
 
 let getters = {
-  dataCount: state => state.data.length,
+  dataCount: state => Object.keys(state.data).length,
+  getItem: state => id => state.data[id],
 }
 
 let actions = {
   async loadAll({ commit, state, getters }) {
     if (state.loading || (state.count > 0 && state.count === getters.dataCount)) return
 
-    commit('setData', [])
     commit('setLoading', true)
     let page = 0
     let hasNext = true
@@ -22,8 +24,17 @@ let actions = {
       let { count, next, results } = await loadData('people', ++page)
       if (next == null) hasNext = false
       if (page === 1) commit('setCount', count)
-      commit('setData', [...state.data, ...results])
+      commit('setData', Object.assign({}, state.data, resultsAsObject(results, page)))
     }
+    commit('setLoading', false)
+  },
+
+  async loadOne({ commit, state }, itemId) {
+    commit('setLoading', true)
+    let pageToLoad = Math.ceil(Number(itemId) / MAX_RESULTS)
+    let { count, results } = await loadData('people', pageToLoad)
+    commit('setCount', count)
+    commit('setData', Object.assign({}, state.data, resultsAsObject(results, pageToLoad)))
     commit('setLoading', false)
   },
 }
@@ -46,4 +57,11 @@ export default {
   getters,
   actions,
   mutations,
+}
+
+function resultsAsObject(results, page) {
+  return results.reduce((results, result, index) => {
+    let key = String(index + 1 + ((page - 1) * MAX_RESULTS))
+    return Object.assign(results, { [key]: result })
+  }, {})
 }
