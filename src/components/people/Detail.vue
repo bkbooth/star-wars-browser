@@ -4,6 +4,7 @@
 
     <div v-if="person">
       <h1>{{ person.name }}</h1>
+      <pre>{{ person | json }}</pre>
     </div>
     <div v-else>
       <p>Person not available yet. Loading? {{ loading }}</p>

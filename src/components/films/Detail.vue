@@ -4,6 +4,7 @@
 
     <div v-if="film">
       <h1>Episode {{ film.episode_id }} - {{ film.title }}</h1>
+      <pre>{{ film | json }}</pre>
     </div>
     <div v-else>
       <p>Film not available yet. Loading? {{ loading }}</p>

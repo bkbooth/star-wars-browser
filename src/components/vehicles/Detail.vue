@@ -4,6 +4,7 @@
 
     <div v-if="vehicle">
       <h1>{{ vehicle.name }}</h1>
+      <pre>{{ vehicle | json }}</pre>
     </div>
     <div v-else>
       <p>Vehicle not available yet. Loading? {{ loading }}</p>

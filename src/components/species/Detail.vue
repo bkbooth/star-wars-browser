@@ -4,6 +4,7 @@
 
     <div v-if="species">
       <h1>{{ species.name }}</h1>
+      <pre>{{ species | json }}</pre>
     </div>
     <div v-else>
       <p>Species not available yet. Loading? {{ loading }}</p>
