@@ -2,7 +2,7 @@
   <footer>
     © {{ year }} Ben Booth
     | <a href="https://twitter.com/bkbooth11">Twitter</a>
-    | <a href="https://github.com/bkbooth">GitHub</a>
+    | <a href="https://github.com/bkbooth/star-wars-browser">GitHub</a>
   </footer>
 </template>
 
