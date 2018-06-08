@@ -48,7 +48,7 @@ balanced-match@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"
 
-bluebird@^3.4.6, bluebird@^3.5.0:
+bluebird@^3.0.0, bluebird@^3.4.6, bluebird@^3.5.0:
   version "3.5.1"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.5.1.tgz#d9551f9de98f1fcda1e683d17ee91a0602ee2eb9"
 
@@ -175,6 +175,14 @@ ee-first@1.1.1:
 encodeurl@~1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/encodeurl/-/encodeurl-1.0.2.tgz#ad3ff4c86ec2d029322f5a02c3a9a606c95b3f59"
+
+epilogue@^0.7.1:
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/epilogue/-/epilogue-0.7.1.tgz#1e261ec02a28bfb6ec19c488b1f81ad0039eb5e1"
+  dependencies:
+    bluebird "^3.0.0"
+    inflection "^1.7.1"
+    lodash "^4.8.2"
 
 escape-html@~1.0.3:
   version "1.0.3"
@@ -315,7 +323,7 @@ ignore-walk@^3.0.1:
   dependencies:
     minimatch "^3.0.4"
 
-inflection@1.12.0:
+inflection@1.12.0, inflection@^1.7.1:
   version "1.12.0"
   resolved "https://registry.yarnpkg.com/inflection/-/inflection-1.12.0.tgz#a200935656d6f5f6bc4dc7502e1aecb703228416"
 
@@ -356,7 +364,7 @@ isarray@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/isarray/-/isarray-1.0.0.tgz#bb935d48582cba168c06834957a54a3e07124f11"
 
-lodash@^4.17.1:
+lodash@^4.17.1, lodash@^4.8.2:
   version "4.17.10"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.10.tgz#1b7793cf7259ea38fb3661d4d38b3260af8ae4e7"
 
