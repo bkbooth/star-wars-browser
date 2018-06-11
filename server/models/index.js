@@ -9,29 +9,29 @@ module.exports = (sequelize) => {
 
   // Setup relationships
   Film.belongsToMany(Planet, { through: 'FilmPlanet' })
-  Film.belongsToMany(Person, { as: 'Characters', through: 'FilmPerson' })
+  Film.belongsToMany(Person, { as: 'characters', through: 'FilmPerson' })
   Film.belongsToMany(Species, { through: 'FilmSpecies' })
   Film.belongsToMany(Starship, { through: 'FilmStarship' })
   Film.belongsToMany(Vehicle, { through: 'FilmVehicle' })
 
   Planet.belongsToMany(Film, { through: 'FilmPlanet' })
-  Planet.hasMany(Person, { as: 'Residents' })
+  Planet.hasMany(Person, { as: 'residents' })
 
   Person.belongsToMany(Film, { through: 'FilmPerson' })
-  Person.belongsTo(Planet, { as: 'Homeworld' })
+  Person.belongsTo(Planet, { as: 'homeworld' })
   Person.belongsToMany(Species, { through: 'PersonSpecies' })
   Person.belongsToMany(Starship, { through: 'StarshipPilot' })
   Person.belongsToMany(Vehicle, { through: 'VehiclePilot' })
 
   Species.belongsToMany(Film, { through: 'FilmSpecies' })
-  Species.belongsTo(Planet, { as: 'Homeworld' })
-  Species.belongsToMany(Person, { as: 'People', through: 'PersonSpecies' })
+  Species.belongsTo(Planet, { as: 'homeworld' })
+  Species.belongsToMany(Person, { as: 'people', through: 'PersonSpecies' })
 
   Starship.belongsToMany(Film, { through: 'FilmStarship' })
-  Starship.belongsToMany(Person, { as: 'Pilots', through: 'StarshipPilot' })
+  Starship.belongsToMany(Person, { as: 'pilots', through: 'StarshipPilot' })
 
   Vehicle.belongsToMany(Film, { through: 'FilmVehicle' })
-  Vehicle.belongsToMany(Person, { as: 'Pilots', through: 'VehiclePilot' })
+  Vehicle.belongsToMany(Person, { as: 'pilots', through: 'VehiclePilot' })
 
   return {
     Film,

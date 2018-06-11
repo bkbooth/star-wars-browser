@@ -1,6 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
   return sequelize.define('starship', {
     id: { type: DataTypes.UUID, primaryKey: true, defaultValue: DataTypes.UUIDV4 },
+    swapiId: { type: DataTypes.INTEGER, unique: true },
     name: DataTypes.STRING,
     model: DataTypes.STRING,
     class: DataTypes.STRING, // starship_class
