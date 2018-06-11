@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
   return sequelize.define('film', {
-    id: { type: DataTypes.UUIDV4, primaryKey: true },
+    id: { type: DataTypes.UUID, primaryKey: true, defaultValue: DataTypes.UUIDV4 },
     title: DataTypes.STRING,
     episodeId: DataTypes.INTEGER, // episode_id
     openingCrawl: DataTypes.TEXT, // opening_crawl

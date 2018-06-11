@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
   return sequelize.define('vehicle', {
-    id: { type: DataTypes.UUIDV4, primaryKey: true },
+    id: { type: DataTypes.UUID, primaryKey: true, defaultValue: DataTypes.UUIDV4 },
     name: DataTypes.STRING,
     model: DataTypes.STRING,
     class: DataTypes.STRING, // vehicle_class

@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
   return sequelize.define('person', {
-    id: { type: DataTypes.UUIDV4, primaryKey: true },
+    id: { type: DataTypes.UUID, primaryKey: true, defaultValue: DataTypes.UUIDV4 },
     name: DataTypes.STRING,
     birthYear: DataTypes.STRING, // birth_year
     eyeColor: DataTypes.STRING, // eye_color
