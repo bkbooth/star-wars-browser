@@ -14,7 +14,7 @@ module.exports = (vehicle) => ({
     'created',
     'edited',
   ]),
-  class: vehicle.starship_class,
+  class: vehicle.vehicle_class,
   cost: vehicle.cost_in_credits,
   maxAtmospheringSpeed: vehicle.max_atmosphering_speed,
   cargoCapacity: vehicle.cargo_capacity,
