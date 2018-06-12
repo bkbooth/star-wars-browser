@@ -30,12 +30,61 @@ let {
 
 // Setup epilogue REST API
 epilogue.initialize({ app, sequelize, base: API_BASE })
-epilogue.resource({ model: Film, actions: API_ACTIONS })
-epilogue.resource({ model: Person, actions: API_ACTIONS })
-epilogue.resource({ model: Planet, actions: API_ACTIONS })
-epilogue.resource({ model: Species, actions: API_ACTIONS })
-epilogue.resource({ model: Starship, actions: API_ACTIONS })
-epilogue.resource({ model: Vehicle, actions: API_ACTIONS })
+epilogue.resource({
+  model: Film,
+  actions: API_ACTIONS,
+  /* include: [
+    { model: Planet, attributes: ['id', 'name'] },
+    { model: Person, as: 'characters', attributes: ['id', 'name'] },
+    { model: Species, attributes: ['id', 'name'] },
+    { model: Starship, attributes: ['id', 'name'] },
+    { model: Vehicle, attributes: ['id', 'name'] },
+  ], */
+})
+epilogue.resource({
+  model: Planet,
+  actions: API_ACTIONS,
+  /* include: [
+    { model: Film, attributes: ['id', 'title'] },
+    { model: Person, as: 'residents', attributes: ['id', 'name'] },
+  ], */
+})
+epilogue.resource({
+  model: Species,
+  actions: API_ACTIONS,
+  /* include: [
+    { model: Film, attributes: ['id', 'title'] },
+    { model: Planet, as: 'homeworld', attributes: ['id', 'name'] },
+    { model: Person, as: 'people', attributes: ['id', 'name'] },
+  ], */
+})
+epilogue.resource({
+  model: Person,
+  actions: API_ACTIONS,
+  /* include: [
+    { model: Film, attributes: ['id', 'title'] },
+    { model: Planet, as: 'homeworld', attributes: ['id', 'name'] },
+    { model: Species, attributes: ['id', 'name'] },
+    { model: Starship, attributes: ['id', 'name'] },
+    { model: Vehicle, attributes: ['id', 'name'] },
+  ], */
+})
+epilogue.resource({
+  model: Starship,
+  actions: API_ACTIONS,
+  /* include: [
+    { model: Film, attributes: ['id', 'title'] },
+    { model: Person, as: 'pilots', attributes: ['id', 'name'] },
+  ], */
+})
+epilogue.resource({
+  model: Vehicle,
+  actions: API_ACTIONS,
+  /* include: [
+    { model: Film, attributes: ['id', 'title'] },
+    { model: Person, as: 'pilots', attributes: ['id', 'name'] },
+  ], */
+})
 
 app.listen(
   API_PORT,
