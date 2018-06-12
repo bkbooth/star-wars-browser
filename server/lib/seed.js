@@ -1,13 +1,5 @@
 (async function() {
-  let {
-    sequelize,
-    Film,
-    Planet,
-    Species,
-    Person,
-    Starship,
-    Vehicle,
-  } = await require('./init-db')()
+  let models = await require('./init-db')()
 
   const recordTypes = [
     'films',
@@ -21,10 +13,17 @@
   let allRecords
   try {
     console.log('Loading cached records...')
-    allRecords = await require('./load-all-records')(recordTypes)
+    allRecords = await require('./load-records')(recordTypes)
   } catch (err) {
     console.log('Failed loading cached records', err.message)
-    allRecords = await require('./download-all-records')(recordTypes)
+    allRecords = await require('./download-records')(recordTypes)
   }
-  console.log('All records...', Object.keys(allRecords))
+
+  console.log('Transforming records...')
+  let transformedRecords = await require('./transform-records')(allRecords)
+
+  console.log('Inserting records into database...')
+  let dbRecords = await require('./insert-records')(transformedRecords, models)
+
+  console.log('All inserted?', Object.keys(dbRecords))
 })()

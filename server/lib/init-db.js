@@ -1,10 +1,13 @@
+const path = require('path')
 const Sequelize = require('sequelize')
+
+const DB_PATH = path.join(__dirname, '..', 'data', 'db.sqlite')
 
 module.exports = async function() {
   // Setup the Sequelize database
   let sequelize = new Sequelize({
     dialect: 'sqlite',
-    storage: './db.sqlite',
+    storage: DB_PATH,
     logging: null, // provide a logger?
   })
 
@@ -14,5 +17,5 @@ module.exports = async function() {
   console.log('Initializing database...')
   await sequelize.sync({ force: true })
 
-  return { sequelize, ...models }
+  return models
 }
