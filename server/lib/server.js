@@ -1,8 +1,10 @@
+const path = require('path')
 const express = require('express')
 const cors = require('cors')
 const Sequelize = require('sequelize')
 const epilogue = require('epilogue')
 
+const DB_PATH = path.join(__dirname, '..', 'data', 'db.sqlite')
 const API_HOST = process.env.API_HOST || 'localhost'
 const API_PORT = Number(process.env.API_PORT) || 8081
 const API_BASE = process.env.API_BASE || '/api'
@@ -15,7 +17,7 @@ app.use(cors())
 // Setup the Sequelize database
 let sequelize = new Sequelize({
   dialect: 'sqlite',
-  storage: './db.sqlite',
+  storage: DB_PATH,
 })
 let {
   Film,
@@ -24,7 +26,7 @@ let {
   Species,
   Starship,
   Vehicle,
-} = require('./models')(sequelize)
+} = require('../models')(sequelize)
 
 // Setup epilogue REST API
 epilogue.initialize({ app, sequelize, base: API_BASE })

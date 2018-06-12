@@ -4,8 +4,8 @@
   "author": "Ben Booth <bkbooth@gmail.com>",
   "private": true,
   "scripts": {
-    "start": "node index.js",
-    "seed": "node seed.js"
+    "start": "node lib/server.js",
+    "seed": "node lib/seed.js"
   },
   "dependencies": {
     "cors": "^2.8.4",

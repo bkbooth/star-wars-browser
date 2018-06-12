@@ -14,13 +14,13 @@ module.exports = async function loadAll(resource) {
   let page = 0
   let hasNext = true
   while (hasNext) {
-    console.log(`Loading ${resource} page ${page + 1}...`)
+    console.log(`Downloading ${resource} page ${page + 1}...`)
     let response = await fetch(`${API_ROOT}/${resource}?page=${++page}`)
     let { next, count, results } = await response.json()
     if (page === 1) console.log(`Expecting ${count} ${resource} records`)
     hasNext = next != null
     allResults = [...allResults, ...results]
   }
-  console.log(`Finished loading ${allResults.length} ${resource} records`)
+  console.log(`Finished downloading ${allResults.length} ${resource} records`)
   return allResults
 }
