@@ -2,7 +2,7 @@ const path = require('path')
 const express = require('express')
 const cors = require('cors')
 const Sequelize = require('sequelize')
-const epilogue = require('epilogue')
+const finale = require('finale-rest')
 
 const DB_PATH = path.join(__dirname, '..', 'data', 'db.sqlite')
 const API_HOST = process.env.API_HOST || 'localhost'
@@ -28,9 +28,9 @@ let {
   Vehicle,
 } = require('../models')(sequelize)
 
-// Setup epilogue REST API
-epilogue.initialize({ app, sequelize, base: API_BASE })
-epilogue.resource({
+// Setup finale REST API
+finale.initialize({ app, sequelize, base: API_BASE })
+finale.resource({
   model: Film,
   actions: API_ACTIONS,
   /* include: [
@@ -40,16 +40,18 @@ epilogue.resource({
     { model: Starship, attributes: ['id', 'name'] },
     { model: Vehicle, attributes: ['id', 'name'] },
   ], */
+  search: { attributes: ['title'] },
 })
-epilogue.resource({
+finale.resource({
   model: Planet,
   actions: API_ACTIONS,
   /* include: [
     { model: Film, attributes: ['id', 'title'] },
     { model: Person, as: 'residents', attributes: ['id', 'name'] },
   ], */
+  search: { attributes: ['name'] },
 })
-epilogue.resource({
+finale.resource({
   model: Species,
   actions: API_ACTIONS,
   /* include: [
@@ -57,8 +59,9 @@ epilogue.resource({
     { model: Planet, as: 'homeworld', attributes: ['id', 'name'] },
     { model: Person, as: 'people', attributes: ['id', 'name'] },
   ], */
+  search: { attributes: ['name'] },
 })
-epilogue.resource({
+finale.resource({
   model: Person,
   actions: API_ACTIONS,
   /* include: [
@@ -68,22 +71,25 @@ epilogue.resource({
     { model: Starship, attributes: ['id', 'name'] },
     { model: Vehicle, attributes: ['id', 'name'] },
   ], */
+  search: { attributes: ['name'] },
 })
-epilogue.resource({
+finale.resource({
   model: Starship,
   actions: API_ACTIONS,
   /* include: [
     { model: Film, attributes: ['id', 'title'] },
     { model: Person, as: 'pilots', attributes: ['id', 'name'] },
   ], */
+  search: { attributes: ['name'] },
 })
-epilogue.resource({
+finale.resource({
   model: Vehicle,
   actions: API_ACTIONS,
   /* include: [
     { model: Film, attributes: ['id', 'title'] },
     { model: Person, as: 'pilots', attributes: ['id', 'name'] },
   ], */
+  search: { attributes: ['name'] },
 })
 
 app.listen(

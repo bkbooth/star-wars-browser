@@ -9,8 +9,8 @@
   },
   "dependencies": {
     "cors": "^2.8.4",
-    "epilogue": "^0.7.1",
     "express": "^4.16.3",
+    "finale-rest": "^0.1.5",
     "sequelize": "^4.37.10",
     "sqlite3": "^4.0.0"
   },
