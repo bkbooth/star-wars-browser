@@ -13,7 +13,9 @@ module.exports = (sequelize, DataTypes) => {
     // belongsTo: planet (as homeworld)
     // hasMany: films, species, starships, vehicles
     // url: DataTypes.STRING,
-    // created: DataTypes.DATE,
-    // edited: DataTypes.DATE,
+  }, {
+    timestamps: true,
+    createdAt: 'created',
+    updatedAt: 'edited',
   })
 }

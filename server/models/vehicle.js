@@ -15,7 +15,9 @@ module.exports = (sequelize, DataTypes) => {
     consumables: DataTypes.STRING,
     // hasMany: films, people (as pilots)
     // url: DataTypes.STRING,
-    // created: DataTypes.DATE,
-    // edited: DataTypes.DATE,
+  }, {
+    timestamps: true,
+    createdAt: 'created',
+    updatedAt: 'edited',
   })
 }

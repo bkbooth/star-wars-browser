@@ -2,7 +2,14 @@ const pick = require('lodash/pick')
 const { getSwapiId } = require('../utils/swapi')
 
 module.exports = (species) => ({
-  ...pick(species, ['name', 'classification', 'designation', 'language']),
+  ...pick(species, [
+    'name',
+    'classification',
+    'designation',
+    'language',
+    'created',
+    'edited',
+  ]),
   averageHeight: species.average_height,
   averageLifespan: species.average_lifespan,
   eyeColors: species.eye_colors,

@@ -10,7 +10,9 @@ module.exports = (sequelize, DataTypes) => {
     releaseDate: DataTypes.DATE, // release_date
     // hasMany: species, starships, vehicles, people (as characters), planets
     // url: DataTypes.STRING,
-    // created: DataTypes.DATE,
-    // edited: DataTypes.DATE,
+  }, {
+    timestamps: true,
+    createdAt: 'created',
+    updatedAt: 'edited',
   })
 }

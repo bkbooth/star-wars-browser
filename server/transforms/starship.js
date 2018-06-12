@@ -11,6 +11,8 @@ module.exports = (starship) => ({
     'crew',
     'passengers',
     'consumables',
+    'created',
+    'edited',
   ]),
   class: starship.starship_class,
   cost: starship.cost_in_credits,

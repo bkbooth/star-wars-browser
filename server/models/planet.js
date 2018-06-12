@@ -13,7 +13,9 @@ module.exports = (sequelize, DataTypes) => {
     surfaceWater: DataTypes.STRING, // surface_water
     // hasMany: people (as residents), films
     // url: DataTypes.STRING,
-    // created: DataTypes.DATE,
-    // edited: DataTypes.DATE,
+  }, {
+    timestamps: true,
+    createdAt: 'created',
+    updatedAt: 'edited',
   })
 }
