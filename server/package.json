@@ -1,0 +1,21 @@
+{
+  "name": "star-wars-browser-api",
+  "version": "1.0.0",
+  "author": "Ben Booth <bkbooth@gmail.com>",
+  "private": true,
+  "scripts": {
+    "start": "node lib/server.js",
+    "seed": "node lib/seed.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.4",
+    "epilogue": "^0.7.1",
+    "express": "^4.16.3",
+    "sequelize": "^4.37.10",
+    "sqlite3": "^4.0.0"
+  },
+  "devDependencies": {
+    "lodash": "^4.17.10",
+    "node-fetch": "^2.1.2"
+  }
+}
