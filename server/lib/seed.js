@@ -10,20 +10,21 @@
     'vehicles',
   ]
 
-  let allRecords
+  let swapiRecords
   try {
     console.log('Loading cached records...')
-    allRecords = await require('./load-records')(recordTypes)
+    swapiRecords = await require('./load-records')(recordTypes)
   } catch (err) {
     console.log('Failed loading cached records', err.message)
-    allRecords = await require('./download-records')(recordTypes)
+    swapiRecords = await require('./download-records')(recordTypes)
   }
 
   console.log('Transforming records...')
-  let transformedRecords = await require('./transform-records')(allRecords)
+  let transformedRecords = await require('./transform-records')(swapiRecords)
 
   console.log('Inserting records into database...')
-  let dbRecords = await require('./insert-records')(transformedRecords, models)
+  await require('./insert-records')(transformedRecords, models)
 
-  console.log('All inserted?', Object.keys(dbRecords))
+  console.log('Adding all associations...')
+  await require('./add-associations')(swapiRecords, models)
 })()
