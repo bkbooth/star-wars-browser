@@ -2,10 +2,10 @@
   <div>
     <h1>Species</h1>
 
-    <loading-spinner :loading="loading"/>
+    <loading-spinner v-if="loading"/>
 
-    <div v-if="loadedCount > 0">
-      <p>Total: {{ totalCount }}, Loaded: {{ loadedCount }}</p>
+    <div v-else>
+      <p>Total: {{ count }}</p>
       <ul>
         <li v-for="(species, id) in species" :key="id">
           <router-link :to="`species/${id}`">{{ species.name }}</router-link>
@@ -22,12 +22,9 @@ export default {
   computed: {
     ...mapState('species', {
       species: 'data',
-      totalCount: 'count',
       loading: 'loading',
     }),
-    ...mapGetters('species', {
-      loadedCount: 'dataCount',
-    }),
+    ...mapGetters('species', ['count']),
   },
   created() {
     this.$store.dispatch('species/loadAll')

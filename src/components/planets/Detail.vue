@@ -2,12 +2,11 @@
   <div>
     <p><router-link to="/planets">« Back to Planets</router-link></p>
 
-    <div v-if="planet">
+    <loading-spinner v-if="loading"/>
+
+    <div v-else>
       <h1>{{ planet.name }}</h1>
       <pre>{{ planet | json }}</pre>
-    </div>
-    <div v-else>
-      <p>Planet not available yet. Loading? {{ loading }}</p>
     </div>
   </div>
 </template>
@@ -20,9 +19,7 @@ export default {
     planet() {
       return this.$store.getters['planets/getItem'](this.$route.params.planetId)
     },
-    ...mapState('planets', {
-      loading: 'loading',
-    }),
+    ...mapState('planets', ['loading']),
   },
   created() {
     this.$store.dispatch('planets/loadOne', this.$route.params.planetId)

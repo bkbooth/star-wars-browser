@@ -2,12 +2,11 @@
   <div>
     <p><router-link to="/people">« Back to People</router-link></p>
 
-    <div v-if="person">
+    <loading-spinner v-if="loading"/>
+
+    <div v-else>
       <h1>{{ person.name }}</h1>
       <pre>{{ person | json }}</pre>
-    </div>
-    <div v-else>
-      <p>Person not available yet. Loading? {{ loading }}</p>
     </div>
   </div>
 </template>
@@ -20,9 +19,7 @@ export default {
     person() {
       return this.$store.getters['people/getItem'](this.$route.params.personId)
     },
-    ...mapState('people', {
-      loading: 'loading',
-    }),
+    ...mapState('people', ['loading']),
   },
   created() {
     this.$store.dispatch('people/loadOne', this.$route.params.personId)

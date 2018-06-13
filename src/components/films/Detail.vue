@@ -2,12 +2,11 @@
   <div>
     <p><router-link to="/films">« Back to Films</router-link></p>
 
-    <div v-if="film">
-      <h1>Episode {{ film.episode_id }} - {{ film.title }}</h1>
-      <pre>{{ film | json }}</pre>
-    </div>
+    <loading-spinner v-if="loading"/>
+
     <div v-else>
-      <p>Film not available yet. Loading? {{ loading }}</p>
+      <h1>Episode {{ film.episodeId }} - {{ film.title }}</h1>
+      <pre>{{ film | json }}</pre>
     </div>
   </div>
 </template>
@@ -20,9 +19,7 @@ export default {
     film() {
       return this.$store.getters['films/getItem'](this.$route.params.filmId)
     },
-    ...mapState('films', {
-      loading: 'loading',
-    }),
+    ...mapState('films', ['loading']),
   },
   created() {
     this.$store.dispatch('films/loadOne', this.$route.params.filmId)

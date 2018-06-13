@@ -2,12 +2,11 @@
   <div>
     <p><router-link to="/starships">« Back to Starships</router-link></p>
 
-    <div v-if="starship">
+    <loading-spinner v-if="loading"/>
+
+    <div v-else>
       <h1>{{ starship.name }}</h1>
       <pre>{{ starship | json }}</pre>
-    </div>
-    <div v-else>
-      <p>Starship not available yet. Loading? {{ loading }}</p>
     </div>
   </div>
 </template>
@@ -20,9 +19,7 @@ export default {
     starship() {
       return this.$store.getters['starships/getItem'](this.$route.params.starshipId)
     },
-    ...mapState('starships', {
-      loading: 'loading',
-    }),
+    ...mapState('starships', ['loading']),
   },
   created() {
     this.$store.dispatch('starships/loadOne', this.$route.params.starshipId)
