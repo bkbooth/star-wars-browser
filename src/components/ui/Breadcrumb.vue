@@ -53,7 +53,7 @@ export default {
         let detail = this.$store.getters[getter](slug)
         if (detail) return detail.name || detail.title
       }
-      return ''
+      return '… … …'
     },
     isHome() {
       return this.routeName === 'home'
