@@ -9,12 +9,12 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   modules: {
-    people: createModule('people'),
-    planets: createModule('planets'),
     films: createModule('films'),
+    planets: createModule('planets'),
     species: createModule('species'),
-    vehicles: createModule('vehicles'),
+    people: createModule('people'),
     starships: createModule('starships'),
+    vehicles: createModule('vehicles'),
   },
   strict: DEBUG,
   plugins: DEBUG ? [createLogger()] : [],

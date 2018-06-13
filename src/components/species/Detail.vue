@@ -2,12 +2,11 @@
   <div>
     <p><router-link to="/species">« Back to Species</router-link></p>
 
-    <div v-if="species">
+    <loading-spinner v-if="loading"/>
+
+    <div v-else>
       <h1>{{ species.name }}</h1>
       <pre>{{ species | json }}</pre>
-    </div>
-    <div v-else>
-      <p>Species not available yet. Loading? {{ loading }}</p>
     </div>
   </div>
 </template>
@@ -20,9 +19,7 @@ export default {
     species() {
       return this.$store.getters['species/getItem'](this.$route.params.speciesId)
     },
-    ...mapState('species', {
-      loading: 'loading',
-    }),
+    ...mapState('species', ['loading']),
   },
   created() {
     this.$store.dispatch('species/loadOne', this.$route.params.speciesId)

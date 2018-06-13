@@ -6,7 +6,7 @@
 export default {
   name: 'LoadingSpinner',
   props: {
-    loading: { type: Boolean, default: false },
+    loading: { type: Boolean, default: true },
   },
 }
 </script>

@@ -2,13 +2,13 @@
   <div>
     <h1>Films</h1>
 
-    <loading-spinner :loading="loading"/>
+    <loading-spinner v-if="loading"/>
 
-    <div v-if="loadedCount > 0">
-      <p>Total: {{ totalCount }}, Loaded: {{ loadedCount }}</p>
+    <div v-else>
+      <p>Total: {{ count }}</p>
       <ul>
         <li v-for="(film, id) in films" :key="id">
-          <router-link :to="`films/${id}`">Episode {{ film.episode_id }} - {{ film.title }}</router-link>
+          <router-link :to="`films/${id}`">Episode {{ film.episodeId }} - {{ film.title }}</router-link>
         </li>
       </ul>
     </div>
@@ -22,12 +22,9 @@ export default {
   computed: {
     ...mapState('films', {
       films: 'data',
-      totalCount: 'count',
       loading: 'loading',
     }),
-    ...mapGetters('films', {
-      loadedCount: 'dataCount',
-    }),
+    ...mapGetters('films', ['count']),
   },
   created() {
     this.$store.dispatch('films/loadAll')

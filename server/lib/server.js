@@ -42,6 +42,7 @@ finale.resource({
     { model: Vehicle, attributes: ['id', 'name'] },
   ], */
   search: { attributes: ['title'] },
+  sort: { default: 'episodeId' },
 })
 finale.resource({
   model: Planet,
@@ -51,6 +52,7 @@ finale.resource({
     { model: Person, as: 'residents', attributes: ['id', 'name'] },
   ], */
   search: { attributes: ['name'] },
+  sort: { default: 'swapiId' },
 })
 finale.resource({
   model: Species,
@@ -61,6 +63,7 @@ finale.resource({
     { model: Person, as: 'people', attributes: ['id', 'name'] },
   ], */
   search: { attributes: ['name'] },
+  sort: { default: 'swapiId' },
 })
 finale.resource({
   model: Person,
@@ -73,6 +76,7 @@ finale.resource({
     { model: Vehicle, attributes: ['id', 'name'] },
   ], */
   search: { attributes: ['name'] },
+  sort: { default: 'swapiId' },
 })
 finale.resource({
   model: Starship,
@@ -82,6 +86,7 @@ finale.resource({
     { model: Person, as: 'pilots', attributes: ['id', 'name'] },
   ], */
   search: { attributes: ['name'] },
+  sort: { default: 'swapiId' },
 })
 finale.resource({
   model: Vehicle,
@@ -91,6 +96,7 @@ finale.resource({
     { model: Person, as: 'pilots', attributes: ['id', 'name'] },
   ], */
   search: { attributes: ['name'] },
+  sort: { default: 'swapiId' },
 })
 
 app.listen(

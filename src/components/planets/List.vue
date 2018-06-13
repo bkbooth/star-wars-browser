@@ -2,10 +2,10 @@
   <div>
     <h1>Planets</h1>
 
-    <loading-spinner :loading="loading"/>
+    <loading-spinner v-if="loading"/>
 
-    <div v-if="loadedCount > 0">
-      <p>Total: {{ totalCount }}, Loaded: {{ loadedCount }}</p>
+    <div v-else>
+      <p>Total: {{ count }}</p>
       <ul>
         <li v-for="(planet, id) in planets" :key="id">
           <router-link :to="`planets/${id}`">{{ planet.name }}</router-link>
@@ -22,12 +22,9 @@ export default {
   computed: {
     ...mapState('planets', {
       planets: 'data',
-      totalCount: 'count',
       loading: 'loading',
     }),
-    ...mapGetters('planets', {
-      loadedCount: 'dataCount',
-    }),
+    ...mapGetters('planets', ['count']),
   },
   created() {
     this.$store.dispatch('planets/loadAll')
