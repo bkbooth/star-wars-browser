@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="breadcrumb">
     <span v-if="isHome">
       <fa-icon icon="home" size="xs"/> Home
     </span>
@@ -78,4 +78,5 @@ export default {
 <style scoped>
 * { vertical-align: inherit; }
 a { text-decoration: none; }
+.breadcrumb { font-size: .9rem; }
 </style>
