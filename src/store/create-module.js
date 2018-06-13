@@ -14,15 +14,23 @@ export default function createModule(name) {
   let actions = {
     async loadAll({ commit, state }) {
       commit('setLoading', true)
-      let results = await loadData(name)
-      commit('setData', Object.assign({}, state.data, resultsAsObject(results)))
+      try {
+        let results = await loadData(name)
+        commit('setData', Object.assign({}, state.data, resultsAsObject(results)))
+      } catch (err) {
+        console.error(`Failed loading all ${name}`, err)
+      }
       commit('setLoading', false)
     },
 
     async loadOne({ commit, state }, itemSlug) {
       commit('setLoading', true)
-      let result = await loadData(name, itemSlug)
-      commit('setData', Object.assign({}, state.data, { [result.slug]: result }))
+      try {
+        let result = await loadData(name, itemSlug)
+        commit('setData', Object.assign({}, state.data, { [result.slug]: result }))
+      } catch (err) {
+        console.error(`Failed loading ${itemSlug} from ${name}`, err)
+      }
       commit('setLoading', false)
     },
   }
