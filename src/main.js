@@ -2,8 +2,9 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store'
-import './fonts'
+import './icons'
 import './components'
+import './filters'
 
 import './assets/main.css'
 

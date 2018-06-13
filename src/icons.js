@@ -1,5 +1,5 @@
 /**
- * Register font-awesome fonts
+ * Register font-awesome icons
  */
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {

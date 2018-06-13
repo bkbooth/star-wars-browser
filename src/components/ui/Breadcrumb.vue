@@ -26,8 +26,6 @@
 </template>
 
 <script>
-import capitalize from 'lodash/capitalize'
-
 const SLUGS = {
   films: 'filmSlug',
   planets: 'planetSlug',
@@ -39,9 +37,6 @@ const SLUGS = {
 
 export default {
   name: 'Breadcrumb',
-  filters: {
-    capitalize,
-  },
   computed: {
     routeName() {
       return this.$route.name || ''
