@@ -2,9 +2,7 @@
   <div>
     <h1><c-icon category="films"/> Films</h1>
 
-    <loading-spinner v-if="loading"/>
-
-    <div v-else>
+    <div v-if="count">
       <p>Total: {{ count }}</p>
       <ul>
         <li v-for="film in films" :key="film.id">
@@ -12,6 +10,8 @@
         </li>
       </ul>
     </div>
+
+    <loading-spinner v-if="loading"/>
   </div>
 </template>
 

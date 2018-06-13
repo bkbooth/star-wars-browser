@@ -1,11 +1,11 @@
 <template>
   <div>
-    <loading-spinner v-if="loading"/>
-
-    <div v-else>
+    <div v-if="person">
       <h1><c-icon category="people"/> {{ person.name }}</h1>
       <pre>{{ person | json }}</pre>
     </div>
+
+    <loading-spinner v-else-if="loading"/>
   </div>
 </template>
 

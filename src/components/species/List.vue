@@ -2,9 +2,7 @@
   <div>
     <h1><c-icon category="species"/> Species</h1>
 
-    <loading-spinner v-if="loading"/>
-
-    <div v-else>
+    <div v-if="count">
       <p>Total: {{ count }}</p>
       <ul>
         <li v-for="species in species" :key="species.id">
@@ -12,6 +10,8 @@
         </li>
       </ul>
     </div>
+
+    <loading-spinner v-if="loading"/>
   </div>
 </template>
 
