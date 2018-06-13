@@ -9,10 +9,11 @@ const API_HOST = process.env.API_HOST || 'localhost'
 const API_PORT = Number(process.env.API_PORT) || 8081
 const API_BASE = process.env.API_BASE || '/api'
 const API_ACTIONS = ['list', 'read']
+const CLIENT_ORIGIN = process.env.CLIENT_ORIGIN || '*'
 
 // Setup the express app
 let app = express()
-app.use(cors())
+app.use(cors({ origin: CLIENT_ORIGIN }))
 
 // Setup the Sequelize database
 let sequelize = new Sequelize({

@@ -1,0 +1,15 @@
+{
+  "name": "star-wars-api",
+  "type": "npm",
+  "env": {
+    "API_PORT": 80,
+    "API_BASE": "/v1",
+    "CLIENT_ORIGIN": "https://starwars.benbooth.co",
+    "NODE_ENV": "production"
+  },
+  "files": [
+    "lib/server.js",
+    "models",
+    "data/db.sqlite"
+  ]
+}
