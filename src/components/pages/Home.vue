@@ -1,8 +1,10 @@
 <template>
   <div>
     <p>
-      Welcome to the Star Wars Browser, a front-end for
-      <a href="https://swapi.co/">The Star Wars API</a>
+      Welcome to the Star Wars Browser! A front-end for
+      <a href="https://swapi.co/">The Star Wars API</a>.
+      Except it's not quite that anymore,
+      I ended up rolling my own API which pulls data from SWAPI.
     </p>
     <ul>
       <li><router-link to="/films">Films</router-link></li>

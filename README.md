@@ -1,30 +1,66 @@
 # star-wars-browser
 
-> A front-end for The Star Wars API
+> A front-end for [The Star Wars API](https://swapi.co/)
 
-## Build Setup
+Except it's not quite that anymore,
+I ended up rolling my own API which pulls data from SWAPI.
+
+## Frontend
+
+Clone the repo and install dependencies
 
 ``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
+git clone https://github.com/bkbooth/star-wars-browser.git
+cd star-wars-browser
+yarn
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+Start the dev server
+
+``` bash
+yarn start
+
+## npm run dev
+```
+
+To build a static version into the _dist_ directory
+
+``` bash
+yarn build
+
+#npm run build
+```
+
+## Server
+
+With the main repo cloned, navigate to the _server_ directory and install dependencies
+
+``` bash
+cd server
+yarn
+```
+
+Start the server
+
+``` bash
+# watches for changes and restarts server
+yarn watch
+
+# runs without watching/restarting
+yarn start
+```
+
+Seed data into the SQLite database
+
+``` bash
+yarn seed
+```
+
+By default the seed script will not make requests to https://swapi.co,
+it will load from locally cached JSON files.
+To load fresh data from https://swapi.co (and regenerate the cached JSON files)
+
+``` bash
+rm data/*.json
+yarn seed
+```
