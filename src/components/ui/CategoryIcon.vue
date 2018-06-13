@@ -22,7 +22,11 @@ const ICON_MAP = {
 export default {
   name: 'CategoryIcon',
   props: {
-    category: { type: String, required: true },
+    category: {
+      type: String,
+      required: true,
+      validator: (value) => Object.keys(ICON_MAP).includes(value),
+    },
     rotation: { type: Number, default: null },
     size: { type: String, default: null },
     fixedWidth: { type: Boolean, default: false },

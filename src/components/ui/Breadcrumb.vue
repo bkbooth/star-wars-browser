@@ -29,12 +29,12 @@
 import capitalize from 'lodash/capitalize'
 
 const SLUGS = {
-  'films': 'filmSlug',
-  'planets': 'planetSlug',
-  'species': 'speciesSlug',
-  'people': 'personSlug',
-  'starships': 'starshipSlug',
-  'vehicles': 'vehicleSlug',
+  films: 'filmSlug',
+  planets: 'planetSlug',
+  species: 'speciesSlug',
+  people: 'personSlug',
+  starships: 'starshipSlug',
+  vehicles: 'vehicleSlug',
 }
 
 export default {
