@@ -1,4 +1,5 @@
 const fetch = require('node-fetch')
+const log = require('debug')('seed:load')
 
 const API_ROOT = 'https://swapi.co/api'
 
@@ -14,13 +15,13 @@ module.exports = async function loadAll(resource) {
   let page = 0
   let hasNext = true
   while (hasNext) {
-    console.log(`Downloading ${resource} page ${page + 1}...`)
+    log(`Downloading ${resource} page ${page + 1}...`)
     let response = await fetch(`${API_ROOT}/${resource}?page=${++page}`)
     let { next, count, results } = await response.json()
-    if (page === 1) console.log(`Expecting ${count} ${resource} records`)
+    if (page === 1) log(`Expecting ${count} ${resource} records`)
     hasNext = next != null
     allResults = [...allResults, ...results]
   }
-  console.log(`Finished downloading ${allResults.length} ${resource} records`)
+  log(`Finished downloading ${allResults.length} ${resource} records`)
   return allResults
 }

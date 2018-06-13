@@ -1,7 +1,8 @@
+const log = require('debug')('seed:associations')
 const { getSwapiId } = require('../utils/swapi')
 
 module.exports = (swapiVehicles, { Vehicle, Film, Person }) => {
-  console.log('Associating vehicles with films and pilots (people)...')
+  log('Associating vehicles with films and pilots (people)...')
   return Promise.all(swapiVehicles.map(async function(swapiVehicle) {
     let swapiId = getSwapiId(swapiVehicle.url)
     let vehicle = await Vehicle.findOne({ where: { swapiId } })

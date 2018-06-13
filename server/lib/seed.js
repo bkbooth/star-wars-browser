@@ -1,4 +1,6 @@
-(async function() {
+const log = require('debug')('seed:main')
+
+;(async function() {
   let models = await require('./init-db')()
 
   const recordTypes = [
@@ -12,19 +14,19 @@
 
   let swapiRecords
   try {
-    console.log('Loading cached records...')
+    log('Loading cached records...')
     swapiRecords = await require('./load-records')(recordTypes)
   } catch (err) {
-    console.log('Failed loading cached records', err.message)
+    log('Failed loading cached records', err.message)
     swapiRecords = await require('./download-records')(recordTypes)
   }
 
-  console.log('Transforming records...')
+  log('Transforming records...')
   let transformedRecords = await require('./transform-records')(swapiRecords)
 
-  console.log('Inserting records into database...')
+  log('Inserting records into database...')
   await require('./insert-records')(transformedRecords, models)
 
-  console.log('Adding all associations...')
+  log('Adding all associations...')
   await require('./add-associations')(swapiRecords, models)
 })()
