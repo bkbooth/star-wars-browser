@@ -1,5 +1,7 @@
 const path = require('path')
 const express = require('express')
+const morgan = require('morgan')
+const debug = require('debug')
 const cors = require('cors')
 const Sequelize = require('sequelize')
 const finale = require('finale-rest')
@@ -13,12 +15,14 @@ const CLIENT_ORIGIN = process.env.CLIENT_ORIGIN || '*'
 
 // Setup the express app
 let app = express()
+app.use(morgan('dev'))
 app.use(cors({ origin: CLIENT_ORIGIN }))
 
 // Setup the Sequelize database
 let sequelize = new Sequelize({
   dialect: 'sqlite',
   storage: DB_PATH,
+  logging: (message) => debug('db')(message),
 })
 let {
   Film,
@@ -102,5 +106,5 @@ finale.resource({
 app.listen(
   API_PORT,
   API_HOST,
-  () => console.log(`Listening at http://${API_HOST}:${API_PORT}${API_BASE}`),
+  () => debug('http')(`Listening at http://${API_HOST}:${API_PORT}${API_BASE}`),
 )
