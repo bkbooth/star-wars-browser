@@ -4,7 +4,7 @@ export default [
     component: () => import(/* webpackChunkName: "planets" */ '@/components/planets/List'),
   },
   {
-    path: '/planets/:planetId',
+    path: '/planets/:planetSlug',
     component: () => import(/* webpackChunkName: "planets" */ '@/components/planets/Detail'),
   },
 ]

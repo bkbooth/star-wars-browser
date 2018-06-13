@@ -7,8 +7,8 @@
     <div v-else>
       <p>Total: {{ count }}</p>
       <ul>
-        <li v-for="(planet, id) in planets" :key="id">
-          <router-link :to="`planets/${id}`">{{ planet.name }}</router-link>
+        <li v-for="planet in planets" :key="planet.id">
+          <router-link :to="`planets/${planet.slug}`">{{ planet.name }}</router-link>
         </li>
       </ul>
     </div>

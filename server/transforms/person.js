@@ -1,4 +1,5 @@
 const pick = require('lodash/pick')
+const createSlug = require('../utils/create-slug')
 const { getSwapiId } = require('../utils/swapi')
 
 module.exports = (person) => ({
@@ -10,6 +11,7 @@ module.exports = (person) => ({
     'created',
     'edited',
   ]),
+  slug: createSlug(person.name),
   birthYear: person.birth_year,
   eyeColor: person.eye_color,
   hairColor: person.hair_color,

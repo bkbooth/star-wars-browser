@@ -4,7 +4,7 @@ export default [
     component: () => import(/* webpackChunkName: "starships" */ '@/components/starships/List'),
   },
   {
-    path: '/starships/:starshipId',
+    path: '/starships/:starshipSlug',
     component: () => import(/* webpackChunkName: "starships" */ '@/components/starships/Detail'),
   },
 ]

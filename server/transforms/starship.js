@@ -1,4 +1,5 @@
 const pick = require('lodash/pick')
+const createSlug = require('../utils/create-slug')
 const { getSwapiId } = require('../utils/swapi')
 
 module.exports = (starship) => ({
@@ -14,6 +15,7 @@ module.exports = (starship) => ({
     'created',
     'edited',
   ]),
+  slug: createSlug(starship.name),
   class: starship.starship_class,
   cost: starship.cost_in_credits,
   maxAtmospheringSpeed: starship.max_atmosphering_speed,

@@ -17,12 +17,12 @@ import { mapState } from 'vuex'
 export default {
   computed: {
     starship() {
-      return this.$store.getters['starships/getItem'](this.$route.params.starshipId)
+      return this.$store.getters['starships/getItem'](this.$route.params.starshipSlug)
     },
     ...mapState('starships', ['loading']),
   },
   created() {
-    this.$store.dispatch('starships/loadOne', this.$route.params.starshipId)
+    this.$store.dispatch('starships/loadOne', this.$route.params.starshipSlug)
   },
 }
 </script>

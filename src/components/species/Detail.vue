@@ -17,12 +17,12 @@ import { mapState } from 'vuex'
 export default {
   computed: {
     species() {
-      return this.$store.getters['species/getItem'](this.$route.params.speciesId)
+      return this.$store.getters['species/getItem'](this.$route.params.speciesSlug)
     },
     ...mapState('species', ['loading']),
   },
   created() {
-    this.$store.dispatch('species/loadOne', this.$route.params.speciesId)
+    this.$store.dispatch('species/loadOne', this.$route.params.speciesSlug)
   },
 }
 </script>

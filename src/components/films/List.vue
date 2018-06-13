@@ -7,8 +7,8 @@
     <div v-else>
       <p>Total: {{ count }}</p>
       <ul>
-        <li v-for="(film, id) in films" :key="id">
-          <router-link :to="`films/${id}`">Episode {{ film.episodeId }} - {{ film.title }}</router-link>
+        <li v-for="film in films" :key="film.id">
+          <router-link :to="`films/${film.slug}`">Episode {{ film.episodeId }} - {{ film.title }}</router-link>
         </li>
       </ul>
     </div>

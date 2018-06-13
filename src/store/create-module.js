@@ -8,7 +8,7 @@ export default function createModule(name) {
 
   let getters = {
     count: state => Object.keys(state.data).length,
-    getItem: state => id => state.data[id],
+    getItem: state => slug => state.data[slug],
   }
 
   let actions = {
@@ -19,10 +19,10 @@ export default function createModule(name) {
       commit('setLoading', false)
     },
 
-    async loadOne({ commit, state }, itemId) {
+    async loadOne({ commit, state }, itemSlug) {
       commit('setLoading', true)
-      let result = await loadData(name, itemId)
-      commit('setData', Object.assign({}, state.data, { [result.id]: result }))
+      let result = await loadData(name, itemSlug)
+      commit('setData', Object.assign({}, state.data, { [result.slug]: result }))
       commit('setLoading', false)
     },
   }
@@ -46,6 +46,6 @@ export default function createModule(name) {
 
 function resultsAsObject(results) {
   return results.reduce((results, result) => {
-    return Object.assign(results, { [result.id]: result })
+    return Object.assign(results, { [result.slug]: result })
   }, {})
 }

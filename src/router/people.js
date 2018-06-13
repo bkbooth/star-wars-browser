@@ -4,7 +4,7 @@ export default [
     component: () => import(/* webpackChunkName: "people" */ '@/components/people/List'),
   },
   {
-    path: '/people/:personId',
+    path: '/people/:personSlug',
     component: () => import(/* webpackChunkName: "people" */ '@/components/people/Detail'),
   },
 ]

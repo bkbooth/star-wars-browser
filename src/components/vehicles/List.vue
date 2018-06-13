@@ -7,8 +7,8 @@
     <div v-else>
       <p>Total: {{ count }}</p>
       <ul>
-        <li v-for="(vehicle, id) in vehicles" :key="id">
-          <router-link :to="`vehicles/${id}`">{{ vehicle.name }}</router-link>
+        <li v-for="vehicle in vehicles" :key="vehicle.id">
+          <router-link :to="`vehicles/${vehicle.slug}`">{{ vehicle.name }}</router-link>
         </li>
       </ul>
     </div>

@@ -17,12 +17,12 @@ import { mapState } from 'vuex'
 export default {
   computed: {
     person() {
-      return this.$store.getters['people/getItem'](this.$route.params.personId)
+      return this.$store.getters['people/getItem'](this.$route.params.personSlug)
     },
     ...mapState('people', ['loading']),
   },
   created() {
-    this.$store.dispatch('people/loadOne', this.$route.params.personId)
+    this.$store.dispatch('people/loadOne', this.$route.params.personSlug)
   },
 }
 </script>

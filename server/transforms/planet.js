@@ -1,4 +1,5 @@
 const pick = require('lodash/pick')
+const createSlug = require('../utils/create-slug')
 const { getSwapiId } = require('../utils/swapi')
 
 module.exports = (planet) => ({
@@ -12,6 +13,7 @@ module.exports = (planet) => ({
     'created',
     'edited',
   ]),
+  slug: createSlug(planet.name),
   rotationPeriod: planet.rotation_period,
   orbitalPeriod: planet.orbital_period,
   surfaceWater: planet.surface_water,
