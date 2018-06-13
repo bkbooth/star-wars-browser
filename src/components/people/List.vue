@@ -1,8 +1,6 @@
 <template>
   <div>
-    <p><router-link to="/">« Back to Categories</router-link></p>
-
-    <h1><fa-icon icon="user"/> People</h1>
+    <h1><c-icon category="people"/> People</h1>
 
     <loading-spinner v-if="loading"/>
 

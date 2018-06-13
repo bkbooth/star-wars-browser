@@ -8,46 +8,27 @@
     </p>
     <ul>
       <li>
-        <fa-icon
-          icon="film"
-          fixed-width
-        />
+        <c-icon category="films" fixed-width/>
         <router-link to="/films">Films</router-link>
       </li>
       <li>
-        <fa-icon
-          icon="globe"
-          fixed-width
-        />
+        <c-icon category="planets" fixed-width/>
         <router-link to="/planets">Planets</router-link>
       </li>
       <li>
-        <fa-icon
-          icon="robot"
-          fixed-width
-        />
+        <c-icon category="species" fixed-width/>
         <router-link to="/species">Species</router-link>
       </li>
       <li>
-        <fa-icon
-          icon="user"
-          fixed-width
-        />
+        <c-icon category="people" fixed-width/>
         <router-link to="/people">People</router-link>
       </li>
       <li>
-        <fa-icon
-          icon="space-shuttle"
-          rotation="270"
-          fixed-width
-        />
+        <c-icon category="starships" fixed-width/>
         <router-link to="/starships">Starships</router-link>
       </li>
       <li>
-        <fa-icon
-          icon="car"
-          fixed-width
-        />
+        <c-icon category="vehicles" fixed-width/>
         <router-link to="/vehicles">Vehicles</router-link>
       </li>
     </ul>

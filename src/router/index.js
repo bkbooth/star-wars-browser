@@ -12,7 +12,11 @@ Vue.use(Router)
 export default new Router({
   mode: 'history',
   routes: [
-    { path: '/', component: () => import('@/components/pages/Home') },
+    {
+      path: '/',
+      name: 'home',
+      component: () => import('@/components/pages/Home'),
+    },
 
     ...filmsRoutes,
     ...planetsRoutes,
@@ -21,6 +25,10 @@ export default new Router({
     ...starshipsRoutes,
     ...vehiclesRoutes,
 
-    { path: '*', component: () => import('@/components/pages/NotFound') },
+    {
+      path: '*',
+      name: 'not-found',
+      component: () => import('@/components/pages/NotFound'),
+    },
   ],
 })

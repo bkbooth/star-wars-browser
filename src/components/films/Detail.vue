@@ -1,11 +1,9 @@
 <template>
   <div>
-    <p><router-link to="/films">« Back to Films</router-link></p>
-
     <loading-spinner v-if="loading"/>
 
     <div v-else>
-      <h1><fa-icon icon="film"/> Episode {{ film.episodeId }} - {{ film.title }}</h1>
+      <h1><c-icon category="films"/> Episode {{ film.episodeId }} - {{ film.title }}</h1>
       <pre>{{ film | json }}</pre>
     </div>
   </div>

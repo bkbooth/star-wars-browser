@@ -2,6 +2,7 @@
   <div id="app">
     <app-header/>
     <div id="content">
+      <breadcrumb/>
       <router-view/>
     </div>
     <app-footer/>

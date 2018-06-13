@@ -1,11 +1,9 @@
 <template>
   <div>
-    <p><router-link to="/planets">« Back to Planets</router-link></p>
-
     <loading-spinner v-if="loading"/>
 
     <div v-else>
-      <h1><fa-icon icon="globe"/> {{ planet.name }}</h1>
+      <h1><c-icon category="planets"/> {{ planet.name }}</h1>
       <pre>{{ planet | json }}</pre>
     </div>
   </div>
