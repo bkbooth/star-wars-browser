@@ -94,29 +94,29 @@
 
 "@fortawesome/fontawesome-common-types@^0.2.0-9":
   version "0.2.0-9"
-  resolved "https://npm.fontawesome.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.2.0-9.tgz#96cfd9ff7bbc672c476e8566d653ec7495bb9a52"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.2.0-9.tgz#96cfd9ff7bbc672c476e8566d653ec7495bb9a52"
 
 "@fortawesome/fontawesome-svg-core@^1.2.0-14":
   version "1.2.0-14"
-  resolved "https://npm.fontawesome.com/@fortawesome/fontawesome-svg-core/-/fontawesome-svg-core-1.2.0-14.tgz#48100da29b39658fad374ebd1386161ab35af564"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-svg-core/-/fontawesome-svg-core-1.2.0-14.tgz#48100da29b39658fad374ebd1386161ab35af564"
   dependencies:
     "@fortawesome/fontawesome-common-types" "^0.2.0-9"
 
 "@fortawesome/free-brands-svg-icons@^5.1.0-11":
   version "5.1.0-11"
-  resolved "https://npm.fontawesome.com/@fortawesome/free-brands-svg-icons/-/free-brands-svg-icons-5.1.0-11.tgz#9912f54452d59786e9abdb9710d36c3da9482032"
+  resolved "https://registry.yarnpkg.com/@fortawesome/free-brands-svg-icons/-/free-brands-svg-icons-5.1.0-11.tgz#9912f54452d59786e9abdb9710d36c3da9482032"
   dependencies:
     "@fortawesome/fontawesome-common-types" "^0.2.0-9"
 
 "@fortawesome/free-solid-svg-icons@^5.1.0-11":
   version "5.1.0-11"
-  resolved "https://npm.fontawesome.com/@fortawesome/free-solid-svg-icons/-/free-solid-svg-icons-5.1.0-11.tgz#4a346eaada93276edb133b140492e8d7cfa2aa47"
+  resolved "https://registry.yarnpkg.com/@fortawesome/free-solid-svg-icons/-/free-solid-svg-icons-5.1.0-11.tgz#4a346eaada93276edb133b140492e8d7cfa2aa47"
   dependencies:
     "@fortawesome/fontawesome-common-types" "^0.2.0-9"
 
 "@fortawesome/vue-fontawesome@^0.1.0-5":
   version "0.1.0-5"
-  resolved "https://npm.fontawesome.com/@fortawesome/vue-fontawesome/-/vue-fontawesome-0.1.0-5.tgz#9fc076a895c49807adb4e3969f5d423dff05364f"
+  resolved "https://registry.yarnpkg.com/@fortawesome/vue-fontawesome/-/vue-fontawesome-0.1.0-5.tgz#9fc076a895c49807adb4e3969f5d423dff05364f"
 
 "@types/strip-bom@^3.0.0":
   version "3.0.0"
