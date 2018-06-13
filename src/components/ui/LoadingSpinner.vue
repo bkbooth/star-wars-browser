@@ -1,5 +1,12 @@
 <template>
-  <div v-if="loading">loading...</div>
+  <div class="wrapper">
+    <fa-icon
+      v-if="loading"
+      icon="circle-notch"
+      size="3x"
+      spin
+    />
+  </div>
 </template>
 
 <script>
@@ -10,3 +17,11 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+  .wrapper {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+  }
+</style>
