@@ -1,11 +1,9 @@
 <template>
   <div>
-    <p><router-link to="/vehicles">« Back to Vehicles</router-link></p>
-
     <loading-spinner v-if="loading"/>
 
     <div v-else>
-      <h1><fa-icon icon="car"/> {{ vehicle.name }}</h1>
+      <h1><c-icon category="vehicles"/> {{ vehicle.name }}</h1>
       <pre>{{ vehicle | json }}</pre>
     </div>
   </div>

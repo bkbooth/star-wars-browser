@@ -1,11 +1,9 @@
 <template>
   <div>
-    <p><router-link to="/starships">« Back to Starships</router-link></p>
-
     <loading-spinner v-if="loading"/>
 
     <div v-else>
-      <h1><fa-icon icon="space-shuttle" rotation="270"/> {{ starship.name }}</h1>
+      <h1><c-icon category="starships"/> {{ starship.name }}</h1>
       <pre>{{ starship | json }}</pre>
     </div>
   </div>

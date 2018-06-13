@@ -1,11 +1,9 @@
 <template>
   <div>
-    <p><router-link to="/people">« Back to People</router-link></p>
-
     <loading-spinner v-if="loading"/>
 
     <div v-else>
-      <h1><fa-icon icon="user"/> {{ person.name }}</h1>
+      <h1><c-icon category="people"/> {{ person.name }}</h1>
       <pre>{{ person | json }}</pre>
     </div>
   </div>
