@@ -5,7 +5,7 @@
     <loading-spinner v-if="loading"/>
 
     <div v-else>
-      <h1>{{ starship.name }}</h1>
+      <h1><fa-icon icon="space-shuttle" rotation="270"/> {{ starship.name }}</h1>
       <pre>{{ starship | json }}</pre>
     </div>
   </div>

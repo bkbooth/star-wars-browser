@@ -1,6 +1,9 @@
 <template>
   <header>
-    <router-link to="/" class="brand">Star Wars Browser</router-link>
+    <router-link to="/" class="brand">
+      <fa-icon :icon="['fab', 'rebel']"/>
+      Star Wars Browser
+    </router-link>
   </header>
 </template>
 

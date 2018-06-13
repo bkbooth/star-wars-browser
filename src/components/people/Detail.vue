@@ -5,7 +5,7 @@
     <loading-spinner v-if="loading"/>
 
     <div v-else>
-      <h1>{{ person.name }}</h1>
+      <h1><fa-icon icon="user"/> {{ person.name }}</h1>
       <pre>{{ person | json }}</pre>
     </div>
   </div>

@@ -5,7 +5,7 @@
     <loading-spinner v-if="loading"/>
 
     <div v-else>
-      <h1>Episode {{ film.episodeId }} - {{ film.title }}</h1>
+      <h1><fa-icon icon="film"/> Episode {{ film.episodeId }} - {{ film.title }}</h1>
       <pre>{{ film | json }}</pre>
     </div>
   </div>

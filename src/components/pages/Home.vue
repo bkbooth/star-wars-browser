@@ -7,12 +7,56 @@
       I ended up rolling my own API which pulls data from SWAPI.
     </p>
     <ul>
-      <li><router-link to="/films">Films</router-link></li>
-      <li><router-link to="/planets">Planets</router-link></li>
-      <li><router-link to="/species">Species</router-link></li>
-      <li><router-link to="/people">People</router-link></li>
-      <li><router-link to="/starships">Starships</router-link></li>
-      <li><router-link to="/vehicles">Vehicles</router-link></li>
+      <li>
+        <fa-icon
+          icon="film"
+          fixed-width
+        />
+        <router-link to="/films">Films</router-link>
+      </li>
+      <li>
+        <fa-icon
+          icon="globe"
+          fixed-width
+        />
+        <router-link to="/planets">Planets</router-link>
+      </li>
+      <li>
+        <fa-icon
+          icon="robot"
+          fixed-width
+        />
+        <router-link to="/species">Species</router-link>
+      </li>
+      <li>
+        <fa-icon
+          icon="user"
+          fixed-width
+        />
+        <router-link to="/people">People</router-link>
+      </li>
+      <li>
+        <fa-icon
+          icon="space-shuttle"
+          rotation="270"
+          fixed-width
+        />
+        <router-link to="/starships">Starships</router-link>
+      </li>
+      <li>
+        <fa-icon
+          icon="car"
+          fixed-width
+        />
+        <router-link to="/vehicles">Vehicles</router-link>
+      </li>
     </ul>
   </div>
 </template>
+
+<style scoped>
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+</style>

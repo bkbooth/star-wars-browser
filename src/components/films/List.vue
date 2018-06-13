@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Films</h1>
+    <h1><fa-icon icon="film"/> Films</h1>
 
     <loading-spinner v-if="loading"/>
 

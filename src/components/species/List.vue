@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Species</h1>
+    <h1><fa-icon icon="robot"/> Species</h1>
 
     <loading-spinner v-if="loading"/>
 

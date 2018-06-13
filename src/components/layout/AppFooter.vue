@@ -1,8 +1,8 @@
 <template>
   <footer>
     © {{ year }} Ben Booth
-    | <a href="https://twitter.com/bkbooth11">Twitter</a>
-    | <a href="https://github.com/bkbooth/star-wars-browser">GitHub</a>
+    | <a href="https://twitter.com/bkbooth11"><fa-icon :icon="['fab', 'twitter']" fixed-width/></a>
+    | <a href="https://github.com/bkbooth/star-wars-browser"><fa-icon :icon="['fab', 'github']" fixed-width/></a>
   </footer>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Starships</h1>
+    <h1><fa-icon icon="space-shuttle" rotation="270"/> Starships</h1>
 
     <loading-spinner v-if="loading"/>
 

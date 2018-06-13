@@ -5,7 +5,7 @@
     <loading-spinner v-if="loading"/>
 
     <div v-else>
-      <h1>{{ vehicle.name }}</h1>
+      <h1><fa-icon icon="car"/> {{ vehicle.name }}</h1>
       <pre>{{ vehicle | json }}</pre>
     </div>
   </div>

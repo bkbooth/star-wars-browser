@@ -2,12 +2,10 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store'
+import './fonts'
+import './components'
 
 import './assets/main.css'
-
-// Register global components
-import LoadingSpinner from '@/components/ui/LoadingSpinner'
-Vue.component('LoadingSpinner', LoadingSpinner)
 
 Vue.config.productionTip = false
 

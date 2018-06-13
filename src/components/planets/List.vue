@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Planets</h1>
+    <h1><fa-icon icon="globe"/> Planets</h1>
 
     <loading-spinner v-if="loading"/>
 

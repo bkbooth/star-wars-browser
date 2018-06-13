@@ -5,7 +5,7 @@
     <loading-spinner v-if="loading"/>
 
     <div v-else>
-      <h1>{{ planet.name }}</h1>
+      <h1><fa-icon icon="globe"/> {{ planet.name }}</h1>
       <pre>{{ planet | json }}</pre>
     </div>
   </div>
