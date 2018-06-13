@@ -6,6 +6,7 @@
     "API_BASE": "/v1",
     "CLIENT_ORIGIN": "https://starwars.benbooth.co",
     "DEBUG": "db,http",
+    "DEBUG_HIDE_DATE": "true",
     "NODE_ENV": "production"
   },
   "files": [
