@@ -1,8 +1,9 @@
 const pick = require('lodash/pick')
 const createSlug = require('../utils/create-slug')
+const nullifyUnknown = require('../utils/nullify-unknown')
 const { getSwapiId } = require('../utils/swapi')
 
-module.exports = (starship) => ({
+module.exports = (starship) => nullifyUnknown({
   ...pick(starship, [
     'name',
     'model',

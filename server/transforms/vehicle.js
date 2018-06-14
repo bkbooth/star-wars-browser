@@ -1,8 +1,9 @@
 const pick = require('lodash/pick')
 const createSlug = require('../utils/create-slug')
+const nullifyUnknown = require('../utils/nullify-unknown')
 const { getSwapiId } = require('../utils/swapi')
 
-module.exports = (vehicle) => ({
+module.exports = (vehicle) => nullifyUnknown({
   ...pick(vehicle, [
     'name',
     'model',

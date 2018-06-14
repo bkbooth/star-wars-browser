@@ -6,6 +6,7 @@ module.exports = (swapiPlanets, { Planet, Film }) => {
   return Promise.all(swapiPlanets.map(async function(swapiPlanet) {
     let swapiId = getSwapiId(swapiPlanet.url)
     let planet = await Planet.findOne({ where: { swapiId } })
+    if (!planet) return Promise.resolve()
 
     let films = await Promise.all(
       swapiPlanet.films
