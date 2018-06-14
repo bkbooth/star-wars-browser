@@ -3,7 +3,11 @@
     <alert v-if="error" :message="error"/>
 
     <div v-if="film">
-      <h1><c-icon category="films"/> Episode {{ film.episodeId }} - {{ film.title }}</h1>
+      <h1 class="font-starjedi">
+        <c-icon category="films"/>
+        Episode {{ film.episodeId }}
+        - {{ film.title }}
+      </h1>
       <pre>{{ film | json }}</pre>
     </div>
 

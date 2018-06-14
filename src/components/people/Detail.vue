@@ -3,7 +3,7 @@
     <alert v-if="error" :message="error"/>
 
     <div v-if="person">
-      <h1><c-icon category="people"/> {{ person.name }}</h1>
+      <h1 class="font-starjedi"><c-icon category="people"/> {{ person.name }}</h1>
       <pre>{{ person | json }}</pre>
     </div>
 

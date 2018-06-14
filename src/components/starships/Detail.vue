@@ -3,7 +3,7 @@
     <alert v-if="error" :message="error"/>
 
     <div v-if="starship">
-      <h1><c-icon category="starships"/> {{ starship.name }}</h1>
+      <h1 class="font-starjedi"><c-icon category="starships"/> {{ starship.name }}</h1>
       <pre>{{ starship | json }}</pre>
     </div>
 

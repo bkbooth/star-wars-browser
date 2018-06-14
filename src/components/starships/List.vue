@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1><c-icon category="starships"/> Starships</h1>
+    <h1 class="font-starjedi"><c-icon category="starships"/> Starships</h1>
 
     <alert v-if="error" :message="error"/>
 
