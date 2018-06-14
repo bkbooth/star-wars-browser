@@ -4,6 +4,7 @@
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
   faCar,
+  faCircle,
   faCircleNotch,
   faExclamationTriangle,
   faFilm,
@@ -21,6 +22,7 @@ import {
 
 library.add(
   faCar,
+  faCircle,
   faCircleNotch,
   faExclamationTriangle,
   faFilm,
