@@ -1,6 +1,6 @@
 <template>
   <div class="breadcrumb">
-    <span v-if="isHome">
+    <span v-if="routeName === 'home'">
       <fa-icon icon="home" size="xs"/> Home
     </span>
     <router-link v-else to="/">
@@ -17,10 +17,14 @@
         <c-icon :category="categoryName" size="xs"/>
         {{ categoryName | capitalize }}
       </router-link>
+
+      <span v-if="isDetail">
+        ▸ {{ detailName }}
+      </span>
     </span>
 
-    <span v-if="isDetail">
-      ▸ {{ detailName }}
+    <span v-if="routeName === 'not-found'">
+      ▸ Page Not Found
     </span>
   </div>
 </template>
@@ -54,9 +58,6 @@ export default {
         if (detail) return detail.name || detail.title
       }
       return '… … …'
-    },
-    isHome() {
-      return this.routeName === 'home'
     },
     isList() {
       let [_category, view] = this.routeName.split('.')
