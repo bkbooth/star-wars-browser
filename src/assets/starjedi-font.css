@@ -1,0 +1,15 @@
+﻿@font-face {
+  font-family: "Star Jedi";
+  font-weight: normal;
+  font-style: normal;
+  src:
+    url("fonts/Starjedi.eot?") format("eot"),
+    url("fonts/Starjedi.woff") format("woff"),
+    url("fonts/Starjedi.ttf") format("truetype"),
+    url("fonts/Starjedi.svg#StarJedi") format("svg");
+}
+
+.font-starjedi {
+  @apply .lowercase .tracking-wide;
+  font-family: "Star Jedi";
+}
