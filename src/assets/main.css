@@ -61,6 +61,18 @@
  * @import "utilities/skew-transforms";
  */
 
+h1 {
+  @apply .mb-6;
+}
+
+p, pre {
+  @apply .mb-4;
+}
+
+pre {
+  @apply .text-sm .font-mono .bg-white .p-4 .border .rounded .shadow-inner;
+}
+
 a {
   @apply .text-yellow-darker .no-underline;
   transition: opacity .2s;
