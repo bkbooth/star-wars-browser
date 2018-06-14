@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
     population: DataTypes.BIGINT,
     climate: DataTypes.STRING,
     terrain: DataTypes.STRING,
-    surfaceWater: DataTypes.STRING, // surface_water
+    surfaceWater: DataTypes.INTEGER, // surface_water
     // hasMany: people (as residents), films
     // url: DataTypes.STRING,
   }, {
