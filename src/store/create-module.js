@@ -4,6 +4,7 @@ export default function createModule(name) {
   let state = {
     data: {},
     loading: false,
+    error: null,
   }
 
   let getters = {
@@ -14,22 +15,28 @@ export default function createModule(name) {
   let actions = {
     async loadAll({ commit, state }) {
       commit('setLoading', true)
+      commit('setError', null)
       try {
         let results = await loadData(name)
         commit('setData', Object.assign({}, state.data, resultsAsObject(results)))
       } catch (err) {
-        console.error(`Failed loading all ${name}`, err)
+        let errorMessage = `Failed loading all ${name}`
+        commit('setError', errorMessage)
+        console.error(errorMessage, err)
       }
       commit('setLoading', false)
     },
 
     async loadOne({ commit, state }, itemSlug) {
       commit('setLoading', true)
+      commit('setError', null)
       try {
         let result = await loadData(name, itemSlug)
         commit('setData', Object.assign({}, state.data, { [result.slug]: result }))
       } catch (err) {
-        console.error(`Failed loading ${itemSlug} from ${name}`, err)
+        let errorMessage = `Failed loading '${itemSlug}' from ${name}`
+        commit('setError', errorMessage)
+        console.error(errorMessage, err)
       }
       commit('setLoading', false)
     },
@@ -41,6 +48,9 @@ export default function createModule(name) {
     },
     setLoading(state, loading) {
       state.loading = loading
+    },
+    setError(state, error) {
+      state.error = error
     },
   }
   return {

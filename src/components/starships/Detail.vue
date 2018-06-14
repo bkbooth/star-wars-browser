@@ -1,5 +1,7 @@
 <template>
   <div>
+    <alert v-if="error" :message="error"/>
+
     <div v-if="starship">
       <h1><c-icon category="starships"/> {{ starship.name }}</h1>
       <pre>{{ starship | json }}</pre>
@@ -17,7 +19,7 @@ export default {
     starship() {
       return this.$store.getters['starships/getItem'](this.$route.params.starshipSlug)
     },
-    ...mapState('starships', ['loading']),
+    ...mapState('starships', ['loading', 'error']),
   },
   created() {
     this.$store.dispatch('starships/loadOne', this.$route.params.starshipSlug)

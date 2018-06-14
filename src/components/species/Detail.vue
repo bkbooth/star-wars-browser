@@ -1,5 +1,7 @@
 <template>
   <div>
+    <alert v-if="error" :message="error"/>
+
     <div v-if="species">
       <h1><c-icon category="species"/> {{ species.name }}</h1>
       <pre>{{ species | json }}</pre>
@@ -17,7 +19,7 @@ export default {
     species() {
       return this.$store.getters['species/getItem'](this.$route.params.speciesSlug)
     },
-    ...mapState('species', ['loading']),
+    ...mapState('species', ['loading', 'error']),
   },
   created() {
     this.$store.dispatch('species/loadOne', this.$route.params.speciesSlug)

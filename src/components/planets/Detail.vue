@@ -1,5 +1,7 @@
 <template>
   <div>
+    <alert v-if="error" :message="error"/>
+
     <div v-if="planet">
       <h1><c-icon category="planets"/> {{ planet.name }}</h1>
       <pre>{{ planet | json }}</pre>
@@ -17,7 +19,7 @@ export default {
     planet() {
       return this.$store.getters['planets/getItem'](this.$route.params.planetSlug)
     },
-    ...mapState('planets', ['loading']),
+    ...mapState('planets', ['loading', 'error']),
   },
   created() {
     this.$store.dispatch('planets/loadOne', this.$route.params.planetSlug)

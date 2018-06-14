@@ -1,5 +1,7 @@
 <template>
   <div>
+    <alert v-if="error" :message="error"/>
+
     <div v-if="vehicle">
       <h1><c-icon category="vehicles"/> {{ vehicle.name }}</h1>
       <pre>{{ vehicle | json }}</pre>
@@ -17,7 +19,7 @@ export default {
     vehicle() {
       return this.$store.getters['vehicles/getItem'](this.$route.params.vehicleSlug)
     },
-    ...mapState('vehicles', ['loading']),
+    ...mapState('vehicles', ['loading', 'error']),
   },
   created() {
     this.$store.dispatch('vehicles/loadOne', this.$route.params.vehicleSlug)

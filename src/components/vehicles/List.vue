@@ -2,6 +2,8 @@
   <div>
     <h1><c-icon category="vehicles"/> Vehicles</h1>
 
+    <alert v-if="error" :message="error"/>
+
     <div v-if="count">
       <p>Total: {{ count }}</p>
       <ul>
@@ -23,6 +25,7 @@ export default {
     ...mapState('vehicles', {
       vehicles: 'data',
       loading: 'loading',
+      error: 'error',
     }),
     ...mapGetters('vehicles', ['count']),
   },

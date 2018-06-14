@@ -1,5 +1,7 @@
 <template>
   <div>
+    <alert v-if="error" :message="error"/>
+
     <div v-if="film">
       <h1><c-icon category="films"/> Episode {{ film.episodeId }} - {{ film.title }}</h1>
       <pre>{{ film | json }}</pre>
@@ -17,7 +19,7 @@ export default {
     film() {
       return this.$store.getters['films/getItem'](this.$route.params.filmSlug)
     },
-    ...mapState('films', ['loading']),
+    ...mapState('films', ['loading', 'error']),
   },
   created() {
     this.$store.dispatch('films/loadOne', this.$route.params.filmSlug)

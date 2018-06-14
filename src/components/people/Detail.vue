@@ -1,5 +1,7 @@
 <template>
   <div>
+    <alert v-if="error" :message="error"/>
+
     <div v-if="person">
       <h1><c-icon category="people"/> {{ person.name }}</h1>
       <pre>{{ person | json }}</pre>
@@ -17,7 +19,7 @@ export default {
     person() {
       return this.$store.getters['people/getItem'](this.$route.params.personSlug)
     },
-    ...mapState('people', ['loading']),
+    ...mapState('people', ['loading', 'error']),
   },
   created() {
     this.$store.dispatch('people/loadOne', this.$route.params.personSlug)
