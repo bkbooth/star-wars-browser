@@ -6,7 +6,7 @@
       Except it's not quite that anymore,
       I ended up rolling my own API which pulls data from SWAPI.
     </p>
-    <ul>
+    <ul class="list-reset">
       <li>
         <c-icon category="films" fixed-width/>
         <router-link to="/films">Films</router-link>
@@ -34,10 +34,3 @@
     </ul>
   </div>
 </template>
-
-<style scoped>
-  ul {
-    list-style: none;
-    padding-left: 0;
-  }
-</style>

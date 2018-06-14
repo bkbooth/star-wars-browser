@@ -1,7 +1,7 @@
 <template>
-  <div id="app">
+  <div id="app" class="font-sans bg-blue-lightest text-grey-darkest min-h-screen flex flex-col">
     <app-header/>
-    <div id="content">
+    <div id="content" class="flex-1 px-6 py-8">
       <breadcrumb/>
       <router-view/>
     </div>
@@ -21,15 +21,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-#app {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-#content {
-  flex: 1;
-  padding: 30px 20px;
-}
-</style>

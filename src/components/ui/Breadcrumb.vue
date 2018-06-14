@@ -1,20 +1,20 @@
 <template>
-  <div class="breadcrumb">
+  <div class="text-sm">
     <span v-if="routeName === 'home'">
-      <fa-icon icon="home" size="xs"/> Home
+      <fa-icon icon="home" transform="shrink-3"/> Home
     </span>
     <router-link v-else to="/">
-      <fa-icon icon="home" size="xs"/> Home
+      <fa-icon icon="home" transform="shrink-3"/> Home
     </router-link>
 
     <span v-if="categoryName">
       ▸
       <span v-if="isList">
-        <c-icon :category="categoryName" size="xs"/>
+        <c-icon :category="categoryName" transform="shrink-3"/>
         {{ categoryName | capitalize }}
       </span>
       <router-link v-else :to="{ name: `${categoryName}.list` }">
-        <c-icon :category="categoryName" size="xs"/>
+        <c-icon :category="categoryName" transform="shrink-3"/>
         {{ categoryName | capitalize }}
       </router-link>
 
@@ -70,9 +70,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-* { vertical-align: inherit; }
-a { text-decoration: none; }
-.breadcrumb { font-size: .9rem; }
-</style>

@@ -1,6 +1,6 @@
 <template>
-  <header>
-    <router-link to="/" class="brand">
+  <header class="bg-blue-darker text-grey-lightest p-6 shadow-md">
+    <router-link to="/" class="uppercase no-underline font-bold tracking-wide">
       <fa-icon :icon="['fab', 'rebel']"/>
       Star Wars Browser
     </router-link>
@@ -12,22 +12,3 @@ export default {
   name: 'AppHeader',
 }
 </script>
-
-<style scoped>
-header {
-  background: var(--dark-background);
-  color: var(--dark-background-text);
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, .4);
-}
-header a {
-  color: var(--brand-primary);
-}
-
-.brand {
-  text-transform: uppercase;
-  text-decoration: none;
-  color: var(--dark-background-text);
-  font-weight: bold;
-}
-</style>

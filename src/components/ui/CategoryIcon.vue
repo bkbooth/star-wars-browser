@@ -1,9 +1,10 @@
 <template>
   <fa-icon
     :icon="categoryIcon"
+    :fixed-width="fixedWidth"
     :rotation="categoryIconRotation"
     :size="size"
-    :fixed-width="fixedWidth"
+    :transform="transform"
   />
 </template>
 
@@ -27,9 +28,10 @@ export default {
       required: true,
       validator: (value) => Object.keys(ICON_MAP).includes(value),
     },
+    fixedWidth: { type: Boolean, default: false },
     rotation: { type: Number, default: null },
     size: { type: String, default: null },
-    fixedWidth: { type: Boolean, default: false },
+    transform: { type: [String, Object], default: null },
   },
   computed: {
     categoryIcon() {

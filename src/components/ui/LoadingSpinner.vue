@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div class="text-center p-6">
     <fa-icon
       v-if="loading"
       icon="circle-notch"
@@ -17,11 +17,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-  .wrapper {
-    width: 100%;
-    padding: 20px;
-    text-align: center;
-  }
-</style>
