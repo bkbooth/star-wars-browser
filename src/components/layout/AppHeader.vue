@@ -1,5 +1,5 @@
 <template>
-  <header class="bg-blue-darker text-grey-lightest px-6 py-4 shadow-md">
+  <header class="flex-no-shrink bg-blue-darker text-grey-lightest px-6 py-4 shadow-md">
     <router-link to="/" class="font-starjedi no-underline text-lg">
       <fa-layers class="mr-2">
         <fa-icon

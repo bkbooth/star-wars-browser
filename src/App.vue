@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="font-sans bg-blue-lightest text-grey-darkest min-h-screen flex flex-col">
+  <div id="app" class="font-sans bg-grey-lightest text-grey-darkest min-h-screen flex flex-col">
     <app-header/>
     <div id="content" class="flex-1 px-6 py-8">
       <breadcrumb class="mb-4"/>

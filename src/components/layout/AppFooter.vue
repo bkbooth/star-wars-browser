@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-blue-darker text-grey-lightest text-sm text-right px-6 py-3 border-t border-blue-dark">
+  <footer class="flex-no-shrink bg-grey-darker text-grey-lightest text-sm text-right px-6 py-3 border-t border-grey-dark">
     <span class="mx-2">© {{ year }} Ben Booth</span> |
     <a href="https://twitter.com/bkbooth11">
       <fa-icon

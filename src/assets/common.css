@@ -7,7 +7,7 @@ p, pre {
 }
 
 pre {
-  @apply .text-sm .font-mono .bg-white .p-4 .border .rounded .shadow-inner;
+  @apply .text-sm .font-mono .bg-white .p-4 .overflow-y-auto .border .rounded .shadow-inner;
 }
 
 a {
