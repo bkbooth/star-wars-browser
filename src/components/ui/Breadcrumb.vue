@@ -1,5 +1,5 @@
 <template>
-  <div class="text-sm">
+  <div>
     <span v-if="routeName === 'home'">
       <fa-icon icon="home" transform="shrink-3"/> Home
     </span>

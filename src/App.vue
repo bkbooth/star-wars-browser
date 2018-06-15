@@ -1,11 +1,11 @@
 <template>
-  <div id="app" class="font-sans bg-grey-lightest text-grey-darkest min-h-screen flex flex-col">
-    <app-header/>
-    <div id="content" class="flex-1 px-6 py-8">
-      <breadcrumb class="mb-4"/>
+  <div id="app" class="flex flex-col font-sans bg-grey-lightest text-grey-darkest min-h-screen">
+    <app-header class="flex-no-shrink bg-blue-darker text-grey-lightest px-4 lg:px-6 py-4 shadow-md"/>
+    <breadcrumb class="flex-no-shrink bg-white text-sm truncate px-4 lg:px-6 py-2 border-b"/>
+    <div id="content" class="flex-1 p-4 lg:px-6">
       <router-view/>
     </div>
-    <app-footer/>
+    <app-footer class="flex-no-shrink bg-grey-darker text-grey-lightest text-sm text-right px-4 lg:px-6 py-3 border-t border-grey-dark"/>
   </div>
 </template>
 
