@@ -7,8 +7,10 @@
     <div v-if="count">
       <p>Total: {{ count }}</p>
       <ul>
-        <li v-for="film in films" :key="film.id">
-          <router-link :to="`films/${film.slug}`">Episode {{ film.episodeId }} - {{ film.title }}</router-link>
+        <li v-for="film in filmsByEpisode" :key="film.id">
+          <router-link :to="`films/${film.slug}`">
+            Episode {{ film.episodeId }} - {{ film.title }}
+          </router-link>
         </li>
       </ul>
     </div>
@@ -19,9 +21,13 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex'
+import sortBy from 'lodash/sortBy'
 
 export default {
   computed: {
+    filmsByEpisode() {
+      return sortBy(this.films, 'episodeId')
+    },
     ...mapState('films', {
       films: 'data',
       loading: 'loading',

@@ -35,8 +35,10 @@
 
 <script>
 import { mapState } from 'vuex'
-import shuffle from 'lodash/shuffle'
-import take from 'lodash/take'
+import compose from 'lodash/fp/compose'
+import shuffle from 'lodash/fp/shuffle'
+import take from 'lodash/fp/take'
+const shuffleAndTake = compose(take(3), shuffle)
 
 const CATEGORIES = ['films', 'planets', 'species', 'people', 'starships', 'vehicles']
 
@@ -55,8 +57,7 @@ export default {
     },
     ...mapState({
       records(state) {
-        let all = state[this.category].data
-        return take(shuffle(all), 3)
+        return shuffleAndTake(state[this.category].data)
       },
       loading(state) {
         return state[this.category].loading

@@ -1,24 +1,29 @@
 import { loadData } from '../api'
+import compose from 'lodash/fp/compose'
+import find from 'lodash/find'
+import sortBy from 'lodash/fp/sortBy'
+import uniqBy from 'lodash/fp/uniqBy'
+const uniqAndSort = compose(sortBy('swapiId'), uniqBy('id'))
 
 export default function createModule(name) {
   let state = {
-    data: {},
+    data: [],
     loading: false,
     error: null,
   }
 
   let getters = {
-    count: state => Object.keys(state.data).length,
-    getItem: state => slug => state.data[slug],
+    count: state => state.data.length,
+    getItem: state => slug => find(state.data, { slug }),
   }
 
   let actions = {
-    async loadAll({ commit, state }) {
+    async loadAll({ commit }) {
       commit('setLoading', true)
       commit('setError', null)
       try {
         let results = await loadData(name)
-        commit('setData', Object.assign({}, state.data, resultsAsObject(results)))
+        commit('addData', results)
       } catch (err) {
         let errorMessage = `Failed loading all ${name}`
         commit('setError', errorMessage)
@@ -27,12 +32,12 @@ export default function createModule(name) {
       commit('setLoading', false)
     },
 
-    async loadOne({ commit, state }, itemSlug) {
+    async loadOne({ commit }, itemSlug) {
       commit('setLoading', true)
       commit('setError', null)
       try {
         let result = await loadData(name, itemSlug)
-        commit('setData', Object.assign({}, state.data, { [result.slug]: result }))
+        commit('addData', [result])
       } catch (err) {
         let errorMessage = `Failed loading '${itemSlug}' from ${name}`
         commit('setError', errorMessage)
@@ -43,8 +48,8 @@ export default function createModule(name) {
   }
 
   let mutations = {
-    setData(state, data) {
-      state.data = data
+    addData(state, newData) {
+      state.data = uniqAndSort([...newData, ...state.data])
     },
     setLoading(state, loading) {
       state.loading = loading
@@ -53,6 +58,7 @@ export default function createModule(name) {
       state.error = error
     },
   }
+
   return {
     namespaced: true,
     state,
@@ -60,10 +66,4 @@ export default function createModule(name) {
     actions,
     mutations,
   }
-}
-
-function resultsAsObject(results) {
-  return results.reduce((results, result) => {
-    return Object.assign(results, { [result.slug]: result })
-  }, {})
 }
