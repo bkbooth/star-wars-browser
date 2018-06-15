@@ -5,6 +5,7 @@ const debug = require('debug')
 const cors = require('cors')
 const Sequelize = require('sequelize')
 const finale = require('finale-rest')
+const randomSortMilestone = require('../utils/random-sort-milestone')
 
 const DB_PATH = path.join(__dirname, '..', 'data', 'db.sqlite')
 const API_HOST = process.env.API_HOST || 'localhost'
@@ -35,7 +36,8 @@ let {
 
 // Setup finale REST API
 finale.initialize({ app, sequelize, base: API_BASE })
-finale.resource({
+
+let filmResource = finale.resource({
   model: Film,
   actions: API_ACTIONS,
   /* include: [
@@ -48,7 +50,9 @@ finale.resource({
   search: { attributes: ['title'] },
   sort: { default: 'episodeId' },
 })
-finale.resource({
+filmResource.use(randomSortMilestone)
+
+let planetResource = finale.resource({
   model: Planet,
   actions: API_ACTIONS,
   /* include: [
@@ -58,7 +62,9 @@ finale.resource({
   search: { attributes: ['name'] },
   sort: { default: 'swapiId' },
 })
-finale.resource({
+planetResource.use(randomSortMilestone)
+
+let speciesResource = finale.resource({
   model: Species,
   actions: API_ACTIONS,
   /* include: [
@@ -69,7 +75,9 @@ finale.resource({
   search: { attributes: ['name'] },
   sort: { default: 'swapiId' },
 })
-finale.resource({
+speciesResource.use(randomSortMilestone)
+
+let personResource = finale.resource({
   model: Person,
   actions: API_ACTIONS,
   /* include: [
@@ -82,7 +90,9 @@ finale.resource({
   search: { attributes: ['name'] },
   sort: { default: 'swapiId' },
 })
-finale.resource({
+personResource.use(randomSortMilestone)
+
+let starshipResource = finale.resource({
   model: Starship,
   actions: API_ACTIONS,
   /* include: [
@@ -92,7 +102,9 @@ finale.resource({
   search: { attributes: ['name'] },
   sort: { default: 'swapiId' },
 })
-finale.resource({
+starshipResource.use(randomSortMilestone)
+
+let vehicleResource = finale.resource({
   model: Vehicle,
   actions: API_ACTIONS,
   /* include: [
@@ -102,6 +114,7 @@ finale.resource({
   search: { attributes: ['name'] },
   sort: { default: 'swapiId' },
 })
+vehicleResource.use(randomSortMilestone)
 
 app.listen(
   API_PORT,
