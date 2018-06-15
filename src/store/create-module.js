@@ -1,8 +1,14 @@
-import { loadData } from '../api'
 import compose from 'lodash/fp/compose'
 import find from 'lodash/find'
 import sortBy from 'lodash/fp/sortBy'
 import uniqBy from 'lodash/fp/uniqBy'
+import { loadData } from '../api'
+import {
+  ADD_DATA,
+  SET_LOADING,
+  SET_ERROR,
+} from './mutation-types'
+
 const uniqAndSort = compose(sortBy('swapiId'), uniqBy('id'))
 
 export default function createModule(name) {
@@ -19,42 +25,42 @@ export default function createModule(name) {
 
   let actions = {
     async loadAll({ commit }) {
-      commit('setLoading', true)
-      commit('setError', null)
+      commit(SET_LOADING, true)
+      commit(SET_ERROR, null)
       try {
         let results = await loadData(name)
-        commit('addData', results)
+        commit(ADD_DATA, results)
       } catch (err) {
         let errorMessage = `Failed loading all ${name}`
-        commit('setError', errorMessage)
+        commit(SET_ERROR, errorMessage)
         console.error(errorMessage, err)
       }
-      commit('setLoading', false)
+      commit(SET_LOADING, false)
     },
 
     async loadOne({ commit }, itemSlug) {
-      commit('setLoading', true)
-      commit('setError', null)
+      commit(SET_LOADING, true)
+      commit(SET_ERROR, null)
       try {
         let result = await loadData(name, itemSlug)
-        commit('addData', [result])
+        commit(ADD_DATA, [result])
       } catch (err) {
         let errorMessage = `Failed loading '${itemSlug}' from ${name}`
-        commit('setError', errorMessage)
+        commit(SET_ERROR, errorMessage)
         console.error(errorMessage, err)
       }
-      commit('setLoading', false)
+      commit(SET_LOADING, false)
     },
   }
 
   let mutations = {
-    addData(state, newData) {
+    [ADD_DATA](state, newData) {
       state.data = uniqAndSort([...newData, ...state.data])
     },
-    setLoading(state, loading) {
+    [SET_LOADING](state, loading) {
       state.loading = loading
     },
-    setError(state, error) {
+    [SET_ERROR](state, error) {
       state.error = error
     },
   }
