@@ -1,9 +1,9 @@
 <template>
-  <div class="p-3 shadow border rounded">
-    <div class="font-starjedi text-lg mb-3">
+  <div class="bg-white p-3 shadow border rounded">
+    <router-link :to="category" class="block font-starjedi text-grey-darkest text-lg mb-3">
       <c-icon :category="category"/>
-      <router-link :to="category">{{ category | capitalize }}</router-link>
-    </div>
+      {{ category | capitalize }}
+    </router-link>
 
     <div class="mb-3">
       <router-link :to="category">View all</router-link>,
