@@ -30,7 +30,7 @@ export default {
     ...mapGetters('people', ['count']),
   },
   created() {
-    this.$store.dispatch('people/loadAll')
+    this.$store.dispatch('people/loadMany')
   },
 }
 </script>

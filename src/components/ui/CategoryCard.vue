@@ -65,7 +65,7 @@ export default {
     }),
   },
   created() {
-    this.$store.dispatch(`${this.category}/loadAll`)
+    this.$store.dispatch(`${this.category}/loadMany`, { sort: 'random', count: 3 })
   },
 }
 </script>

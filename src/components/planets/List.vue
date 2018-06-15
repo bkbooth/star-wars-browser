@@ -30,7 +30,7 @@ export default {
     ...mapGetters('planets', ['count']),
   },
   created() {
-    this.$store.dispatch('planets/loadAll')
+    this.$store.dispatch('planets/loadMany')
   },
 }
 </script>

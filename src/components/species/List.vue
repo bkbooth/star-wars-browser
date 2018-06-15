@@ -30,7 +30,7 @@ export default {
     ...mapGetters('species', ['count']),
   },
   created() {
-    this.$store.dispatch('species/loadAll')
+    this.$store.dispatch('species/loadMany')
   },
 }
 </script>

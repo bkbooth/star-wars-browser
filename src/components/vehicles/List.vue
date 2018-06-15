@@ -30,7 +30,7 @@ export default {
     ...mapGetters('vehicles', ['count']),
   },
   created() {
-    this.$store.dispatch('vehicles/loadAll')
+    this.$store.dispatch('vehicles/loadMany')
   },
 }
 </script>

@@ -36,7 +36,7 @@ export default {
     ...mapGetters('films', ['count']),
   },
   created() {
-    this.$store.dispatch('films/loadAll')
+    this.$store.dispatch('films/loadMany')
   },
 }
 </script>

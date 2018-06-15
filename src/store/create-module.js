@@ -24,28 +24,28 @@ export default function createModule(name) {
   }
 
   let actions = {
-    async loadAll({ commit }) {
+    async loadMany({ commit }, query = {}) {
       commit(SET_LOADING, true)
       commit(SET_ERROR, null)
       try {
-        let results = await loadData(name)
+        let results = await loadData(name, query)
         commit(ADD_DATA, results)
       } catch (err) {
-        let errorMessage = `Failed loading all ${name}`
+        let errorMessage = `Failed loading ${name}`
         commit(SET_ERROR, errorMessage)
         console.error(errorMessage, err)
       }
       commit(SET_LOADING, false)
     },
 
-    async loadOne({ commit }, itemSlug) {
+    async loadOne({ commit }, slug) {
       commit(SET_LOADING, true)
       commit(SET_ERROR, null)
       try {
-        let result = await loadData(name, itemSlug)
+        let result = await loadData(name, { slug })
         commit(ADD_DATA, [result])
       } catch (err) {
-        let errorMessage = `Failed loading '${itemSlug}' from ${name}`
+        let errorMessage = `Failed loading '${slug}' from ${name}`
         commit(SET_ERROR, errorMessage)
         console.error(errorMessage, err)
       }
