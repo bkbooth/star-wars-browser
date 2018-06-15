@@ -6,31 +6,29 @@
       Except it's not quite that anymore,
       I ended up rolling my own API which pulls data from SWAPI.
     </p>
-    <ul class="list-reset">
-      <li>
-        <c-icon category="films" fixed-width/>
-        <router-link to="/films">Films</router-link>
-      </li>
-      <li>
-        <c-icon category="planets" fixed-width/>
-        <router-link to="/planets">Planets</router-link>
-      </li>
-      <li>
-        <c-icon category="species" fixed-width/>
-        <router-link to="/species">Species</router-link>
-      </li>
-      <li>
-        <c-icon category="people" fixed-width/>
-        <router-link to="/people">People</router-link>
-      </li>
-      <li>
-        <c-icon category="starships" fixed-width/>
-        <router-link to="/starships">Starships</router-link>
-      </li>
-      <li>
-        <c-icon category="vehicles" fixed-width/>
-        <router-link to="/vehicles">Vehicles</router-link>
-      </li>
-    </ul>
+
+    <div class="flex flex-wrap items-stretch -m-3">
+      <category-card
+        v-for="category in categories"
+        :key="category"
+        :category="category"
+        class="flex-grow m-3"
+      />
+    </div>
   </div>
 </template>
+
+<script>
+import CategoryCard from '@/components/ui/CategoryCard'
+
+export default {
+  components: {
+    CategoryCard,
+  },
+  data() {
+    return {
+      categories: ['films', 'planets', 'species', 'people', 'starships', 'vehicles'],
+    }
+  },
+}
+</script>

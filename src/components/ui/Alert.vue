@@ -16,7 +16,7 @@ export default {
     type: {
       type: String,
       default: 'error',
-      validator: (value) => Object.keys(ALERT_ICONS).includes(value),
+      validator: value => Object.keys(ALERT_ICONS).includes(value),
     },
   },
   computed: {

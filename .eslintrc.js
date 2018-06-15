@@ -39,6 +39,6 @@ module.exports = {
     // no space before function parens
     'space-before-function-paren': ['error', 'never'],
     // allow 2 attributes on a single line
-    'vue/max-attributes-per-line': ['error', { 'singleline': 2 }],
+    'vue/max-attributes-per-line': ['error', { 'singleline': 3 }],
   },
 }

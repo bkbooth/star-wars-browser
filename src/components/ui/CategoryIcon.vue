@@ -26,7 +26,7 @@ export default {
     category: {
       type: String,
       required: true,
-      validator: (value) => Object.keys(ICON_MAP).includes(value),
+      validator: value => Object.keys(ICON_MAP).includes(value),
     },
     fixedWidth: { type: Boolean, default: false },
     rotation: { type: Number, default: null },
