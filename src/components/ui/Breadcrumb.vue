@@ -10,11 +10,11 @@
     <span v-if="categoryName">
       ▸
       <span v-if="isList">
-        <c-icon :category="categoryName" transform="shrink-3"/>
+        <c-icon :category="categoryName" size="sm" transform="shrink-3"/>
         {{ categoryName | capitalize }}
       </span>
       <router-link v-else :to="{ name: `${categoryName}.list` }">
-        <c-icon :category="categoryName" transform="shrink-3"/>
+        <c-icon :category="categoryName" size="sm" transform="shrink-3"/>
         {{ categoryName | capitalize }}
       </router-link>
 

@@ -1,22 +1,26 @@
 <template>
-  <div class="bg-white p-3 shadow border rounded">
-    <router-link :to="category" class="block font-starjedi text-grey-darkest text-lg mb-3">
-      <c-icon :category="category"/>
-      {{ category | capitalize }}
-    </router-link>
-
-    <div class="mb-3">
-      <router-link :to="category">View all</router-link>,
-      or maybe you're interested in...
+  <div class="bg-white shadow border rounded overflow-hidden">
+    <div class="bg-grey-lighter p-3 border-b">
+      <router-link :to="category" class="text-grey-darkest font-starjedi text-lg">
+        <c-icon :category="category"/>
+        {{ category | capitalize }}
+      </router-link>
     </div>
 
-    <ul v-if="count" class="list-reset px-2">
-      <li v-for="record in records" :key="record.id" class="py-2 border-b">
-        <router-link :to="`${category}/${record.slug}`">
-          {{ record.name || record.title }}
-        </router-link>
-      </li>
-    </ul>
+    <div class="p-3">
+      <div class="mb-3">
+        <router-link :to="category">View all</router-link>,
+        or maybe you're interested in...
+      </div>
+
+      <ul v-if="count" class="list-reset px-2">
+        <li v-for="record in records" :key="record.id" class="py-2 border-b">
+          <router-link :to="`${category}/${record.slug}`">
+            {{ record.name || record.title }}
+          </router-link>
+        </li>
+      </ul>
+    </div>
 
     <loading-spinner v-if="count === 0 && loading"/>
   </div>

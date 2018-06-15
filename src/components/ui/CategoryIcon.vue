@@ -1,9 +1,23 @@
 <template>
+  <fa-layers v-if="size === 'lg'" class="mr-2">
+    <fa-icon
+      icon="circle"
+      transform="grow-8 right-3"
+    />
+    <fa-icon
+      :icon="categoryIcon"
+      :rotation="categoryIconRotation"
+      fixed-width
+      transform="shrink-2 right-1"
+      class="text-grey-lightest"
+    />
+  </fa-layers>
+
   <fa-icon
+    v-else-if="size === 'sm'"
     :icon="categoryIcon"
     :fixed-width="fixedWidth"
     :rotation="categoryIconRotation"
-    :size="size"
     :transform="transform"
   />
 </template>
@@ -28,10 +42,14 @@ export default {
       required: true,
       validator: value => Object.keys(ICON_MAP).includes(value),
     },
+    size: {
+      type: String,
+      default: 'lg',
+      validator: value => ['sm', 'lg'].includes(value),
+    },
     fixedWidth: { type: Boolean, default: false },
     rotation: { type: Number, default: null },
-    size: { type: String, default: null },
-    transform: { type: [String, Object], default: null },
+    transform: { type: String, default: null },
   },
   computed: {
     categoryIcon() {
