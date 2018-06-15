@@ -9,20 +9,27 @@
 
     <div class="p-3">
       <div class="mb-3">
-        <router-link :to="category">View all</router-link>,
-        or maybe you're interested in...
+        Maybe you're interested in...
       </div>
 
       <ul v-if="count" class="list-reset px-2">
         <li v-for="record in records" :key="record.id" class="py-2 border-b">
           <router-link :to="`${category}/${record.slug}`">
+            <fa-icon icon="chevron-circle-right" transform="shrink-4 down-1"/>
             {{ record.name || record.title }}
           </router-link>
         </li>
       </ul>
+
+      <loading-spinner v-if="count === 0 && loading"/>
     </div>
 
-    <loading-spinner v-if="count === 0 && loading"/>
+    <div class="bg-grey-lighter px-3 py-2 border-t text-right">
+      <router-link :to="category" class="text-grey-darkest">
+        view all
+        <fa-icon icon="chevron-circle-right" transform="shrink-2"/>
+      </router-link>
+    </div>
   </div>
 </template>
 

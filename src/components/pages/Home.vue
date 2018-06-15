@@ -13,6 +13,7 @@
         :key="category"
         :category="category"
         class="flex-grow m-3"
+        style="min-width: 30%"
       />
     </div>
   </div>
