@@ -4,7 +4,7 @@
 
     <div v-if="species">
       <h1 class="font-starjedi"><c-icon category="species"/> {{ species.name }}</h1>
-      <pre>{{ species | json }}</pre>
+      <pre>{{ species }}</pre>
     </div>
 
     <loading-spinner v-else-if="loading"/>

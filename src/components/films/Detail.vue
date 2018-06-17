@@ -8,7 +8,7 @@
         Episode {{ film.episodeId }}
         - {{ film.title }}
       </h1>
-      <pre>{{ film | json }}</pre>
+      <pre>{{ film }}</pre>
     </div>
 
     <loading-spinner v-else-if="loading"/>

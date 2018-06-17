@@ -4,7 +4,7 @@
 
     <div v-if="planet">
       <h1 class="font-starjedi"><c-icon category="planets"/> {{ planet.name }}</h1>
-      <pre>{{ planet | json }}</pre>
+      <pre>{{ planet }}</pre>
     </div>
 
     <loading-spinner v-else-if="loading"/>
