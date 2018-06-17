@@ -12,8 +12,7 @@
         v-for="category in categories"
         :key="category"
         :category="category"
-        class="flex-grow m-3"
-        style="min-width: 30%"
+        class="flex-grow w-64 m-3"
       />
     </div>
   </div>

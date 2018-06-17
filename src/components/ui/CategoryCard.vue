@@ -1,13 +1,13 @@
 <template>
-  <div class="bg-white shadow border rounded overflow-hidden">
-    <div class="bg-grey-lighter p-3 border-b">
+  <div class="flex flex-col bg-white shadow border rounded overflow-hidden">
+    <div class="flex-no-shrink bg-grey-lighter p-3 border-b">
       <router-link :to="category" class="text-grey-darkest font-starjedi text-lg">
         <c-icon :category="category"/>
         {{ category | capitalize }}
       </router-link>
     </div>
 
-    <div class="p-3">
+    <div class="flex-grow p-3">
       <div class="mb-3">
         Maybe you're interested in...
       </div>
@@ -24,7 +24,7 @@
       <loading-spinner v-if="count === 0 && loading"/>
     </div>
 
-    <div class="bg-grey-lighter px-3 py-2 border-t text-right">
+    <div class="flex-no-shrink bg-grey-lighter px-3 py-2 border-t text-right">
       <router-link :to="category" class="text-grey-darkest">
         view all
         <fa-icon icon="chevron-circle-right" transform="shrink-2"/>
