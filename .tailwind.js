@@ -903,6 +903,11 @@ module.exports = {
       // center: true,
       // padding: '1rem',
     }),
+    require('tailwindcss-tables')({
+      tableBorderColor: colors['grey-light'],
+      tableStripedBackgroundColor: colors['grey-lighter'],
+      tableHoverBackgroundColor: colors['blue-lightest'],
+    }),
   ],
 
 
