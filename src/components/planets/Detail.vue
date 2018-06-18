@@ -17,12 +17,12 @@ import { mapState } from 'vuex'
 export default {
   computed: {
     planet() {
-      return this.$store.getters['planets/getItem'](this.$route.params.planetSlug)
+      return this.$store.getters['planets/getItem'](this.$route.params.slug)
     },
     ...mapState('planets', ['loading', 'error']),
   },
   created() {
-    this.$store.dispatch('planets/loadOne', this.$route.params.planetSlug)
+    this.$store.dispatch('planets/loadOne', this.$route.params.slug)
   },
 }
 </script>

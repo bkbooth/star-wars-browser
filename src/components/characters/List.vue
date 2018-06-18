@@ -1,13 +1,13 @@
 <template>
   <div>
-    <h1 class="font-starjedi"><c-icon category="people"/> People</h1>
+    <h1 class="font-starjedi"><c-icon category="characters"/> Characters</h1>
 
     <alert v-if="error" :message="error"/>
 
     <div v-if="count" class="table-responsive -mt-8">
       <p class="text-right">Total: {{ count }}</p>
       <table class="table table-striped table-hover">
-        <caption>List of people</caption>
+        <caption>List of characters</caption>
         <thead>
           <tr>
             <th scope="col">Name</th>
@@ -21,14 +21,14 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="person in people" :key="person.id">
+          <tr v-for="character in characters" :key="character.id">
             <td scope="row">
-              <router-link :to="`people/${person.slug}`">{{ person.name }}</router-link>
+              <router-link :to="`characters/${character.slug}`">{{ character.name }}</router-link>
             </td>
-            <td><gender-icon :gender="person.gender"/></td>
-            <td>{{ person.birthYear }}</td>
-            <td><span v-if="person.height">{{ person.height }}cm</span></td>
-            <td><span v-if="person.mass">{{ person.mass }}kg</span></td>
+            <td><gender-icon :gender="character.gender"/></td>
+            <td>{{ character.birthYear }}</td>
+            <td><span v-if="character.height">{{ character.height }}cm</span></td>
+            <td><span v-if="character.mass">{{ character.mass }}kg</span></td>
           </tr>
         </tbody>
       </table>
@@ -49,15 +49,15 @@ export default {
     InfoTip,
   },
   computed: {
-    ...mapState('people', {
-      people: 'data',
+    ...mapState('characters', {
+      characters: 'data',
       loading: 'loading',
       error: 'error',
     }),
-    ...mapGetters('people', ['count']),
+    ...mapGetters('characters', ['count']),
   },
   created() {
-    this.$store.dispatch('people/loadMany')
+    this.$store.dispatch('characters/loadMany')
   },
 }
 </script>

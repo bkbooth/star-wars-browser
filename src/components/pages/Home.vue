@@ -27,7 +27,7 @@ export default {
   },
   data() {
     return {
-      categories: ['films', 'planets', 'species', 'people', 'starships', 'vehicles'],
+      categories: ['films', 'characters', 'species', 'planets', 'starships', 'vehicles'],
     }
   },
 }

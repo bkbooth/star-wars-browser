@@ -21,12 +21,12 @@ import { mapState } from 'vuex'
 export default {
   computed: {
     film() {
-      return this.$store.getters['films/getItem'](this.$route.params.filmSlug)
+      return this.$store.getters['films/getItem'](this.$route.params.slug)
     },
     ...mapState('films', ['loading', 'error']),
   },
   created() {
-    this.$store.dispatch('films/loadOne', this.$route.params.filmSlug)
+    this.$store.dispatch('films/loadOne', this.$route.params.slug)
   },
 }
 </script>

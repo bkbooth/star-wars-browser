@@ -5,7 +5,7 @@ export default [
     component: () => import(/* webpackChunkName: "films" */ '@/components/films/List'),
   },
   {
-    path: '/films/:filmSlug',
+    path: '/films/:slug',
     name: 'films.detail',
     component: () => import(/* webpackChunkName: "films" */ '@/components/films/Detail'),
   },

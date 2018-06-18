@@ -17,12 +17,12 @@ import { mapState } from 'vuex'
 export default {
   computed: {
     vehicle() {
-      return this.$store.getters['vehicles/getItem'](this.$route.params.vehicleSlug)
+      return this.$store.getters['vehicles/getItem'](this.$route.params.slug)
     },
     ...mapState('vehicles', ['loading', 'error']),
   },
   created() {
-    this.$store.dispatch('vehicles/loadOne', this.$route.params.vehicleSlug)
+    this.$store.dispatch('vehicles/loadOne', this.$route.params.slug)
   },
 }
 </script>

@@ -30,15 +30,6 @@
 </template>
 
 <script>
-const SLUGS = {
-  films: 'filmSlug',
-  planets: 'planetSlug',
-  species: 'speciesSlug',
-  people: 'personSlug',
-  starships: 'starshipSlug',
-  vehicles: 'vehicleSlug',
-}
-
 export default {
   name: 'Breadcrumb',
   computed: {
@@ -52,8 +43,7 @@ export default {
     detailName() {
       if (this.isDetail) {
         let getter = `${this.categoryName}/getItem`
-        let slugName = SLUGS[this.categoryName]
-        let slug = this.$route.params[slugName]
+        let slug = this.$route.params['slug']
         let detail = this.$store.getters[getter](slug)
         if (detail) return detail.name || detail.title
       }

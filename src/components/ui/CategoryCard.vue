@@ -40,7 +40,7 @@ import shuffle from 'lodash/fp/shuffle'
 import take from 'lodash/fp/take'
 const shuffleAndTake = compose(take(3), shuffle)
 
-const CATEGORIES = ['films', 'planets', 'species', 'people', 'starships', 'vehicles']
+const CATEGORIES = ['films', 'planets', 'species', 'characters', 'starships', 'vehicles']
 
 export default {
   name: 'CategoryCard',

@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import filmsRoutes from './films'
 import planetsRoutes from './planets'
 import speciesRoutes from './species'
-import peopleRoutes from './people'
+import charactersRoutes from './characters'
 import starshipsRoutes from './starships'
 import vehiclesRoutes from './vehicles'
 
@@ -21,7 +21,7 @@ export default new Router({
     ...filmsRoutes,
     ...planetsRoutes,
     ...speciesRoutes,
-    ...peopleRoutes,
+    ...charactersRoutes,
     ...starshipsRoutes,
     ...vehiclesRoutes,
 

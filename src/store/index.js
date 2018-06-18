@@ -12,7 +12,7 @@ export default new Vuex.Store({
     films: createModule('films'),
     planets: createModule('planets'),
     species: createModule('species'),
-    people: createModule('people'),
+    characters: createModule('people'),
     starships: createModule('starships'),
     vehicles: createModule('vehicles'),
   },

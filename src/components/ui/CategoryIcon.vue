@@ -29,7 +29,7 @@ const ICON_MAP = {
   films: ['fas', 'film'],
   planets: ['fas', 'globe'],
   species: ['fas', 'robot'],
-  people: ['fas', 'user'],
+  characters: ['fas', 'user'],
   starships: ['fas', 'space-shuttle'],
   vehicles: ['fas', 'car'],
 }

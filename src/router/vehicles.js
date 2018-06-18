@@ -5,7 +5,7 @@ export default [
     component: () => import(/* webpackChunkName: "vehicles" */ '@/components/vehicles/List'),
   },
   {
-    path: '/vehicles/:vehicleSlug',
+    path: '/vehicles/:slug',
     name: 'vehicles.detail',
     component: () => import(/* webpackChunkName: "vehicles" */ '@/components/vehicles/Detail'),
   },
