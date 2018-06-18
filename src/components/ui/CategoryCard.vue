@@ -12,7 +12,7 @@
         Maybe you're interested in...
       </div>
 
-      <ul v-if="count" class="list-reset px-2">
+      <ul v-if="count" class="list-reset">
         <li v-for="record in records" :key="record.id" class="py-2 border-b">
           <router-link :to="`${category}/${record.slug}`">
             <fa-icon icon="chevron-circle-right" transform="shrink-4 down-1"/>

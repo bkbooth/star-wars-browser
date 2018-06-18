@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>
+    <p class="mb-8">
       Welcome to the Star Wars Browser! A front-end for
       <a href="https://swapi.co/">The Star Wars API</a>.
       Except it's not quite that anymore,
