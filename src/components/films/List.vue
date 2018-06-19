@@ -4,12 +4,21 @@
 
     <alert v-if="error" :message="error"/>
 
-    <div v-if="count" class="table-responsive -mt-8">
-      <p class="text-right">Total: {{ count }}</p>
+    <div v-if="count" class="table-responsive">
+      <paginator
+        :number-of-items="films.length"
+        :page="page"
+        :page-size="pageSize"
+        @set-page="setPage"
+        @set-page-size="setPageSize"
+      />
+
       <data-table
         :cols="cols"
         :data="films"
         :order="order"
+        :page="page"
+        :page-size="pageSize"
         category="films"
         class="table table-striped table-hover"
         @set-order="setOrder"
@@ -35,14 +44,19 @@
 <script>
 import { mapState, mapGetters } from 'vuex'
 import DataTable from '@/components/ui/DataTable'
+import Paginator from '@/components/ui/Paginator'
 import buildOrderBy from '../../utils/build-order-by.js'
+import updateQueryParams from '../../utils/update-query-params'
 
 export default {
   components: {
     DataTable,
+    Paginator,
   },
   props: {
     order: { type: String, default: 'episodeId' },
+    page: { type: Number, default: 1 },
+    pageSize: { type: Number, default: 20 },
   },
   data() {
     return {
@@ -69,7 +83,13 @@ export default {
   methods: {
     setOrder(fieldName, direction) {
       let orderBy = buildOrderBy(fieldName, direction, 'episodeId')
-      this.$router.push({ query: { orderBy } })
+      this.$router.push({ query: updateQueryParams(this.$route.query, { orderBy }) })
+    },
+    setPage(page) {
+      this.$router.push({ query: updateQueryParams(this.$route.query, { page }) })
+    },
+    setPageSize(pageSize) {
+      this.$router.push({ query: updateQueryParams(this.$route.query, { pageSize }) })
     },
   },
 }
