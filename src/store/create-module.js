@@ -1,15 +1,11 @@
-import compose from 'lodash/fp/compose'
 import find from 'lodash/find'
-import sortBy from 'lodash/fp/sortBy'
-import uniqBy from 'lodash/fp/uniqBy'
+import uniqBy from 'lodash/uniqBy'
 import { loadData } from '../api'
 import {
   ADD_DATA,
   SET_LOADING,
   SET_ERROR,
 } from './mutation-types'
-
-const uniqAndSort = compose(sortBy('swapiId'), uniqBy('id'))
 
 export default function createModule(name) {
   let state = {
@@ -55,7 +51,7 @@ export default function createModule(name) {
 
   let mutations = {
     [ADD_DATA](state, newData) {
-      state.data = uniqAndSort([...newData, ...state.data])
+      state.data = uniqBy([...newData, ...state.data], 'id')
     },
     [SET_LOADING](state, loading) {
       state.loading = loading
