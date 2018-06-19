@@ -5,7 +5,7 @@
     <div v-if="film">
       <h1 class="font-starjedi">
         <c-icon category="films"/>
-        Episode {{ film.episodeId }}
+        Episode {{ film.episodeId | romanize }}
         - {{ film.title }}
       </h1>
       <pre>{{ film }}</pre>
