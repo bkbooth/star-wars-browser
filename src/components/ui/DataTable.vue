@@ -48,9 +48,15 @@ export default {
     cols: { type: Array, required: true },
     data: { type: Array, required: true },
     order: { type: String, required: true },
+    page: { type: Number, default: 1 },
+    pageSize: { type: Number, default: 20 },
   },
   computed: {
     rows() {
+      let startIndex = (this.page - 1) * this.pageSize
+      return this.allRows.slice(startIndex, startIndex + this.pageSize)
+    },
+    allRows() {
       return orderBy(this.data, this.orderByParams.fields, this.orderByParams.orders)
     },
     orderByParams() {
