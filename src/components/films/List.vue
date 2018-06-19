@@ -60,6 +60,7 @@
 import { mapState, mapGetters } from 'vuex'
 import DataTable from '@/components/ui/DataTable'
 import OrderIcon from '@/components/ui/OrderIcon'
+import buildOrderBy from '../../utils/build-order-by.js'
 
 export default {
   components: {
@@ -82,8 +83,7 @@ export default {
   },
   methods: {
     setOrder(fieldName, direction) {
-      let orderBy = `${direction === 'desc' ? '-' : ''}${fieldName}`
-      if (fieldName !== 'episodeId') orderBy += ',episodeId'
+      let orderBy = buildOrderBy(fieldName, direction, 'episodeId')
       this.$router.push({ query: { orderBy } })
     },
   },

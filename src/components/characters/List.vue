@@ -63,6 +63,7 @@ import DataTable from '@/components/ui/DataTable'
 import GenderIcon from '@/components/ui/GenderIcon'
 import InfoTip from '@/components/ui/InfoTip'
 import OrderIcon from '@/components/ui/OrderIcon'
+import buildOrderBy from '../../utils/build-order-by.js'
 
 export default {
   components: {
@@ -87,8 +88,7 @@ export default {
   },
   methods: {
     setOrder(fieldName, direction) {
-      let orderBy = `${direction === 'desc' ? '-' : ''}${fieldName}`
-      if (fieldName !== 'name') orderBy += ',name'
+      let orderBy = buildOrderBy(fieldName, direction)
       this.$router.push({ query: { orderBy } })
     },
   },
