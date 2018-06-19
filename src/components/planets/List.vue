@@ -22,6 +22,7 @@
               <th scope="col" class="whitespace-no-wrap">
                 <order-icon :order="order" field-name="diameter" @set-order="setOrder"/>
                 Size
+                <info-tip content="Diameter in kilometers"/>
               </th>
               <th scope="col" class="whitespace-no-wrap">
                 <order-icon :order="order" field-name="population" @set-order="setOrder"/>
@@ -59,12 +60,14 @@
 <script>
 import { mapState, mapGetters } from 'vuex'
 import DataTable from '@/components/ui/DataTable'
+import InfoTip from '@/components/ui/InfoTip'
 import OrderIcon from '@/components/ui/OrderIcon'
 import buildOrderBy from '../../utils/build-order-by.js'
 
 export default {
   components: {
     DataTable,
+    InfoTip,
     OrderIcon,
   },
   props: {
