@@ -44,7 +44,7 @@
                 <router-link :to="`characters/${character.slug}`">{{ character.name }}</router-link>
               </td>
               <td><gender-icon :gender="character.gender"/></td>
-              <td>{{ character.birthYear }}</td>
+              <td><span v-if="character.birthYear != null">{{ character.birthYear | birthYear }}</span></td>
               <td><span v-if="character.height">{{ character.height }}cm</span></td>
               <td><span v-if="character.mass">{{ character.mass }}kg</span></td>
             </tr>
