@@ -6,7 +6,7 @@
 
     <div v-if="count" class="table-responsive -mt-8">
       <p class="text-right">Total: {{ count }}</p>
-      <sortable-table
+      <data-table
         :data="characters"
         :order="order"
         class="table table-striped table-hover"
@@ -37,7 +37,7 @@
             </tr>
           </tbody>
         </template>
-      </sortable-table>
+      </data-table>
     </div>
 
     <loading-spinner v-if="loading"/>
@@ -48,13 +48,13 @@
 import { mapState, mapGetters } from 'vuex'
 import GenderIcon from '@/components/ui/GenderIcon'
 import InfoTip from '@/components/ui/InfoTip'
-import SortableTable from '@/components/ui/SortableTable'
+import DataTable from '@/components/ui/DataTable'
 
 export default {
   components: {
     GenderIcon,
     InfoTip,
-    SortableTable,
+    DataTable,
   },
   data() {
     return {
