@@ -3,6 +3,7 @@ export default [
     path: '/characters',
     name: 'characters.list',
     component: () => import(/* webpackChunkName: "characters" */ '@/components/characters/List'),
+    props: (route) => ({ order: route.query.orderBy }),
   },
   {
     path: '/characters/:slug',

@@ -15,14 +15,27 @@
           <caption>List of characters</caption>
           <thead>
             <tr>
-              <th scope="col">Name</th>
-              <th scope="col">Gender</th>
-              <th scope="col">
+              <th scope="col" class="whitespace-no-wrap">
+                <order-icon :order="order" field-name="name" @set-order="setOrder"/>
+                Name
+              </th>
+              <th scope="col" class="whitespace-no-wrap">
+                <order-icon :order="order" field-name="gender" @set-order="setOrder"/>
+                Gender
+              </th>
+              <th scope="col" class="whitespace-no-wrap">
+                <order-icon :order="order" field-name="birthYear" @set-order="setOrder"/>
                 Birth Year
                 <info-tip content="BBY = before the Battle of Yavin, ABY = after the Battle of Yavin"/>
               </th>
-              <th scope="col">Height</th>
-              <th scope="col">Mass</th>
+              <th scope="col" class="whitespace-no-wrap">
+                <order-icon :order="order" field-name="height" @set-order="setOrder"/>
+                Height
+              </th>
+              <th scope="col" class="whitespace-no-wrap">
+                <order-icon :order="order" field-name="mass" @set-order="setOrder"/>
+                Mass
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -46,20 +59,20 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex'
+import DataTable from '@/components/ui/DataTable'
 import GenderIcon from '@/components/ui/GenderIcon'
 import InfoTip from '@/components/ui/InfoTip'
-import DataTable from '@/components/ui/DataTable'
+import OrderIcon from '@/components/ui/OrderIcon'
 
 export default {
   components: {
+    DataTable,
     GenderIcon,
     InfoTip,
-    DataTable,
+    OrderIcon,
   },
-  data() {
-    return {
-      order: 'gender,name',
-    }
+  props: {
+    order: { type: String, default: 'name' },
   },
   computed: {
     ...mapState('characters', {
@@ -71,6 +84,13 @@ export default {
   },
   created() {
     this.$store.dispatch('characters/loadMany')
+  },
+  methods: {
+    setOrder(fieldName, direction) {
+      let orderBy = `${direction === 'desc' ? '-' : ''}${fieldName}`
+      if (fieldName !== 'name') orderBy += ',name'
+      this.$router.push({ query: { orderBy } })
+    },
   },
 }
 </script>

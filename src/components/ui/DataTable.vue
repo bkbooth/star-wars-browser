@@ -6,6 +6,7 @@
 
 <script>
 import orderBy from 'lodash/orderBy'
+import parseOrderParams from '../../utils/parse-order-params.js'
 
 export default {
   name: 'DataTable',
@@ -18,10 +19,7 @@ export default {
       return orderBy(this.data, this.orderByParams.fields, this.orderByParams.orders)
     },
     orderByParams() {
-      let orderParts = this.order.split(',')
-      let fields = orderParts.map(part => ['-', '+'].includes(part[0]) ? part.slice(1) : part)
-      let orders = orderParts.map(part => part[0] === '-' ? 'desc' : 'asc')
-      return { fields, orders }
+      return parseOrderParams(this.order)
     },
   },
 }
