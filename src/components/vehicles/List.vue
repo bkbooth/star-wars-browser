@@ -7,55 +7,24 @@
     <div v-if="count" class="table-responsive -mt-8">
       <p class="text-right">Total: {{ count }}</p>
       <data-table
+        :cols="cols"
         :data="vehicles"
         :order="order"
+        category="vehicles"
         class="table table-striped table-hover"
+        @set-order="setOrder"
       >
         <template slot-scope="{ rows }">
-          <caption>List of vehicles</caption>
-          <thead>
-            <tr>
-              <th scope="col" class="whitespace-no-wrap">
-                <order-icon :order="order" field-name="name" @set-order="setOrder"/>
-                Name
-              </th>
-              <th scope="col" class="whitespace-no-wrap">
-                <order-icon :order="order" field-name="class" @set-order="setOrder"/>
-                Class
-              </th>
-              <th scope="col" class="whitespace-no-wrap">
-                <order-icon :order="order" field-name="cost" @set-order="setOrder"/>
-                Cost
-                <info-tip content="Cost in galactic credits"/>
-              </th>
-              <th scope="col" class="whitespace-no-wrap">
-                <order-icon :order="order" field-name="length" @set-order="setOrder"/>
-                Length
-              </th>
-              <th scope="col" class="whitespace-no-wrap">
-                <order-icon :order="order" field-name="crew" @set-order="setOrder"/>
-                Crew
-                <info-tip content="Personnel required to run or pilot the vehicle"/>
-              </th>
-              <th scope="col" class="whitespace-no-wrap">
-                <order-icon :order="order" field-name="passengers" @set-order="setOrder"/>
-                Passengers
-                <info-tip content="Non-essential people for transport"/>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="vehicle in rows" :key="vehicle.id">
-              <td scope="row">
-                <router-link :to="`vehicles/${vehicle.slug}`">{{ vehicle.name }}</router-link>
-              </td>
-              <td>{{ vehicle.class }}</td>
-              <td><span v-if="vehicle.cost != null">€{{ vehicle.cost | number }}</span></td>
-              <td><span v-if="vehicle.length != null">{{ vehicle.length | number }}m</span></td>
-              <td><span v-if="vehicle.crew != null">{{ vehicle.crew | number }}</span></td>
-              <td><span v-if="vehicle.passengers != null">{{ vehicle.passengers | number }}</span></td>
-            </tr>
-          </tbody>
+          <tr v-for="vehicle in rows" :key="vehicle.id">
+            <td scope="row">
+              <router-link :to="`vehicles/${vehicle.slug}`">{{ vehicle.name }}</router-link>
+            </td>
+            <td>{{ vehicle.class }}</td>
+            <td><span v-if="vehicle.cost">€{{ vehicle.cost | number }}</span></td>
+            <td><span v-if="vehicle.length">{{ vehicle.length | number }}m</span></td>
+            <td><span v-if="vehicle.crew != null">{{ vehicle.crew | number }}</span></td>
+            <td><span v-if="vehicle.passengers != null">{{ vehicle.passengers | number }}</span></td>
+          </tr>
         </template>
       </data-table>
     </div>
@@ -79,6 +48,18 @@ export default {
   },
   props: {
     order: { type: String, default: 'name' },
+  },
+  data() {
+    return {
+      cols: [
+        { field: 'name', label: 'Name' },
+        { field: 'class', label: 'Class' },
+        { field: 'cost', label: 'Cost', info: 'Cost in galactic credits' },
+        { field: 'length', label: 'Length' },
+        { field: 'crew', label: 'Crew', info: 'Personnel required to run or pilot the vehicle' },
+        { field: 'passengers', label: 'Passengers', info: 'Non-essential people for transport' },
+      ],
+    }
   },
   computed: {
     ...mapState('vehicles', {

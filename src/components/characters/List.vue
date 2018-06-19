@@ -7,48 +7,23 @@
     <div v-if="count" class="table-responsive -mt-8">
       <p class="text-right">Total: {{ count }}</p>
       <data-table
+        :cols="cols"
         :data="characters"
         :order="order"
+        category="characters"
         class="table table-striped table-hover"
+        @set-order="setOrder"
       >
         <template slot-scope="{ rows }">
-          <caption>List of characters</caption>
-          <thead>
-            <tr>
-              <th scope="col" class="whitespace-no-wrap">
-                <order-icon :order="order" field-name="name" @set-order="setOrder"/>
-                Name
-              </th>
-              <th scope="col" class="whitespace-no-wrap">
-                <order-icon :order="order" field-name="gender" @set-order="setOrder"/>
-                Gender
-              </th>
-              <th scope="col" class="whitespace-no-wrap">
-                <order-icon :order="order" field-name="birthYear" @set-order="setOrder"/>
-                Birth Year
-                <info-tip content="BBY = before the Battle of Yavin, ABY = after the Battle of Yavin"/>
-              </th>
-              <th scope="col" class="whitespace-no-wrap">
-                <order-icon :order="order" field-name="height" @set-order="setOrder"/>
-                Height
-              </th>
-              <th scope="col" class="whitespace-no-wrap">
-                <order-icon :order="order" field-name="mass" @set-order="setOrder"/>
-                Mass
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="character in rows" :key="character.id">
-              <td scope="row">
-                <router-link :to="`characters/${character.slug}`">{{ character.name }}</router-link>
-              </td>
-              <td><gender-icon :gender="character.gender"/></td>
-              <td><span v-if="character.birthYear != null">{{ character.birthYear | birthYear }}</span></td>
-              <td><span v-if="character.height">{{ character.height }}cm</span></td>
-              <td><span v-if="character.mass">{{ character.mass }}kg</span></td>
-            </tr>
-          </tbody>
+          <tr v-for="character in rows" :key="character.id">
+            <td scope="row">
+              <router-link :to="`characters/${character.slug}`">{{ character.name }}</router-link>
+            </td>
+            <td><gender-icon :gender="character.gender"/></td>
+            <td><span v-if="character.birthYear != null">{{ character.birthYear | birthYear }}</span></td>
+            <td><span v-if="character.height">{{ character.height }}cm</span></td>
+            <td><span v-if="character.mass">{{ character.mass }}kg</span></td>
+          </tr>
         </template>
       </data-table>
     </div>
@@ -61,19 +36,26 @@
 import { mapState, mapGetters } from 'vuex'
 import DataTable from '@/components/ui/DataTable'
 import GenderIcon from '@/components/ui/GenderIcon'
-import InfoTip from '@/components/ui/InfoTip'
-import OrderIcon from '@/components/ui/OrderIcon'
 import buildOrderBy from '../../utils/build-order-by.js'
 
 export default {
   components: {
     DataTable,
     GenderIcon,
-    InfoTip,
-    OrderIcon,
   },
   props: {
     order: { type: String, default: 'name' },
+  },
+  data() {
+    return {
+      cols: [
+        { field: 'name', label: 'Name' },
+        { field: 'gender', label: 'Gender' },
+        { field: 'birthYear', label: 'Birth Year', info: 'BBY = before the Battle of Yavin, ABY = after the Battle of Yavin' },
+        { field: 'height', label: 'Height' },
+        { field: 'mass', label: 'Mass' },
+      ],
+    }
   },
   computed: {
     ...mapState('characters', {

@@ -7,47 +7,23 @@
     <div v-if="count" class="table-responsive -mt-8">
       <p class="text-right">Total: {{ count }}</p>
       <data-table
+        :cols="cols"
         :data="films"
         :order="order"
+        category="films"
         class="table table-striped table-hover"
+        @set-order="setOrder"
       >
         <template slot-scope="{ rows }">
-          <caption>List of films</caption>
-          <thead>
-            <tr>
-              <th scope="col" class="whitespace-no-wrap">
-                <order-icon :order="order" field-name="episodeId" @set-order="setOrder"/>
-                Episode
-              </th>
-              <th scope="col" class="whitespace-no-wrap">
-                <order-icon :order="order" field-name="title" @set-order="setOrder"/>
-                Title
-              </th>
-              <th scope="col" class="whitespace-no-wrap">
-                <order-icon :order="order" field-name="releaseDate" @set-order="setOrder"/>
-                Released
-              </th>
-              <th scope="col" class="whitespace-no-wrap">
-                <order-icon :order="order" field-name="director" @set-order="setOrder"/>
-                Director
-              </th>
-              <th scope="col" class="whitespace-no-wrap">
-                <order-icon :order="order" field-name="producer" @set-order="setOrder"/>
-                Producer
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="film in rows" :key="film.id">
-              <td scope="row">{{ film.episodeId | romanize }}</td>
-              <td>
-                <router-link :to="`films/${film.slug}`">{{ film.title }}</router-link>
-              </td>
-              <td>{{ film.releaseDate | date('Do MMM YYYY') }}</td>
-              <td>{{ film.director }}</td>
-              <td>{{ film.producer }}</td>
-            </tr>
-          </tbody>
+          <tr v-for="film in rows" :key="film.id">
+            <td scope="row">{{ film.episodeId | romanize }}</td>
+            <td>
+              <router-link :to="`films/${film.slug}`">{{ film.title }}</router-link>
+            </td>
+            <td>{{ film.releaseDate | date('Do MMM YYYY') }}</td>
+            <td>{{ film.director }}</td>
+            <td>{{ film.producer }}</td>
+          </tr>
         </template>
       </data-table>
     </div>
@@ -59,16 +35,25 @@
 <script>
 import { mapState, mapGetters } from 'vuex'
 import DataTable from '@/components/ui/DataTable'
-import OrderIcon from '@/components/ui/OrderIcon'
 import buildOrderBy from '../../utils/build-order-by.js'
 
 export default {
   components: {
     DataTable,
-    OrderIcon,
   },
   props: {
     order: { type: String, default: 'episodeId' },
+  },
+  data() {
+    return {
+      cols: [
+        { field: 'episodeId', label: '#' },
+        { field: 'title', label: 'Title' },
+        { field: 'releaseDate', label: 'Released' },
+        { field: 'director', label: 'Director' },
+        { field: 'producer', label: 'Producer' },
+      ],
+    }
   },
   computed: {
     ...mapState('films', {

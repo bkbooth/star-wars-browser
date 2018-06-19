@@ -7,48 +7,23 @@
     <div v-if="count" class="table-responsive -mt-8">
       <p class="text-right">Total: {{ count }}</p>
       <data-table
+        :cols="cols"
         :data="planets"
         :order="order"
+        category="planets"
         class="table table-striped table-hover"
+        @set-order="setOrder"
       >
         <template slot-scope="{ rows }">
-          <caption>List of planets</caption>
-          <thead>
-            <tr>
-              <th scope="col" class="whitespace-no-wrap">
-                <order-icon :order="order" field-name="name" @set-order="setOrder"/>
-                Name
-              </th>
-              <th scope="col" class="whitespace-no-wrap">
-                <order-icon :order="order" field-name="diameter" @set-order="setOrder"/>
-                Size
-                <info-tip content="Diameter in kilometers"/>
-              </th>
-              <th scope="col" class="whitespace-no-wrap">
-                <order-icon :order="order" field-name="population" @set-order="setOrder"/>
-                Population
-              </th>
-              <th scope="col" class="whitespace-no-wrap">
-                <order-icon :order="order" field-name="climate" @set-order="setOrder"/>
-                Climate
-              </th>
-              <th scope="col" class="whitespace-no-wrap">
-                <order-icon :order="order" field-name="terrain" @set-order="setOrder"/>
-                Terrain
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="planet in rows" :key="planet.id">
-              <td scope="row">
-                <router-link :to="`planets/${planet.slug}`">{{ planet.name }}</router-link>
-              </td>
-              <td><span v-if="planet.diameter != null">{{ planet.diameter | number }}</span></td>
-              <td><span v-if="planet.population != null">{{ planet.population | number }}</span></td>
-              <td>{{ planet.climate }}</td>
-              <td>{{ planet.terrain }}</td>
-            </tr>
-          </tbody>
+          <tr v-for="planet in rows" :key="planet.id">
+            <td scope="row">
+              <router-link :to="`planets/${planet.slug}`">{{ planet.name }}</router-link>
+            </td>
+            <td><span v-if="planet.diameter">{{ planet.diameter | number }}km</span></td>
+            <td><span v-if="planet.population != null">{{ planet.population | number }}</span></td>
+            <td>{{ planet.climate }}</td>
+            <td>{{ planet.terrain }}</td>
+          </tr>
         </template>
       </data-table>
     </div>
@@ -60,18 +35,25 @@
 <script>
 import { mapState, mapGetters } from 'vuex'
 import DataTable from '@/components/ui/DataTable'
-import InfoTip from '@/components/ui/InfoTip'
-import OrderIcon from '@/components/ui/OrderIcon'
 import buildOrderBy from '../../utils/build-order-by.js'
 
 export default {
   components: {
     DataTable,
-    InfoTip,
-    OrderIcon,
   },
   props: {
     order: { type: String, default: 'name' },
+  },
+  data() {
+    return {
+      cols: [
+        { field: 'name', label: 'Name' },
+        { field: 'diameter', label: 'Size', info: 'Diameter in kilometers' },
+        { field: 'population', label: 'Population' },
+        { field: 'climate', label: 'Climate' },
+        { field: 'terrain', label: 'Terrain' },
+      ],
+    }
   },
   computed: {
     ...mapState('planets', {
