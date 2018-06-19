@@ -8,7 +8,6 @@ module.exports = (person) => nullifyUnknown({
     'name',
     'gender',
     'height',
-    'mass',
     'created',
     'edited',
   ]),
@@ -17,5 +16,6 @@ module.exports = (person) => nullifyUnknown({
   eyeColor: person.eye_color,
   hairColor: person.hair_color,
   skinColor: person.skin_color,
+  mass: person.mass.replace(',', ''),
   swapiId: getSwapiId(person.url),
 })

@@ -7,7 +7,6 @@ const { getSwapiId } = require('../utils/swapi')
 module.exports = (planet) => nullifyUnknown({
   ...pick(planet, [
     'name',
-    'diameter',
     'population',
     'climate',
     'terrain',
@@ -15,6 +14,7 @@ module.exports = (planet) => nullifyUnknown({
     'edited',
   ]),
   slug: createSlug(planet.name),
+  diameter: planet.diameter !== '0' ? planet.diameter : null,
   rotationPeriod: planet.rotation_period,
   orbitalPeriod: planet.orbital_period,
   gravity: first(/^\d+(\.\d+)?/.exec(planet.gravity)),

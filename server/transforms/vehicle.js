@@ -20,6 +20,6 @@ module.exports = (vehicle) => nullifyUnknown({
   class: vehicle.vehicle_class,
   cost: vehicle.cost_in_credits,
   maxAtmospheringSpeed: vehicle.max_atmosphering_speed,
-  cargoCapacity: vehicle.cargo_capacity,
+  cargoCapacity: vehicle.cargo_capacity.replace('none', '0'),
   swapiId: getSwapiId(vehicle.url),
 })

@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
     gender: DataTypes.STRING,
     hairColor: DataTypes.STRING, // hair_color
     height: DataTypes.INTEGER,
-    mass: DataTypes.INTEGER,
+    mass: DataTypes.FLOAT,
     skinColor: DataTypes.STRING, // skin_color
     // belongsTo: planet (as homeworld)
     // hasMany: films, species, starships, vehicles
