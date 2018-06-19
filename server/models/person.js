@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     swapiId: { type: DataTypes.INTEGER, unique: true },
     slug: { type: DataTypes.STRING, unique: true },
     name: DataTypes.STRING,
-    birthYear: DataTypes.STRING, // birth_year
+    birthYear: DataTypes.FLOAT, // birth_year
     eyeColor: DataTypes.STRING, // eye_color
     gender: DataTypes.STRING,
     hairColor: DataTypes.STRING, // hair_color
