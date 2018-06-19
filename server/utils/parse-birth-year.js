@@ -12,5 +12,5 @@ module.exports = birthYear => {
   if (birthYear == null || birthYear === '' || birthYear === 'unknown') return null
 
   let value = parseFloat(birthYear)
-  return birthYear.includes('BBY') ? -value : value
+  return birthYear.includes('BBY') ? value : -value
 }
