@@ -25,13 +25,7 @@
       >»</button>
     </div>
 
-    <div class="flex-1 text-grey-dark mx-2">
-      <span class="hidden sm:inline">Showing</span> {{ (page - 1) * pageSize + 1 }}
-      to {{ page === numberOfPages ? numberOfItems : page * pageSize }}
-      of {{ numberOfItems }}
-    </div>
-
-    <label class="flex-no-shrink">
+    <label class="flex-1 text-right ml-2">
       <span class="hidden sm:inline text-grey-dark">Per Page</span>
       <select :value="pageSize" @input="setPageSize">
         <option>10</option>

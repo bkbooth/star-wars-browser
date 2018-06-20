@@ -1,6 +1,11 @@
 <template>
   <table>
-    <caption>List of {{ category }}</caption>
+    <caption>
+      List of {{ category }},
+      showing {{ (page - 1) * pageSize + 1 }}
+      to {{ page === Math.ceil(data.length / pageSize) ? data.length : page * pageSize }}
+      of {{ data.length }}
+    </caption>
     <thead>
       <tr>
         <th
