@@ -8,20 +8,24 @@
     </div>
 
     <div class="flex-grow p-3">
-      <div class="mb-3">
-        Maybe you're interested in...
+      <alert v-if="error" :message="error"/>
+
+      <div v-else>
+        <div class="mb-3">
+          Maybe you're interested in...
+        </div>
+
+        <ul v-if="count" class="list-reset">
+          <li v-for="item in items" :key="item.id" class="py-2 border-b">
+            <router-link :to="`${category}/${item.slug}`">
+              <fa-icon icon="chevron-circle-right" transform="shrink-4 down-1"/>
+              {{ item.name || item.title }}
+            </router-link>
+          </li>
+        </ul>
+
+        <loading-spinner v-if="count === 0 && loading"/>
       </div>
-
-      <ul v-if="count" class="list-reset">
-        <li v-for="item in items" :key="item.id" class="py-2 border-b">
-          <router-link :to="`${category}/${item.slug}`">
-            <fa-icon icon="chevron-circle-right" transform="shrink-4 down-1"/>
-            {{ item.name || item.title }}
-          </router-link>
-        </li>
-      </ul>
-
-      <loading-spinner v-if="count === 0 && loading"/>
     </div>
 
     <div class="flex-no-shrink bg-grey-lighter px-3 py-2 border-t text-right">
@@ -55,12 +59,9 @@ export default {
       return this.items.length
     },
     ...mapState({
-      items(state) {
-        return shuffleAndTake(state[this.category].data)
-      },
-      loading(state) {
-        return state[this.category].loading
-      },
+      items(state) { return shuffleAndTake(state[this.category].data) },
+      loading(state) { return state[this.category].loading },
+      error(state) { return state[this.category].error },
     }),
   },
   created() {
