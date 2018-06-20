@@ -13,10 +13,10 @@
       </div>
 
       <ul v-if="count" class="list-reset">
-        <li v-for="record in records" :key="record.id" class="py-2 border-b">
-          <router-link :to="`${category}/${record.slug}`">
+        <li v-for="item in items" :key="item.id" class="py-2 border-b">
+          <router-link :to="`${category}/${item.slug}`">
             <fa-icon icon="chevron-circle-right" transform="shrink-4 down-1"/>
-            {{ record.name || record.title }}
+            {{ item.name || item.title }}
           </router-link>
         </li>
       </ul>
@@ -52,10 +52,10 @@ export default {
   },
   computed: {
     count() {
-      return this.records.length
+      return this.items.length
     },
     ...mapState({
-      records(state) {
+      items(state) {
         return shuffleAndTake(state[this.category].data)
       },
       loading(state) {
