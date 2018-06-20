@@ -4,15 +4,16 @@
 
     <alert v-if="error" :message="error"/>
 
-    <div v-if="count" class="table-responsive">
-      <paginator
-        :number-of-items="films.length"
-        :page="page"
-        :page-size="pageSize"
-        @set-page="setPage"
-        @set-page-size="setPageSize"
-      />
+    <paginator
+      v-if="count"
+      :number-of-items="films.length"
+      :page="page"
+      :page-size="pageSize"
+      @set-page="setPage"
+      @set-page-size="setPageSize"
+    />
 
+    <div v-if="count" class="table-responsive">
       <data-table
         :cols="cols"
         :data="films"
