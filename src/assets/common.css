@@ -21,3 +21,8 @@ header a,
 footer a {
   @apply .text-yellow-dark;
 }
+
+*:disabled,
+select[disabled] > option {
+  @apply text-grey;
+}
