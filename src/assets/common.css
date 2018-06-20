@@ -1,25 +1,25 @@
 h1 {
-  @apply .mb-6;
+  @apply mb-6;
 }
 
 p, pre {
-  @apply .mb-4;
+  @apply mb-4;
 }
 
 pre {
-  @apply .text-sm .font-mono .bg-white .p-4 .overflow-y-auto .border .rounded .shadow-inner;
+  @apply text-sm font-mono bg-white p-4 overflow-y-auto border rounded shadow-inner;
 }
 
 a {
-  @apply .text-yellow-darker .no-underline;
-  transition: opacity .2s;
+  @apply text-yellow-darker no-underline;
+  transition: opacity .3s ease;
 }
 a:hover {
-  opacity: .7;
+  @apply opacity-75;
 }
 header a,
 footer a {
-  @apply .text-yellow-dark;
+  @apply text-yellow-dark;
 }
 
 *:disabled,
