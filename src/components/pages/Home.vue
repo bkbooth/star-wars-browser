@@ -20,15 +20,14 @@
 
 <script>
 import CategoryCard from '@/components/ui/CategoryCard'
+import { CATEGORIES as categories } from '../../utils/constants'
 
 export default {
   components: {
     CategoryCard,
   },
   data() {
-    return {
-      categories: ['films', 'characters', 'species', 'planets', 'starships', 'vehicles'],
-    }
+    return { categories }
   },
 }
 </script>
