@@ -34,7 +34,7 @@
 import orderBy from 'lodash/orderBy'
 import InfoTip from '@/components/ui/InfoTip'
 import OrderIcon from '@/components/ui/OrderIcon'
-import parseOrderParams from '../../utils/parse-order-params.js'
+import parseOrderParams from '../../utils/parse-order-params'
 
 const CATEGORIES = ['films', 'planets', 'species', 'characters', 'starships', 'vehicles']
 

@@ -46,7 +46,7 @@
 import { mapState, mapGetters } from 'vuex'
 import DataTable from '@/components/ui/DataTable'
 import Paginator from '@/components/ui/Paginator'
-import buildOrderBy from '../../utils/build-order-by.js'
+import buildOrderBy from '../../utils/build-order-by'
 import updateQueryParams from '../../utils/update-query-params'
 
 export default {

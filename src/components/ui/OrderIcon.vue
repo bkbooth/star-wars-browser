@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import parseOrderParams from '../../utils/parse-order-params.js'
+import parseOrderParams from '../../utils/parse-order-params'
 
 export default {
   name: 'OrderIcon',
