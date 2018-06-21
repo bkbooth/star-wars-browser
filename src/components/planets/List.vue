@@ -13,30 +13,28 @@
       @set-page-size="setPageSize"
     />
 
-    <div v-if="count" class="table-responsive">
-      <data-table
-        :cols="cols"
-        :data="planets"
-        :order="order"
-        :page="page"
-        :page-size="pageSize"
-        category="planets"
-        class="table table-striped table-hover"
-        @set-order="setOrder"
-      >
-        <template slot-scope="{ rows }">
-          <tr v-for="planet in rows" :key="planet.id">
-            <td scope="row">
-              <router-link :to="`planets/${planet.slug}`">{{ planet.name }}</router-link>
-            </td>
-            <td><span v-if="planet.diameter">{{ planet.diameter | number }}km</span></td>
-            <td><span v-if="planet.population != null">{{ planet.population | number }}</span></td>
-            <td>{{ planet.climate }}</td>
-            <td>{{ planet.terrain }}</td>
-          </tr>
-        </template>
-      </data-table>
-    </div>
+    <data-table
+      v-if="count"
+      :cols="cols"
+      :data="planets"
+      :order="order"
+      :page="page"
+      :page-size="pageSize"
+      category="planets"
+      @set-order="setOrder"
+    >
+      <template slot-scope="{ rows }">
+        <tr v-for="planet in rows" :key="planet.id">
+          <td scope="row">
+            <router-link :to="`planets/${planet.slug}`">{{ planet.name }}</router-link>
+          </td>
+          <td><span v-if="planet.diameter">{{ planet.diameter | number }}km</span></td>
+          <td><span v-if="planet.population != null">{{ planet.population | number }}</span></td>
+          <td>{{ planet.climate }}</td>
+          <td>{{ planet.terrain }}</td>
+        </tr>
+      </template>
+    </data-table>
 
     <loading-spinner v-if="loading"/>
   </div>

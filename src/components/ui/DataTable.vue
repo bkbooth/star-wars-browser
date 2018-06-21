@@ -1,33 +1,37 @@
 <template>
-  <table>
-    <caption>
-      List of {{ category }},
-      showing {{ (page - 1) * pageSize + 1 }}
-      to {{ page === Math.ceil(data.length / pageSize) ? data.length : page * pageSize }}
-      of {{ data.length }}
-    </caption>
-    <thead>
-      <tr>
-        <th
-          v-for="col in cols"
-          :key="col.field"
-          scope="col"
-          class="whitespace-no-wrap"
-        >
-          <order-icon
-            :order="order"
-            :field-name="col.field"
-            @set-order="onSetOrder"
-          />
-          {{ col.label }}
-          <info-tip v-if="col.info" :content="col.info"/>
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <slot :rows="rows"/>
-    </tbody>
-  </table>
+  <div class="table-responsive">
+    <table class="table table-striped table-hover">
+      <caption>
+        List of {{ category }},
+        showing {{ (page - 1) * pageSize + 1 }}
+        to {{ page === Math.ceil(data.length / pageSize) ? data.length : page * pageSize }}
+        of {{ data.length }}
+      </caption>
+
+      <thead>
+        <tr>
+          <th
+            v-for="col in cols"
+            :key="col.field"
+            scope="col"
+            class="whitespace-no-wrap"
+          >
+            <order-icon
+              :order="order"
+              :field-name="col.field"
+              @set-order="onSetOrder"
+            />
+            {{ col.label }}
+            <info-tip v-if="col.info" :content="col.info"/>
+          </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <slot :rows="rows"/>
+      </tbody>
+    </table>
+  </div>
 </template>
 
 <script>

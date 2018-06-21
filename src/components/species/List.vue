@@ -13,30 +13,28 @@
       @set-page-size="setPageSize"
     />
 
-    <div v-if="count" class="table-responsive">
-      <data-table
-        :cols="cols"
-        :data="species"
-        :order="order"
-        :page="page"
-        :page-size="pageSize"
-        category="species"
-        class="table table-striped table-hover"
-        @set-order="setOrder"
-      >
-        <template slot-scope="{ rows }">
-          <tr v-for="species in rows" :key="species.id">
-            <td scope="row">
-              <router-link :to="`species/${species.slug}`">{{ species.name }}</router-link>
-            </td>
-            <td>{{ species.classification }}</td>
-            <td>{{ species.language }}</td>
-            <td><span v-if="species.averageHeight">{{ species.averageHeight }}cm</span></td>
-            <td><span v-if="species.averageLifespan">{{ species.averageLifespan }} years</span></td>
-          </tr>
-        </template>
-      </data-table>
-    </div>
+    <data-table
+      v-if="count"
+      :cols="cols"
+      :data="species"
+      :order="order"
+      :page="page"
+      :page-size="pageSize"
+      category="species"
+      @set-order="setOrder"
+    >
+      <template slot-scope="{ rows }">
+        <tr v-for="species in rows" :key="species.id">
+          <td scope="row">
+            <router-link :to="`species/${species.slug}`">{{ species.name }}</router-link>
+          </td>
+          <td>{{ species.classification }}</td>
+          <td>{{ species.language }}</td>
+          <td><span v-if="species.averageHeight">{{ species.averageHeight }}cm</span></td>
+          <td><span v-if="species.averageLifespan">{{ species.averageLifespan }} years</span></td>
+        </tr>
+      </template>
+    </data-table>
 
     <loading-spinner v-if="loading"/>
   </div>
