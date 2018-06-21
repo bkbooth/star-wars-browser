@@ -13,31 +13,29 @@
       @set-page-size="setPageSize"
     />
 
-    <div v-if="count" class="table-responsive">
-      <data-table
-        :cols="cols"
-        :data="starships"
-        :order="order"
-        :page="page"
-        :page-size="pageSize"
-        category="starships"
-        class="table table-striped table-hover"
-        @set-order="setOrder"
-      >
-        <template slot-scope="{ rows }">
-          <tr v-for="starship in rows" :key="starship.id">
-            <td scope="row">
-              <router-link :to="`starships/${starship.slug}`">{{ starship.name }}</router-link>
-            </td>
-            <td>{{ starship.class }}</td>
-            <td><span v-if="starship.cost != null">€{{ starship.cost | number }}</span></td>
-            <td><span v-if="starship.length != null">{{ starship.length | number }}m</span></td>
-            <td><span v-if="starship.crew != null">{{ starship.crew | number }}</span></td>
-            <td><span v-if="starship.passengers != null">{{ starship.passengers | number }}</span></td>
-          </tr>
-        </template>
-      </data-table>
-    </div>
+    <data-table
+      v-if="count"
+      :cols="cols"
+      :data="starships"
+      :order="order"
+      :page="page"
+      :page-size="pageSize"
+      category="starships"
+      @set-order="setOrder"
+    >
+      <template slot-scope="{ rows }">
+        <tr v-for="starship in rows" :key="starship.id">
+          <td scope="row">
+            <router-link :to="`starships/${starship.slug}`">{{ starship.name }}</router-link>
+          </td>
+          <td>{{ starship.class }}</td>
+          <td><span v-if="starship.cost != null">€{{ starship.cost | number }}</span></td>
+          <td><span v-if="starship.length != null">{{ starship.length | number }}m</span></td>
+          <td><span v-if="starship.crew != null">{{ starship.crew | number }}</span></td>
+          <td><span v-if="starship.passengers != null">{{ starship.passengers | number }}</span></td>
+        </tr>
+      </template>
+    </data-table>
 
     <loading-spinner v-if="loading"/>
   </div>

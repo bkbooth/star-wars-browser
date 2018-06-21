@@ -13,30 +13,28 @@
       @set-page-size="setPageSize"
     />
 
-    <div v-if="count" class="table-responsive">
-      <data-table
-        :cols="cols"
-        :data="films"
-        :order="order"
-        :page="page"
-        :page-size="pageSize"
-        category="films"
-        class="table table-striped table-hover"
-        @set-order="setOrder"
-      >
-        <template slot-scope="{ rows }">
-          <tr v-for="film in rows" :key="film.id">
-            <td scope="row">{{ film.episodeId | romanize }}</td>
-            <td>
-              <router-link :to="`films/${film.slug}`">{{ film.title }}</router-link>
-            </td>
-            <td>{{ film.releaseDate | date('Do MMM YYYY') }}</td>
-            <td>{{ film.director }}</td>
-            <td>{{ film.producer }}</td>
-          </tr>
-        </template>
-      </data-table>
-    </div>
+    <data-table
+      v-if="count"
+      :cols="cols"
+      :data="films"
+      :order="order"
+      :page="page"
+      :page-size="pageSize"
+      category="films"
+      @set-order="setOrder"
+    >
+      <template slot-scope="{ rows }">
+        <tr v-for="film in rows" :key="film.id">
+          <td scope="row">{{ film.episodeId | romanize }}</td>
+          <td>
+            <router-link :to="`films/${film.slug}`">{{ film.title }}</router-link>
+          </td>
+          <td>{{ film.releaseDate | date('Do MMM YYYY') }}</td>
+          <td>{{ film.director }}</td>
+          <td>{{ film.producer }}</td>
+        </tr>
+      </template>
+    </data-table>
 
     <loading-spinner v-if="loading"/>
   </div>

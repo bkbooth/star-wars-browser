@@ -13,31 +13,29 @@
       @set-page-size="setPageSize"
     />
 
-    <div v-if="count" class="table-responsive">
-      <data-table
-        :cols="cols"
-        :data="vehicles"
-        :order="order"
-        :page="page"
-        :page-size="pageSize"
-        category="vehicles"
-        class="table table-striped table-hover"
-        @set-order="setOrder"
-      >
-        <template slot-scope="{ rows }">
-          <tr v-for="vehicle in rows" :key="vehicle.id">
-            <td scope="row">
-              <router-link :to="`vehicles/${vehicle.slug}`">{{ vehicle.name }}</router-link>
-            </td>
-            <td>{{ vehicle.class }}</td>
-            <td><span v-if="vehicle.cost">€{{ vehicle.cost | number }}</span></td>
-            <td><span v-if="vehicle.length">{{ vehicle.length | number }}m</span></td>
-            <td><span v-if="vehicle.crew != null">{{ vehicle.crew | number }}</span></td>
-            <td><span v-if="vehicle.passengers != null">{{ vehicle.passengers | number }}</span></td>
-          </tr>
-        </template>
-      </data-table>
-    </div>
+    <data-table
+      v-if="count"
+      :cols="cols"
+      :data="vehicles"
+      :order="order"
+      :page="page"
+      :page-size="pageSize"
+      category="vehicles"
+      @set-order="setOrder"
+    >
+      <template slot-scope="{ rows }">
+        <tr v-for="vehicle in rows" :key="vehicle.id">
+          <td scope="row">
+            <router-link :to="`vehicles/${vehicle.slug}`">{{ vehicle.name }}</router-link>
+          </td>
+          <td>{{ vehicle.class }}</td>
+          <td><span v-if="vehicle.cost">€{{ vehicle.cost | number }}</span></td>
+          <td><span v-if="vehicle.length">{{ vehicle.length | number }}m</span></td>
+          <td><span v-if="vehicle.crew != null">{{ vehicle.crew | number }}</span></td>
+          <td><span v-if="vehicle.passengers != null">{{ vehicle.passengers | number }}</span></td>
+        </tr>
+      </template>
+    </data-table>
 
     <loading-spinner v-if="loading"/>
   </div>
