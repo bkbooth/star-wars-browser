@@ -1,4 +1,4 @@
-import validateQueryParams from '../utils/validate-query-params'
+import { validateQueryParams } from '../utils/validate-query-params'
 
 export default [
   {

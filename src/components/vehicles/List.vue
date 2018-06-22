@@ -9,8 +9,8 @@
       :number-of-items="vehicles.length"
       :page="page"
       :page-size="pageSize"
-      @set-page="setPage"
-      @set-page-size="setPageSize"
+      @set-page="onSetPage"
+      @set-page-size="onSetPageSize"
     />
 
     <data-table
@@ -21,7 +21,7 @@
       :page="page"
       :page-size="pageSize"
       category="vehicles"
-      @set-order="setOrder"
+      @set-order="onSetOrder"
     >
       <template slot-scope="{ rows }">
         <tr v-for="vehicle in rows" :key="vehicle.id">
@@ -43,10 +43,9 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex'
+import { listViewMethods } from '../../utils/list-view-methods'
 import DataTable from '@/components/ui/DataTable'
 import Paginator from '@/components/ui/Paginator'
-import buildOrderBy from '../../utils/build-order-by'
-import updateQueryParams from '../../utils/update-query-params'
 
 export default {
   components: {
@@ -81,17 +80,6 @@ export default {
   created() {
     this.$store.dispatch('vehicles/loadMany')
   },
-  methods: {
-    setOrder(fieldName, direction) {
-      let orderBy = buildOrderBy(fieldName, direction)
-      this.$router.push({ query: updateQueryParams(this.$route.query, { orderBy }) })
-    },
-    setPage(page) {
-      this.$router.push({ query: updateQueryParams(this.$route.query, { page }) })
-    },
-    setPageSize(pageSize) {
-      this.$router.push({ query: updateQueryParams(this.$route.query, { pageSize }) })
-    },
-  },
+  methods: listViewMethods,
 }
 </script>

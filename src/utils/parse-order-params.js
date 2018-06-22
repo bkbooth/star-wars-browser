@@ -11,7 +11,7 @@
  *
  * @returns {object}
  */
-export default function parseOrderParams(orderParams) {
+export function parseOrderParams(orderParams) {
   let orderParts = orderParams.split(',')
   let fields = orderParts.map(part => ['-', '+'].includes(part[0]) ? part.slice(1) : part)
   let orders = orderParts.map(part => part[0] === '-' ? 'desc' : 'asc')

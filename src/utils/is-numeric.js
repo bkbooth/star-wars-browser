@@ -5,6 +5,6 @@
  *
  * @returns {boolean}
  */
-export default function isNumeric(value) {
+export function isNumeric(value) {
   return !isNaN(parseFloat(value)) && isFinite(value)
 }
