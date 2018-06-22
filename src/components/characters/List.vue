@@ -83,7 +83,7 @@ export default {
   },
   methods: {
     setOrder(fieldName, direction) {
-      let orderBy = buildOrderBy(fieldName, direction, 'episodeId')
+      let orderBy = buildOrderBy(fieldName, direction)
       this.$router.push({ query: updateQueryParams(this.$route.query, { orderBy }) })
     },
     setPage(page) {
