@@ -13,6 +13,7 @@
           <th
             v-for="col in cols"
             :key="col.field"
+            :style="{ width: col.width || 'auto' }"
             scope="col"
             class="whitespace-no-wrap"
           >

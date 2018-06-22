@@ -28,7 +28,7 @@
           <td scope="row">
             <router-link :to="`characters/${character.slug}`">{{ character.name }}</router-link>
           </td>
-          <td><gender-icon :gender="character.gender"/></td>
+          <td class="text-center"><gender-icon :gender="character.gender"/></td>
           <td><span v-if="character.birthYear != null">{{ character.birthYear | birthYear }}</span></td>
           <td><span v-if="character.height">{{ character.height }}cm</span></td>
           <td><span v-if="character.mass">{{ character.mass }}kg</span></td>
@@ -60,13 +60,27 @@ export default {
   },
   data() {
     return {
-      cols: [
-        { field: 'name', label: 'Name' },
-        { field: 'gender', label: 'Gender' },
-        { field: 'birthYear', label: 'Birth Year', info: 'BBY = before the Battle of Yavin, ABY = after the Battle of Yavin' },
-        { field: 'height', label: 'Height' },
-        { field: 'mass', label: 'Mass' },
-      ],
+      cols: [{
+        field: 'name',
+        label: 'Name',
+      }, {
+        field: 'gender',
+        label: 'Gender',
+        width: '100px',
+      }, {
+        field: 'birthYear',
+        label: 'Birth Year',
+        info: 'BBY = before the Battle of Yavin\nABY = after the Battle of Yavin',
+        width: '145px',
+      }, {
+        field: 'height',
+        label: 'Height',
+        width: '95px',
+      }, {
+        field: 'mass',
+        label: 'Mass',
+        width: '85px',
+      }],
     }
   },
   computed: {
