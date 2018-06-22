@@ -4,6 +4,6 @@
  * @param {Object} currentParams
  * @param {Object} newParams
  */
-export default function updateQueryParams(currentParams, newParams) {
+export function mergeQueryParams(currentParams, newParams) {
   return Object.assign({}, currentParams, newParams)
 }

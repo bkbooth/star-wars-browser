@@ -27,7 +27,7 @@
 
     <label class="flex-grow text-right ml-3">
       <span class="hidden sm:inline text-grey-dark mr-1">Per Page</span>
-      <select :value="pageSize" @input="setPageSize">
+      <select :value="pageSize" @input="$emit('set-page-size', Number($event.target.value))">
         <option>10</option>
         <option>20</option>
         <option>50</option>
@@ -53,12 +53,6 @@ export default {
     },
     pages() {
       return range(1, this.numberOfPages + 1)
-    },
-  },
-  methods: {
-    setPageSize($event) {
-      this.$emit('set-page-size', Number($event.target.value))
-      this.$emit('set-page', undefined)
     },
   },
 }

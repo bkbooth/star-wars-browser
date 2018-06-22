@@ -1,5 +1,5 @@
-import isNumeric from '../utils/is-numeric'
-import updateQueryParams from '../utils/update-query-params'
+import { isNumeric } from '../utils/is-numeric'
+import { mergeQueryParams } from '../utils/merge-query-params'
 
 /**
  * Validate the page and pageSize query params are numeric
@@ -8,14 +8,14 @@ import updateQueryParams from '../utils/update-query-params'
  * @param {Route} from
  * @param {Function} next
  */
-export default function validateQueryParams(to, from, next) {
+export function validateQueryParams(to, from, next) {
   let query = to.query
 
   if (to.query.page != null && !isNumeric(to.query.page)) {
-    query = updateQueryParams(query, { page: undefined })
+    query = mergeQueryParams(query, { page: undefined })
   }
   if (to.query.pageSize != null && !isNumeric(to.query.pageSize)) {
-    query = updateQueryParams(query, { pageSize: undefined })
+    query = mergeQueryParams(query, { pageSize: undefined })
   }
 
   if (query === to.query) next()

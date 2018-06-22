@@ -38,7 +38,7 @@
 import orderBy from 'lodash/orderBy'
 import InfoTip from '@/components/ui/InfoTip'
 import OrderIcon from '@/components/ui/OrderIcon'
-import parseOrderParams from '../../utils/parse-order-params'
+import { parseOrderParams } from '../../utils/parse-order-params'
 import { CATEGORIES } from '../../utils/constants'
 
 export default {
