@@ -78,6 +78,6 @@ export default {
   created() {
     this.$store.dispatch('species/loadMany')
   },
-  methods: listViewMethods(),
+  methods: listViewMethods,
 }
 </script>

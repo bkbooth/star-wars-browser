@@ -21,6 +21,7 @@
       :page="page"
       :page-size="pageSize"
       category="films"
+      default-order-field="episodeId"
       @set-order="onSetOrder"
     >
       <template slot-scope="{ rows }">
@@ -78,6 +79,6 @@ export default {
   created() {
     this.$store.dispatch('films/loadMany')
   },
-  methods: listViewMethods({ defaultOrderField: 'episodeId' }),
+  methods: listViewMethods,
 }
 </script>

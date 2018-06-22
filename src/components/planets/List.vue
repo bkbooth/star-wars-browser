@@ -78,6 +78,6 @@ export default {
   created() {
     this.$store.dispatch('planets/loadMany')
   },
-  methods: listViewMethods(),
+  methods: listViewMethods,
 }
 </script>

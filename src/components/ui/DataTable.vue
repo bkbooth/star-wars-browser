@@ -56,6 +56,7 @@ export default {
     cols: { type: Array, required: true },
     data: { type: Array, required: true },
     order: { type: String, required: true },
+    defaultOrderField: { type: String, default: 'name' },
     page: { type: Number, default: 1 },
     pageSize: { type: Number, default: 20 },
   },
@@ -65,6 +66,11 @@ export default {
       return this.allRows.slice(startIndex, startIndex + this.pageSize)
     },
     allRows() {
+      let orderByParams = this.orderByParams
+      if (!orderByParams.fields.includes(this.defaultOrderField)) {
+        orderByParams.fields.push(this.defaultOrderField)
+        orderByParams.orders.push('asc')
+      }
       return orderBy(this.data, this.orderByParams.fields, this.orderByParams.orders)
     },
     orderByParams() {

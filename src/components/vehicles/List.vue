@@ -80,6 +80,6 @@ export default {
   created() {
     this.$store.dispatch('vehicles/loadMany')
   },
-  methods: listViewMethods(),
+  methods: listViewMethods,
 }
 </script>
