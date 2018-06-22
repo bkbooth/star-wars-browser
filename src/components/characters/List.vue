@@ -70,7 +70,10 @@ export default {
       }, {
         field: 'birthYear',
         label: 'Birth Year',
-        info: 'BBY = before the Battle of Yavin\nABY = after the Battle of Yavin',
+        info: `
+          <b>BBY</b> - before the Battle of Yavin<br>
+          <b>ABY</b> - after the Battle of Yavin
+        `,
         width: '145px',
       }, {
         field: 'height',
