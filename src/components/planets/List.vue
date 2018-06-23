@@ -58,13 +58,27 @@ export default {
   },
   data() {
     return {
-      cols: [
-        { field: 'name', label: 'Name' },
-        { field: 'diameter', label: 'Size', info: 'Diameter in kilometers' },
-        { field: 'population', label: 'Population' },
-        { field: 'climate', label: 'Climate' },
-        { field: 'terrain', label: 'Terrain' },
-      ],
+      cols: [{
+        field: 'name',
+        label: 'Name',
+      }, {
+        field: 'diameter',
+        label: 'Size',
+        info: 'Diameter in kilometers',
+        width: '106px',
+      }, {
+        field: 'population',
+        label: 'Population',
+        width: '166px',
+      }, {
+        field: 'climate',
+        label: 'Climate',
+        width: '206px',
+      }, {
+        field: 'terrain',
+        label: 'Terrain',
+        width: '322px',
+      }],
     }
   },
   computed: {

@@ -59,14 +59,33 @@ export default {
   },
   data() {
     return {
-      cols: [
-        { field: 'name', label: 'Name' },
-        { field: 'class', label: 'Class' },
-        { field: 'cost', label: 'Cost', info: 'Cost in galactic credits' },
-        { field: 'length', label: 'Length' },
-        { field: 'crew', label: 'Crew', info: 'Personnel required to run or pilot the starship' },
-        { field: 'passengers', label: 'Passengers', info: 'Non-essential people for transport' },
-      ],
+      cols: [{
+        field: 'name',
+        label: 'Name',
+      }, {
+        field: 'class',
+        label: 'Class',
+        width: '265px',
+      }, {
+        field: 'cost',
+        label: 'Cost',
+        info: 'Cost in galactic credits',
+        width: '176px',
+      }, {
+        field: 'length',
+        label: 'Length',
+        width: '102px',
+      }, {
+        field: 'crew',
+        label: 'Crew',
+        info: 'Personnel required to run or pilot the starship',
+        width: '108px',
+      }, {
+        field: 'passengers',
+        label: 'Passengers',
+        info: 'Non-essential people for transport',
+        width: '158px',
+      }],
     }
   },
   computed: {

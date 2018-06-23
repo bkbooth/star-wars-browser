@@ -59,13 +59,26 @@ export default {
   },
   data() {
     return {
-      cols: [
-        { field: 'episodeId', label: '#' },
-        { field: 'title', label: 'Title' },
-        { field: 'releaseDate', label: 'Released' },
-        { field: 'director', label: 'Director' },
-        { field: 'producer', label: 'Producer' },
-      ],
+      cols: [{
+        field: 'episodeId',
+        label: '#',
+        width: '55px',
+      }, {
+        field: 'title',
+        label: 'Title',
+      }, {
+        field: 'releaseDate',
+        label: 'Released',
+        width: '136px',
+      }, {
+        field: 'director',
+        label: 'Director',
+        width: '160px',
+      }, {
+        field: 'producer',
+        label: 'Producer',
+        width: '402px',
+      }],
     }
   },
   computed: {
