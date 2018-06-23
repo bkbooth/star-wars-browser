@@ -58,13 +58,26 @@ export default {
   },
   data() {
     return {
-      cols: [
-        { field: 'name', label: 'Name' },
-        { field: 'classification', label: 'Classification' },
-        { field: 'language', label: 'Language' },
-        { field: 'averageHeight', label: '~Height' },
-        { field: 'averageLifespan', label: '~Lifespan' },
-      ],
+      cols: [{
+        field: 'name',
+        label: 'Name',
+      }, {
+        field: 'classification',
+        label: 'Classification',
+        width: '150px',
+      }, {
+        field: 'language',
+        label: 'Language',
+        width: '122px',
+      }, {
+        field: 'averageHeight',
+        label: '~Height',
+        width: '106px',
+      }, {
+        field: 'averageLifespan',
+        label: '~Lifespan',
+        width: '122px',
+      }],
     }
   },
   computed: {
