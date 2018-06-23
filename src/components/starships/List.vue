@@ -29,7 +29,10 @@
             <router-link :to="`starships/${starship.slug}`">{{ starship.name }}</router-link>
           </td>
           <td>{{ starship.class }}</td>
-          <td><span v-if="starship.cost != null">€{{ starship.cost | number }}</span></td>
+          <td><span v-if="starship.cost != null">
+            <img src="../../assets/galactic-credit-symbol.svg" class="w-2 -mr-1">
+            {{ starship.cost | number }}
+          </span></td>
           <td><span v-if="starship.length != null">{{ starship.length | number }}m</span></td>
           <td><span v-if="starship.crew != null">{{ starship.crew | number }}</span></td>
           <td><span v-if="starship.passengers != null">{{ starship.passengers | number }}</span></td>
