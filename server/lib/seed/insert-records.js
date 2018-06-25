@@ -1,4 +1,4 @@
-const objectify = require('../utils/objectify')
+const objectify = require('../../utils/objectify')
 
 module.exports = (
   { films, planets, species, people, starships, vehicles },

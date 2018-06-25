@@ -2,7 +2,7 @@ const path = require('path')
 const Sequelize = require('sequelize')
 const log = require('debug')('seed:db')
 
-const DB_PATH = path.join(__dirname, '..', 'data', 'db.sqlite')
+const DB_PATH = path.join(__dirname, '..', '..', 'data', 'db.sqlite')
 
 module.exports = async function() {
   // Setup the Sequelize database
@@ -13,7 +13,7 @@ module.exports = async function() {
   })
 
   // Initialize all models
-  let models = require('../models')(sequelize)
+  let models = require('../../models')(sequelize)
 
   log('Initializing database...')
   await sequelize.sync({ force: true })

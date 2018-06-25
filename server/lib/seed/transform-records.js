@@ -1,4 +1,4 @@
-const transforms = require('../transforms')
+const transforms = require('../../transforms')
 
 module.exports = ({ films, planets, species, people, starships, vehicles }) =>
   Promise.resolve({
