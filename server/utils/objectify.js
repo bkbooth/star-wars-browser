@@ -1,9 +1,10 @@
 /**
  * Maps an array of resource objects to an object with named resources
  *
- * @param {object[]} resources
+ * @param {Object[]} resources
  *
- * @returns {object}
+ * @returns {Object}
  */
-module.exports = ([films, planets, species, people, starships, vehicles]) =>
-  ({ films, planets, species, people, starships, vehicles })
+module.exports = function objectify([films, planets, species, people, starships, vehicles]) {
+  return { films, planets, species, people, starships, vehicles }
+}

@@ -1,8 +1,8 @@
 const pick = require('lodash/pick')
 const createSlug = require('../utils/create-slug')
+const getSwapiId = require('../utils/get-swapi-id')
 const nullifyUnknown = require('../utils/nullify-unknown')
 const parseBirthYear = require('../utils/parse-birth-year')
-const { getSwapiId } = require('../utils/swapi')
 
 module.exports = (person) => nullifyUnknown({
   ...pick(person, [

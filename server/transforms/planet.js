@@ -1,8 +1,8 @@
 const first = require('lodash/first')
 const pick = require('lodash/pick')
 const createSlug = require('../utils/create-slug')
+const getSwapiId = require('../utils/get-swapi-id')
 const nullifyUnknown = require('../utils/nullify-unknown')
-const { getSwapiId } = require('../utils/swapi')
 
 module.exports = (planet) => nullifyUnknown({
   ...pick(planet, [
