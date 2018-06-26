@@ -1,5 +1,6 @@
-const camelCase = require('lodash/camelCase')
 const express = require('express')
+const camelCase = require('lodash/camelCase')
+const pickBy = require('lodash/pickBy')
 const HttpError = require('./http-error')
 
 module.exports = function createResource(Model) {
@@ -32,6 +33,7 @@ module.exports = function createResource(Model) {
   router.get('/', (req, res, next) => {
     Model
       .findAll({
+        where: parseWhereQuery(req.query),
         order: parseOrderQuery(req.query.order),
         limit: req.query.limit || req.query.count || null,
       })
@@ -45,6 +47,7 @@ module.exports = function createResource(Model) {
     router.get(`/:recordId/${association}`, (req, res, next) => {
       let methodName = camelCase(`get ${association}`)
       req.record[methodName]({
+        where: parseWhereQuery(req.query),
         order: parseOrderQuery(req.query.order),
         limit: req.query.limit || req.query.count || null,
       })
@@ -54,6 +57,11 @@ module.exports = function createResource(Model) {
   })
 
   return router
+
+  function parseWhereQuery(queryParams = {}) {
+    let modelAttributes = Object.keys(Model.attributes)
+    return pickBy(queryParams, (value, key) => modelAttributes.includes(key))
+  }
 
   function parseOrderQuery(orderQuery) {
     if (orderQuery == null) return [['swapiId']]
