@@ -22,6 +22,7 @@ app.use(cors({ origin: CLIENT_ORIGIN }))
 let sequelize = new Sequelize({
   dialect: 'sqlite',
   storage: DB_PATH,
+  operatorsAliases: false,
   logging: (message) => debug('db')(message),
 })
 let {
