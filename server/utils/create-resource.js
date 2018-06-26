@@ -19,6 +19,7 @@ module.exports = function createResource(Model) {
     Model
       .findAll({
         order: parseOrderQuery(req.query.order),
+        limit: req.query.limit || req.query.count || null,
       })
       .then(records => res.status(200).json(records))
       .catch(err => next(err))
