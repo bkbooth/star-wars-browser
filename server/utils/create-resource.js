@@ -19,17 +19,6 @@ module.exports = function createResource(Model) {
       .catch(err => next(err))
   })
 
-  /**
-   * Model {
-   *   tableName, // eg. 'people'
-   *   options,
-   *   attributes,
-   *   associations,
-   * }
-   *
-   * Model.options.name // eg. { plural: 'people', singular, 'person' }
-   */
-
   router.get('/', (req, res, next) => {
     Model
       .findAll({
