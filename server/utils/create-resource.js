@@ -1,9 +1,10 @@
 const express = require('express')
 const camelCase = require('lodash/camelCase')
 const pickBy = require('lodash/pickBy')
+const Sequelize = require('sequelize')
 const HttpError = require('./http-error')
 
-module.exports = function createResource(Model) {
+module.exports = function createResource(Model, { searchAttributes }) {
   const router = express.Router()
 
   router.param('recordId', (req, res, next, recordId) => {
@@ -48,8 +49,17 @@ module.exports = function createResource(Model) {
   return router
 
   function parseWhereQuery(queryParams = {}) {
+    if (queryParams.q != null) return parseSearchQuery(queryParams.q)
     let modelAttributes = Object.keys(Model.attributes)
     return pickBy(queryParams, (value, key) => modelAttributes.includes(key))
+  }
+
+  function parseSearchQuery(searchQuery) {
+    return {
+      [Sequelize.Op.or]: searchAttributes.map(attribute => ({
+        [attribute]: { [Sequelize.Op.like]: `%${searchQuery}%` },
+      })),
+    }
   }
 
   function parseOrderQuery(orderQuery) {

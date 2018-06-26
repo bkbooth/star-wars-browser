@@ -35,12 +35,12 @@ let {
 } = require('../models')(sequelize)
 
 // Setup resource endpoints
-app.use(`${API_BASE}/films`, createResource(Film))
-app.use(`${API_BASE}/people`, createResource(Person))
-app.use(`${API_BASE}/planets`, createResource(Planet))
-app.use(`${API_BASE}/species`, createResource(Species))
-app.use(`${API_BASE}/starships`, createResource(Starship))
-app.use(`${API_BASE}/vehicles`, createResource(Vehicle))
+app.use(`${API_BASE}/films`, createResource(Film, { searchAttributes: ['title'] }))
+app.use(`${API_BASE}/people`, createResource(Person, { searchAttributes: ['name'] }))
+app.use(`${API_BASE}/planets`, createResource(Planet, { searchAttributes: ['name'] }))
+app.use(`${API_BASE}/species`, createResource(Species, { searchAttributes: ['name'] }))
+app.use(`${API_BASE}/starships`, createResource(Starship, { searchAttributes: ['name'] }))
+app.use(`${API_BASE}/vehicles`, createResource(Vehicle, { searchAttributes: ['name'] }))
 
 // Catch 404 and forward to error handler
 app.use((req, res, next) => next(new HttpError('Not Found', 404)))
