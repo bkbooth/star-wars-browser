@@ -1,3 +1,4 @@
+const camelCase = require('lodash/camelCase')
 const express = require('express')
 const HttpError = require('./http-error')
 
@@ -39,6 +40,18 @@ module.exports = function createResource(Model) {
   })
 
   router.get('/:recordId', (req, res, _next) => res.status(200).json(req.record))
+
+  Object.keys(Model.associations).forEach(association => {
+    router.get(`/:recordId/${association}`, (req, res, next) => {
+      let methodName = camelCase(`get ${association}`)
+      req.record[methodName]({
+        order: parseOrderQuery(req.query.order),
+        limit: req.query.limit || req.query.count || null,
+      })
+        .then(records => res.status(200).json(records))
+        .catch(err => next(err))
+    })
+  })
 
   return router
 
