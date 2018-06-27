@@ -11,7 +11,8 @@
   },
   "files": [
     "lib/server.js",
-    "utils/random-sort-milestone.js",
+    "utils/create-resource.js",
+    "utils/http-error.js",
     "models",
     "data/db.sqlite"
   ]
