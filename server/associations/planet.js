@@ -1,5 +1,5 @@
 const log = require('debug')('seed:associations')
-const { getSwapiId } = require('../utils/swapi')
+const getSwapiId = require('../utils/get-swapi-id')
 
 module.exports = (swapiPlanets, { Planet, Film }) => {
   log('Associating planets with films...')

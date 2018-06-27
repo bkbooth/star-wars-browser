@@ -1,8 +1,8 @@
 const pick = require('lodash/pick')
 const createSlug = require('../utils/create-slug')
-const nullifyUnknown = require('../utils/nullify-unknown')
+const getSwapiId = require('../utils/get-swapi-id')
 const isNumeric = require('../utils/is-numeric')
-const { getSwapiId } = require('../utils/swapi')
+const nullifyUnknown = require('../utils/nullify-unknown')
 
 module.exports = (species) => nullifyUnknown({
   ...pick(species, [

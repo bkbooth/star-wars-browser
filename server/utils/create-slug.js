@@ -1,5 +1,12 @@
-// from https://stackoverflow.com/a/5782563
-module.exports = (str) => {
+/**
+ * Create a URL slug from an input string
+ * from https://stackoverflow.com/a/5782563
+ *
+ * @param {string} str
+ *
+ * @returns {string}
+ */
+module.exports = function createSlug(str) {
   str = str
     .replace(/^\s+|\s+$/g, '') // trim
     .toLowerCase()

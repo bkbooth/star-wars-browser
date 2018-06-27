@@ -8,7 +8,7 @@
  *
  * @returns {number}
  */
-module.exports = birthYear => {
+module.exports = function parseBirthYear(birthYear) {
   if (birthYear == null || birthYear === '' || birthYear === 'unknown') return null
 
   let value = parseFloat(birthYear)

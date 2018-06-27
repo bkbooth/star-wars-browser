@@ -7,10 +7,6 @@ const nth = require('lodash/nth')
  *
  * @returns {string}
  */
-function getSwapiId(swapiUrl) {
+module.exports = function getSwapiId(swapiUrl) {
   return nth(swapiUrl.split('/'), -2)
-}
-
-module.exports = {
-  getSwapiId,
 }

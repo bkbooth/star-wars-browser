@@ -1,8 +1,8 @@
 const fs = require('fs')
 const path = require('path')
-const objectify = require('../utils/objectify')
+const objectify = require('../../utils/objectify')
 
-const BASE_PATH = path.join(__dirname, '..', 'data')
+const BASE_PATH = path.join(__dirname, '..', '..', 'data')
 
 module.exports = (recordTypes) =>
   Promise.all(recordTypes.map(loadRecords))
