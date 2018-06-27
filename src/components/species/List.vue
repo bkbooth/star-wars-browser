@@ -31,7 +31,9 @@
           <td>{{ species.classification }}</td>
           <td>{{ species.language }}</td>
           <td><span v-if="species.averageHeight">{{ species.averageHeight }}cm</span></td>
-          <td><span v-if="species.averageLifespan">{{ species.averageLifespan }} years</span></td>
+          <td class="whitespace-no-wrap"><span v-if="species.averageLifespan">
+            {{ species.averageLifespan }} years
+          </span></td>
         </tr>
       </template>
     </data-table>
