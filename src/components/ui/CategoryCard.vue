@@ -1,6 +1,6 @@
 <template>
-  <div class="flex flex-col bg-white shadow border rounded overflow-hidden">
-    <div class="flex-no-shrink bg-grey-lighter p-3 border-b">
+  <div class="flex flex-col bg-white shadow-md rounded overflow-hidden">
+    <div class="flex-no-shrink bg-grey-light p-3">
       <router-link :to="category" class="text-grey-darkest font-starjedi text-lg">
         <c-icon :category="category"/>
         {{ category | capitalize }}
@@ -16,7 +16,7 @@
         </div>
 
         <ul v-if="count" class="list-reset">
-          <li v-for="item in items" :key="item.id" class="py-2 border-b">
+          <li v-for="item in items" :key="item.id" class="pt-2 pb-3">
             <router-link :to="`${category}/${item.slug}`">
               <fa-icon icon="chevron-circle-right" transform="shrink-4 down-1"/>
               {{ item.name || item.title }}
@@ -28,7 +28,7 @@
       </div>
     </div>
 
-    <div class="flex-no-shrink bg-grey-lighter px-3 py-2 border-t text-right">
+    <div class="flex-no-shrink bg-grey-light px-3 py-2 text-right">
       <router-link :to="category" class="text-grey-darkest">
         view all
         <fa-icon icon="chevron-circle-right" transform="shrink-2"/>

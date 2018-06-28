@@ -5,7 +5,7 @@
     <div id="content" class="flex-1 p-4 pb-6 lg:px-6">
       <router-view/>
     </div>
-    <app-footer class="flex-no-shrink bg-grey-darker text-grey-lightest text-sm text-right px-4 lg:px-6 py-3 border-t border-grey-dark"/>
+    <app-footer class="flex-no-shrink bg-grey-darker text-grey-lightest text-sm text-right px-4 lg:px-6 py-3"/>
   </div>
 </template>
 
