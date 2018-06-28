@@ -18,7 +18,7 @@
         <ul v-if="count" class="list-reset">
           <li v-for="item in items" :key="item.id" class="pt-2 pb-3">
             <router-link :to="`${category}/${item.slug}`">
-              <fa-icon icon="chevron-circle-right" transform="shrink-4 down-1"/>
+              <fa-icon icon="chevron-circle-right" transform="shrink-3 down-1" class="text-blue"/>
               {{ item.name || item.title }}
             </router-link>
           </li>
