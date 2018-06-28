@@ -8,7 +8,7 @@
       :icon="categoryIcon"
       :rotation="categoryIconRotation"
       fixed-width
-      transform="shrink-2 right-1"
+      transform="shrink-3 right-1"
       class="text-grey-lightest"
     />
   </fa-layers>
