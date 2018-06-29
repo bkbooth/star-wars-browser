@@ -29,7 +29,7 @@
             <router-link :to="`planets/${planet.slug}`">{{ planet.name }}</router-link>
           </td>
           <td><span v-if="planet.diameter">{{ planet.diameter | number }}km</span></td>
-          <td><span v-if="planet.population != null">{{ planet.population | number }}</span></td>
+          <td><span v-if="planet.population != null">{{ planet.population | approx-number }}</span></td>
           <td>{{ planet.climate }}</td>
           <td>{{ planet.terrain }}</td>
         </tr>
@@ -69,7 +69,7 @@ export default {
       }, {
         field: 'population',
         label: 'Population',
-        width: '166px',
+        width: '130px',
       }, {
         field: 'climate',
         label: 'Climate',

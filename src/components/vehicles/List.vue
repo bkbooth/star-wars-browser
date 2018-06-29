@@ -30,8 +30,8 @@
           </td>
           <td>{{ vehicle.class }}</td>
           <td class="whitespace-no-wrap"><span v-if="vehicle.cost">
-            <img src="../../assets/galactic-credit-symbol.svg" class="w-2 -mr-1">
-            {{ vehicle.cost | number }}
+            <img src="../../assets/galactic-credit-symbol.svg" alt="Galactic credits symbol" class="w-2 -mr-1">
+            {{ vehicle.cost | approx-number }}
           </span></td>
           <td><span v-if="vehicle.length">{{ vehicle.length | number }}m</span></td>
           <td><span v-if="vehicle.crew != null">{{ vehicle.crew | number }}</span></td>
@@ -73,7 +73,7 @@ export default {
         field: 'cost',
         label: 'Cost',
         info: 'Cost in galactic credits',
-        width: '105px',
+        width: '102px',
       }, {
         field: 'length',
         label: 'Length',

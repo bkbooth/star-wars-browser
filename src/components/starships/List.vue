@@ -30,8 +30,8 @@
           </td>
           <td>{{ starship.class }}</td>
           <td class="whitespace-no-wrap"><span v-if="starship.cost != null">
-            <img src="../../assets/galactic-credit-symbol.svg" class="w-2 -mr-1">
-            {{ starship.cost | number }}
+            <img src="../../assets/galactic-credit-symbol.svg" alt="Galactic credits symbol" class="w-2 -mr-1">
+            {{ starship.cost | approx-number }}
           </span></td>
           <td><span v-if="starship.length != null">{{ starship.length | number }}m</span></td>
           <td><span v-if="starship.crew != null">{{ starship.crew | number }}</span></td>
@@ -73,7 +73,7 @@ export default {
         field: 'cost',
         label: 'Cost',
         info: 'Cost in galactic credits',
-        width: '176px',
+        width: '102px',
       }, {
         field: 'length',
         label: 'Length',
