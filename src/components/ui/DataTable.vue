@@ -22,7 +22,10 @@
               :field-name="col.field"
               @set-order="onSetOrder"
             />
-            {{ col.label }}
+            <span
+              class="text-sm uppercase font-semibold cursor-pointer"
+              @click="onColLabelClick(col.field)"
+            >{{ col.label }}</span>
             <info-tip v-if="col.info" :content="col.info"/>
           </th>
         </tr>
@@ -79,6 +82,12 @@ export default {
     },
   },
   methods: {
+    onColLabelClick(fieldName) {
+      let direction = this.order.includes(fieldName) && !this.order.includes(`-${fieldName}`)
+        ? 'desc'
+        : 'asc'
+      this.onSetOrder(fieldName, direction)
+    },
     onSetOrder(...args) {
       this.$emit('set-order', ...args)
     },

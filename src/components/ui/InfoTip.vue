@@ -4,7 +4,6 @@
     :title="content"
     icon="info-circle"
     transform="shrink-1"
-    class="ml-1"
   />
 </template>
 
