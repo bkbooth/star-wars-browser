@@ -1,6 +1,6 @@
 <template>
   <div class="table-responsive">
-    <table class="table table-striped table-hover">
+    <table class="table table-striped table-hover m-0">
       <caption>
         List of {{ category }},
         showing {{ (page - 1) * pageSize + 1 }}
