@@ -1,5 +1,5 @@
 <template>
-  <div class="flex max-w-full items-center mb-3">
+  <div class="flex max-w-full items-center">
     <div class="flex-shrink inline-flex bg-white border rounded overflow-hidden shadow">
       <button
         :disabled="page === 1"

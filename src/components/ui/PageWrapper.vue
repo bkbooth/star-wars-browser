@@ -22,7 +22,7 @@ export default {
   props: {
     heroBgColor: {
       type: String,
-      default: 'grey-darkest',
+      default: 'blue-dark',
       validator: value => COLORS.includes(value),
     },
     heroTextColor: {

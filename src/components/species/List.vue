@@ -1,45 +1,55 @@
 <template>
-  <div>
-    <h1 class="font-starjedi"><c-icon category="species"/> Species</h1>
+  <page-wrapper>
+    <template slot="hero">
+      <h1 class="font-starjedi">
+        <c-icon category="species" color="blue-dark"/>
+        Species
+      </h1>
+    </template>
 
-    <alert v-if="error" :message="error"/>
+    <template slot="main">
+      <div class="bg-white rounded-lg shadow-lg my-6 p-6">
+        <alert v-if="error" :message="error"/>
 
-    <paginator
-      v-if="count"
-      :number-of-items="species.length"
-      :page="page"
-      :page-size="pageSize"
-      @set-page="onSetPage"
-      @set-page-size="onSetPageSize"
-    />
+        <paginator
+          v-if="count"
+          :number-of-items="species.length"
+          :page="page"
+          :page-size="pageSize"
+          class="mb-4"
+          @set-page="onSetPage"
+          @set-page-size="onSetPageSize"
+        />
 
-    <data-table
-      v-if="count"
-      :cols="cols"
-      :data="species"
-      :order="order"
-      :page="page"
-      :page-size="pageSize"
-      category="species"
-      @set-order="onSetOrder"
-    >
-      <template slot-scope="{ rows }">
-        <tr v-for="species in rows" :key="species.id">
-          <td scope="row">
-            <router-link :to="`species/${species.slug}`">{{ species.name }}</router-link>
-          </td>
-          <td>{{ species.classification }}</td>
-          <td>{{ species.language }}</td>
-          <td><span v-if="species.averageHeight">{{ species.averageHeight }}cm</span></td>
-          <td class="whitespace-no-wrap"><span v-if="species.averageLifespan">
-            {{ species.averageLifespan }} years
-          </span></td>
-        </tr>
-      </template>
-    </data-table>
+        <data-table
+          v-if="count"
+          :cols="cols"
+          :data="species"
+          :order="order"
+          :page="page"
+          :page-size="pageSize"
+          category="species"
+          @set-order="onSetOrder"
+        >
+          <template slot-scope="{ rows }">
+            <tr v-for="species in rows" :key="species.id">
+              <td scope="row">
+                <router-link :to="`species/${species.slug}`">{{ species.name }}</router-link>
+              </td>
+              <td>{{ species.classification }}</td>
+              <td>{{ species.language }}</td>
+              <td><span v-if="species.averageHeight">{{ species.averageHeight }}cm</span></td>
+              <td class="whitespace-no-wrap"><span v-if="species.averageLifespan">
+                {{ species.averageLifespan }} years
+              </span></td>
+            </tr>
+          </template>
+        </data-table>
 
-    <loading-spinner v-if="loading"/>
-  </div>
+        <loading-spinner v-if="loading"/>
+      </div>
+    </template>
+  </page-wrapper>
 </template>
 
 <script>
