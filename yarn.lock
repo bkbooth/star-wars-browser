@@ -92,31 +92,31 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
-"@fortawesome/fontawesome-common-types@^0.2.0-9":
-  version "0.2.0-9"
-  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.2.0-9.tgz#96cfd9ff7bbc672c476e8566d653ec7495bb9a52"
+"@fortawesome/fontawesome-common-types@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.2.0.tgz#6bcf6481030f59e7ffd1a40a67cd464d47780f6a"
 
-"@fortawesome/fontawesome-svg-core@^1.2.0-14":
-  version "1.2.0-14"
-  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-svg-core/-/fontawesome-svg-core-1.2.0-14.tgz#48100da29b39658fad374ebd1386161ab35af564"
+"@fortawesome/fontawesome-svg-core@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-svg-core/-/fontawesome-svg-core-1.2.0.tgz#b0ec14af25cdc11d38ede7d8c94b89b478ab67ab"
   dependencies:
-    "@fortawesome/fontawesome-common-types" "^0.2.0-9"
+    "@fortawesome/fontawesome-common-types" "^0.2.0"
 
-"@fortawesome/free-brands-svg-icons@^5.1.0-11":
-  version "5.1.0-11"
-  resolved "https://registry.yarnpkg.com/@fortawesome/free-brands-svg-icons/-/free-brands-svg-icons-5.1.0-11.tgz#9912f54452d59786e9abdb9710d36c3da9482032"
+"@fortawesome/free-brands-svg-icons@^5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@fortawesome/free-brands-svg-icons/-/free-brands-svg-icons-5.1.0.tgz#f8a449943784cb59e0400b88cd4f33c81a281328"
   dependencies:
-    "@fortawesome/fontawesome-common-types" "^0.2.0-9"
+    "@fortawesome/fontawesome-common-types" "^0.2.0"
 
-"@fortawesome/free-solid-svg-icons@^5.1.0-11":
-  version "5.1.0-11"
-  resolved "https://registry.yarnpkg.com/@fortawesome/free-solid-svg-icons/-/free-solid-svg-icons-5.1.0-11.tgz#4a346eaada93276edb133b140492e8d7cfa2aa47"
+"@fortawesome/free-solid-svg-icons@^5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@fortawesome/free-solid-svg-icons/-/free-solid-svg-icons-5.1.0.tgz#1a4b43027104d63c7862fd39333f6ed6d8bb2c9a"
   dependencies:
-    "@fortawesome/fontawesome-common-types" "^0.2.0-9"
+    "@fortawesome/fontawesome-common-types" "^0.2.0"
 
-"@fortawesome/vue-fontawesome@^0.1.0-5":
-  version "0.1.0-5"
-  resolved "https://registry.yarnpkg.com/@fortawesome/vue-fontawesome/-/vue-fontawesome-0.1.0-5.tgz#9fc076a895c49807adb4e3969f5d423dff05364f"
+"@fortawesome/vue-fontawesome@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@fortawesome/vue-fontawesome/-/vue-fontawesome-0.1.0.tgz#ff45bb6efe2f585f5faebf174a10b1887c06547b"
 
 "@types/strip-bom@^3.0.0":
   version "3.0.0"
