@@ -1,7 +1,7 @@
 <template>
   <main>
     <portal v-if="!!$slots.hero" to="hero">
-      <div :class="heroColors" class="shadow-inner p-6">
+      <div :class="heroColors" class="shadow-inner px-6 py-4">
         <div class="container mx-auto">
           <slot name="hero"/>
         </div>

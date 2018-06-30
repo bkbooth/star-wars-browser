@@ -1,7 +1,10 @@
 <template>
   <page-wrapper hero-bg-color="red-dark">
     <template slot="hero">
-      <h1 class="font-starjedi"><fa-icon icon="exclamation-triangle"/> Page Not Found</h1>
+      <h1 class="font-starjedi">
+        <fa-icon icon="exclamation-triangle"/>
+        Page Not Found
+      </h1>
     </template>
 
     <template slot="main">
