@@ -7,9 +7,9 @@
     <fa-icon
       :icon="categoryIcon"
       :rotation="categoryIconRotation"
+      :class="`text-${color}`"
       fixed-width
       transform="shrink-3 right-1"
-      class="text-grey-lightest"
     />
   </fa-layers>
 
@@ -24,6 +24,7 @@
 
 <script>
 import isNumber from 'lodash/isNumber'
+import { COLORS } from '../../utils/constants'
 
 const ICON_MAP = {
   films: ['fas', 'film'],
@@ -46,6 +47,11 @@ export default {
       type: String,
       default: 'lg',
       validator: value => ['sm', 'lg'].includes(value),
+    },
+    color: {
+      type: String,
+      default: 'grey-lightest',
+      validator: value => COLORS.includes(value),
     },
     fixedWidth: { type: Boolean, default: false },
     rotation: { type: Number, default: null },

@@ -1,14 +1,22 @@
 <template>
-  <div>
-    <alert v-if="error" :message="error"/>
+  <page-wrapper>
+    <template slot="hero">
+      <h1 class="font-starjedi">
+        <c-icon category="characters" color="blue-dark"/>
+        {{ character.name }}
+      </h1>
+    </template>
 
-    <div v-if="character">
-      <h1 class="font-starjedi"><c-icon category="characters"/> {{ character.name }}</h1>
-      <pre>{{ character }}</pre>
-    </div>
+    <template slot="main">
+      <alert v-if="error" :message="error"/>
 
-    <loading-spinner v-else-if="loading"/>
-  </div>
+      <div v-if="character">
+        <pre>{{ character }}</pre>
+      </div>
+
+      <loading-spinner v-else-if="loading"/>
+    </template>
+  </page-wrapper>
 </template>
 
 <script>

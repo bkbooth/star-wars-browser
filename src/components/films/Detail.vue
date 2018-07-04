@@ -1,18 +1,23 @@
 <template>
-  <div>
-    <alert v-if="error" :message="error"/>
-
-    <div v-if="film">
+  <page-wrapper>
+    <template slot="hero">
       <h1 class="font-starjedi">
-        <c-icon category="films"/>
+        <c-icon category="films" color="blue-dark"/>
         Episode {{ film.episodeId | romanize }}
         - {{ film.title }}
       </h1>
-      <pre>{{ film }}</pre>
-    </div>
+    </template>
 
-    <loading-spinner v-else-if="loading"/>
-  </div>
+    <template slot="main">
+      <alert v-if="error" :message="error"/>
+
+      <div v-if="film">
+        <pre>{{ film }}</pre>
+      </div>
+
+      <loading-spinner v-else-if="loading"/>
+    </template>
+  </page-wrapper>
 </template>
 
 <script>

@@ -1,43 +1,51 @@
 <template>
-  <div>
-    <h1 class="font-starjedi"><c-icon category="characters"/> Characters</h1>
+  <page-wrapper>
+    <template slot="main">
+      <div class="bg-white rounded-lg shadow-lg my-6 p-6">
+        <h3 class="font-starjedi text-grey-darker -mt-1 mb-4">
+          <c-icon category="characters"/>
+          Characters
+        </h3>
 
-    <alert v-if="error" :message="error"/>
+        <alert v-if="error" :message="error"/>
 
-    <paginator
-      v-if="count"
-      :number-of-items="characters.length"
-      :page="page"
-      :page-size="pageSize"
-      @set-page="onSetPage"
-      @set-page-size="onSetPageSize"
-    />
+        <paginator
+          v-if="count"
+          :number-of-items="characters.length"
+          :page="page"
+          :page-size="pageSize"
+          class="mb-4"
+          @set-page="onSetPage"
+          @set-page-size="onSetPageSize"
+        />
 
-    <data-table
-      v-if="count"
-      :cols="cols"
-      :data="characters"
-      :order="order"
-      :page="page"
-      :page-size="pageSize"
-      category="characters"
-      @set-order="onSetOrder"
-    >
-      <template slot-scope="{ rows }">
-        <tr v-for="character in rows" :key="character.id">
-          <td scope="row">
-            <router-link :to="`characters/${character.slug}`">{{ character.name }}</router-link>
-          </td>
-          <td class="text-center"><gender-icon :gender="character.gender"/></td>
-          <td><span v-if="character.birthYear != null">{{ character.birthYear | birthYear }}</span></td>
-          <td><span v-if="character.height">{{ character.height }}cm</span></td>
-          <td><span v-if="character.mass">{{ character.mass }}kg</span></td>
-        </tr>
-      </template>
-    </data-table>
+        <data-table
+          v-if="count"
+          :cols="cols"
+          :data="characters"
+          :order="order"
+          :page="page"
+          :page-size="pageSize"
+          category="characters"
+          @set-order="onSetOrder"
+        >
+          <template slot-scope="{ rows }">
+            <tr v-for="character in rows" :key="character.id">
+              <td scope="row">
+                <router-link :to="`characters/${character.slug}`">{{ character.name }}</router-link>
+              </td>
+              <td class="text-center"><gender-icon :gender="character.gender"/></td>
+              <td><span v-if="character.birthYear != null">{{ character.birthYear | birthYear }}</span></td>
+              <td><span v-if="character.height">{{ character.height }}cm</span></td>
+              <td><span v-if="character.mass">{{ character.mass }}kg</span></td>
+            </tr>
+          </template>
+        </data-table>
 
-    <loading-spinner v-if="loading"/>
-  </div>
+        <loading-spinner v-if="loading"/>
+      </div>
+    </template>
+  </page-wrapper>
 </template>
 
 <script>

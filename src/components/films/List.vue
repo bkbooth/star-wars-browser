@@ -1,44 +1,52 @@
 <template>
-  <div>
-    <h1 class="font-starjedi"><c-icon category="films"/> Films</h1>
+  <page-wrapper>
+    <template slot="main">
+      <div class="bg-white rounded-lg shadow-lg my-6 p-6">
+        <h3 class="font-starjedi text-grey-darker -mt-1 mb-4">
+          <c-icon category="films"/>
+          Films
+        </h3>
 
-    <alert v-if="error" :message="error"/>
+        <alert v-if="error" :message="error"/>
 
-    <paginator
-      v-if="count"
-      :number-of-items="films.length"
-      :page="page"
-      :page-size="pageSize"
-      @set-page="onSetPage"
-      @set-page-size="onSetPageSize"
-    />
+        <paginator
+          v-if="count"
+          :number-of-items="films.length"
+          :page="page"
+          :page-size="pageSize"
+          class="mb-4"
+          @set-page="onSetPage"
+          @set-page-size="onSetPageSize"
+        />
 
-    <data-table
-      v-if="count"
-      :cols="cols"
-      :data="films"
-      :order="order"
-      :page="page"
-      :page-size="pageSize"
-      category="films"
-      default-order-field="episodeId"
-      @set-order="onSetOrder"
-    >
-      <template slot-scope="{ rows }">
-        <tr v-for="film in rows" :key="film.id">
-          <td scope="row">{{ film.episodeId | romanize }}</td>
-          <td>
-            <router-link :to="`films/${film.slug}`">{{ film.title }}</router-link>
-          </td>
-          <td>{{ film.releaseDate | date('Do MMM YYYY') }}</td>
-          <td>{{ film.director }}</td>
-          <td>{{ film.producer }}</td>
-        </tr>
-      </template>
-    </data-table>
+        <data-table
+          v-if="count"
+          :cols="cols"
+          :data="films"
+          :order="order"
+          :page="page"
+          :page-size="pageSize"
+          category="films"
+          default-order-field="episodeId"
+          @set-order="onSetOrder"
+        >
+          <template slot-scope="{ rows }">
+            <tr v-for="film in rows" :key="film.id">
+              <td scope="row">{{ film.episodeId | romanize }}</td>
+              <td>
+                <router-link :to="`films/${film.slug}`">{{ film.title }}</router-link>
+              </td>
+              <td>{{ film.releaseDate | date('Do MMM YYYY') }}</td>
+              <td>{{ film.director }}</td>
+              <td>{{ film.producer }}</td>
+            </tr>
+          </template>
+        </data-table>
 
-    <loading-spinner v-if="loading"/>
-  </div>
+        <loading-spinner v-if="loading"/>
+      </div>
+    </template>
+  </page-wrapper>
 </template>
 
 <script>

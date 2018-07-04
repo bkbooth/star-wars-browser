@@ -1,32 +1,34 @@
 <template>
-  <div>
-    <span v-if="routeName === 'home'">
-      <fa-icon icon="home" transform="shrink-3"/> Home
-    </span>
-    <router-link v-else to="/">
-      <fa-icon icon="home" transform="shrink-3"/> Home
-    </router-link>
-
-    <span v-if="categoryName">
-      ▸
-      <span v-if="isList">
-        <c-icon :category="categoryName" size="sm" transform="shrink-3"/>
-        {{ categoryName | capitalize }}
+  <nav>
+    <div class="container mx-auto">
+      <span v-if="routeName === 'home'">
+        <fa-icon icon="home" transform="shrink-3"/> Home
       </span>
-      <router-link v-else :to="{ name: `${categoryName}.list` }">
-        <c-icon :category="categoryName" size="sm" transform="shrink-3"/>
-        {{ categoryName | capitalize }}
+      <router-link v-else to="/">
+        <fa-icon icon="home" transform="shrink-3"/> Home
       </router-link>
 
-      <span v-if="isDetail">
-        ▸ {{ detailName }}
-      </span>
-    </span>
+      <span v-if="categoryName">
+        ▸
+        <span v-if="isList">
+          <c-icon :category="categoryName" size="sm" transform="shrink-3"/>
+          {{ categoryName | capitalize }}
+        </span>
+        <router-link v-else :to="{ name: `${categoryName}.list` }">
+          <c-icon :category="categoryName" size="sm" transform="shrink-3"/>
+          {{ categoryName | capitalize }}
+        </router-link>
 
-    <span v-if="routeName === 'not-found'">
-      ▸ Page Not Found
-    </span>
-  </div>
+        <span v-if="isDetail">
+          ▸ {{ detailName }}
+        </span>
+      </span>
+
+      <span v-if="routeName === 'not-found'">
+        ▸ Page Not Found
+      </span>
+    </div>
+  </nav>
 </template>
 
 <script>

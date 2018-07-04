@@ -1,47 +1,55 @@
 <template>
-  <div>
-    <h1 class="font-starjedi"><c-icon category="vehicles"/> Vehicles</h1>
+  <page-wrapper>
+    <template slot="main">
+      <div class="bg-white rounded-lg shadow-lg my-6 p-6">
+        <h3 class="font-starjedi text-grey-darker -mt-1 mb-4">
+          <c-icon category="vehicles"/>
+          Vehicles
+        </h3>
 
-    <alert v-if="error" :message="error"/>
+        <alert v-if="error" :message="error"/>
 
-    <paginator
-      v-if="count"
-      :number-of-items="vehicles.length"
-      :page="page"
-      :page-size="pageSize"
-      @set-page="onSetPage"
-      @set-page-size="onSetPageSize"
-    />
+        <paginator
+          v-if="count"
+          :number-of-items="vehicles.length"
+          :page="page"
+          :page-size="pageSize"
+          class="mb-4"
+          @set-page="onSetPage"
+          @set-page-size="onSetPageSize"
+        />
 
-    <data-table
-      v-if="count"
-      :cols="cols"
-      :data="vehicles"
-      :order="order"
-      :page="page"
-      :page-size="pageSize"
-      category="vehicles"
-      @set-order="onSetOrder"
-    >
-      <template slot-scope="{ rows }">
-        <tr v-for="vehicle in rows" :key="vehicle.id">
-          <td scope="row">
-            <router-link :to="`vehicles/${vehicle.slug}`">{{ vehicle.name }}</router-link>
-          </td>
-          <td>{{ vehicle.class }}</td>
-          <td class="whitespace-no-wrap"><span v-if="vehicle.cost">
-            <img src="../../assets/galactic-credit-symbol.svg" alt="Galactic credits symbol" class="w-2 -mr-1">
-            {{ vehicle.cost | approx-number }}
-          </span></td>
-          <td><span v-if="vehicle.length">{{ vehicle.length | number }}m</span></td>
-          <td><span v-if="vehicle.crew != null">{{ vehicle.crew | number }}</span></td>
-          <td><span v-if="vehicle.passengers != null">{{ vehicle.passengers | number }}</span></td>
-        </tr>
-      </template>
-    </data-table>
+        <data-table
+          v-if="count"
+          :cols="cols"
+          :data="vehicles"
+          :order="order"
+          :page="page"
+          :page-size="pageSize"
+          category="vehicles"
+          @set-order="onSetOrder"
+        >
+          <template slot-scope="{ rows }">
+            <tr v-for="vehicle in rows" :key="vehicle.id">
+              <td scope="row">
+                <router-link :to="`vehicles/${vehicle.slug}`">{{ vehicle.name }}</router-link>
+              </td>
+              <td>{{ vehicle.class }}</td>
+              <td class="whitespace-no-wrap"><span v-if="vehicle.cost">
+                <img src="../../assets/galactic-credit-symbol.svg" alt="Galactic credits symbol" class="w-2 -mr-1">
+                {{ vehicle.cost | approx-number }}
+              </span></td>
+              <td><span v-if="vehicle.length">{{ vehicle.length | number }}m</span></td>
+              <td><span v-if="vehicle.crew != null">{{ vehicle.crew | number }}</span></td>
+              <td><span v-if="vehicle.passengers != null">{{ vehicle.passengers | number }}</span></td>
+            </tr>
+          </template>
+        </data-table>
 
-    <loading-spinner v-if="loading"/>
-  </div>
+        <loading-spinner v-if="loading"/>
+      </div>
+    </template>
+  </page-wrapper>
 </template>
 
 <script>

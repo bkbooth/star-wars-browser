@@ -1,14 +1,22 @@
 <template>
-  <div>
-    <alert v-if="error" :message="error"/>
+  <page-wrapper>
+    <template slot="hero">
+      <h1 class="font-starjedi">
+        <c-icon category="planets" color="blue-dark"/>
+        {{ planet.name }}
+      </h1>
+    </template>
 
-    <div v-if="planet">
-      <h1 class="font-starjedi"><c-icon category="planets"/> {{ planet.name }}</h1>
-      <pre>{{ planet }}</pre>
-    </div>
+    <template slot="main">
+      <alert v-if="error" :message="error"/>
 
-    <loading-spinner v-else-if="loading"/>
-  </div>
+      <div v-if="planet">
+        <pre>{{ planet }}</pre>
+      </div>
+
+      <loading-spinner v-else-if="loading"/>
+    </template>
+  </page-wrapper>
 </template>
 
 <script>

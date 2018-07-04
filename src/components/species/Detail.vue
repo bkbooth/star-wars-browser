@@ -1,14 +1,22 @@
 <template>
-  <div>
-    <alert v-if="error" :message="error"/>
+  <page-wrapper>
+    <template slot="hero">
+      <h1 class="font-starjedi">
+        <c-icon category="species" color="blue-dark"/>
+        {{ species.name }}
+      </h1>
+    </template>
 
-    <div v-if="species">
-      <h1 class="font-starjedi"><c-icon category="species"/> {{ species.name }}</h1>
-      <pre>{{ species }}</pre>
-    </div>
+    <template slot="main">
+      <alert v-if="error" :message="error"/>
 
-    <loading-spinner v-else-if="loading"/>
-  </div>
+      <div v-if="species">
+        <pre>{{ species }}</pre>
+      </div>
+
+      <loading-spinner v-else-if="loading"/>
+    </template>
+  </page-wrapper>
 </template>
 
 <script>

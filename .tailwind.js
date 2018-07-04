@@ -930,7 +930,7 @@ module.exports = {
     }),
     require('tailwindcss-tables')({
       tableBorderColor: colors['grey-light'],
-      tableStripedBackgroundColor: colors['grey-lighter'],
+      tableStripedBackgroundColor: colors['grey-lightest'],
       tableHoverBackgroundColor: colors['blue-lightest'],
     }),
   ],
