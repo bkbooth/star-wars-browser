@@ -1,14 +1,12 @@
 <template>
   <page-wrapper>
-    <template slot="hero">
-      <h1 class="font-starjedi">
-        <c-icon category="starships" color="blue-dark"/>
-        Starships
-      </h1>
-    </template>
-
     <template slot="main">
       <div class="bg-white rounded-lg shadow-lg my-6 p-6">
+        <h3 class="font-starjedi text-grey-dark -mt-1 mb-4">
+          <c-icon category="starships"/>
+          Starships
+        </h3>
+
         <alert v-if="error" :message="error"/>
 
         <paginator
