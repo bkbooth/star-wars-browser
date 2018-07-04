@@ -1,14 +1,22 @@
 <template>
-  <div>
-    <alert v-if="error" :message="error"/>
+  <page-wrapper>
+    <template slot="hero">
+      <h1 class="font-starjedi">
+        <c-icon category="vehicles" color="blue-dark"/>
+        {{ vehicle.name }}
+      </h1>
+    </template>
 
-    <div v-if="vehicle">
-      <h1 class="font-starjedi"><c-icon category="vehicles"/> {{ vehicle.name }}</h1>
-      <pre>{{ vehicle }}</pre>
-    </div>
+    <template slot="main">
+      <alert v-if="error" :message="error"/>
 
-    <loading-spinner v-else-if="loading"/>
-  </div>
+      <div v-if="vehicle">
+        <pre>{{ vehicle }}</pre>
+      </div>
+
+      <loading-spinner v-else-if="loading"/>
+    </template>
+  </page-wrapper>
 </template>
 
 <script>
