@@ -11,7 +11,7 @@ pre {
 }
 
 a {
-  @apply text-yellow-darker no-underline;
+  @apply text-blue-dark no-underline;
   transition: opacity .3s ease;
 }
 a:hover {
