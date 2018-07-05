@@ -50,7 +50,7 @@ export default {
     },
     color: {
       type: String,
-      default: 'grey-lightest',
+      default: 'yellow-dark',
       validator: value => COLORS.includes(value),
     },
     fixedWidth: { type: Boolean, default: false },
