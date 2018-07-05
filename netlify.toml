@@ -1,10 +1,6 @@
 [Settings]
 ID = "star-wars-browser"
 
-[build]
-  command = "npm config set \"//npm.fontawesome.com/:_authToken\" $FA_NPM_TOKEN && yarn build"
-  publish = "dist"
-
 # SPA routing with history pushState
 [[redirects]]
   from = "/*"
