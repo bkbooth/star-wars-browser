@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <div class="container mx-auto">
+    <div class="container mx-auto text-grey-darker">
       <span v-if="routeName === 'home'">
         <fa-icon icon="home" transform="shrink-3"/> Home
       </span>
@@ -9,7 +9,7 @@
       </router-link>
 
       <span v-if="categoryName">
-        ▸
+        >
         <span v-if="isList">
           <c-icon :category="categoryName" size="sm" transform="shrink-3"/>
           {{ categoryName | capitalize }}
@@ -20,12 +20,12 @@
         </router-link>
 
         <span v-if="isDetail">
-          ▸ {{ detailName }}
+          > {{ detailName }}
         </span>
       </span>
 
       <span v-if="routeName === 'not-found'">
-        ▸ Page Not Found
+        > Page Not Found
       </span>
     </div>
   </nav>
