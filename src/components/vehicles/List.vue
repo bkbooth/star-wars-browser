@@ -36,7 +36,11 @@
               </td>
               <td>{{ vehicle.class }}</td>
               <td class="whitespace-no-wrap"><span v-if="vehicle.cost">
-                <img src="../../assets/galactic-credit-symbol.svg" alt="Galactic credits symbol" class="w-2 -mr-1">
+                <img
+                  src="../../assets/galactic-credit-symbol.png"
+                  alt="Galactic credits symbol"
+                  class="align-bottom opacity-75 -mr-1"
+                >
                 {{ vehicle.cost | approx-number }}
               </span></td>
               <td><span v-if="vehicle.length">{{ vehicle.length | number }}m</span></td>
