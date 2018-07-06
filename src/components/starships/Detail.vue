@@ -7,7 +7,7 @@
         </div>
         <div class="flex-grow">
           <h1 class="font-starjedi">{{ starship.model }}</h1>
-          <p class="font-light uppercase tracking-wide m-0">{{ starship.manufacturer }}</p>
+          <p class="font-light uppercase tracking-wide mb-1">{{ starship.manufacturer }}</p>
         </div>
       </div>
     </template>

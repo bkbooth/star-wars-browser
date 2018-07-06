@@ -7,7 +7,7 @@
         </div>
         <div class="flex-grow">
           <h1 class="font-starjedi">{{ vehicle.model }}</h1>
-          <p class="font-light uppercase tracking-wide m-0">{{ vehicle.manufacturer }}</p>
+          <p class="font-light uppercase tracking-wide mb-1">{{ vehicle.manufacturer }}</p>
         </div>
       </div>
     </template>
