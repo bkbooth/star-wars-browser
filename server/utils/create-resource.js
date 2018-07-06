@@ -24,7 +24,7 @@ module.exports = function createResource(Model, { searchAttributes }) {
     Model
       .findAll({
         where: parseWhereQuery(req.query),
-        order: parseOrderQuery(req.query.order),
+        order: parseOrderQuery(req.query.order || req.query.sort),
         limit: req.query.limit || req.query.count || null,
       })
       .then(records => res.status(200).json(records))
