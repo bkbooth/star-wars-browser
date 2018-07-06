@@ -1,11 +1,15 @@
 <template>
   <page-wrapper>
     <template slot="hero">
-      <h1 class="font-starjedi">
-        <c-icon category="films" color="blue-dark"/>
-        Episode {{ film.episodeId | romanize }}
-        - {{ film.title }}
-      </h1>
+      <div class="flex items-center">
+        <div class="flex-no-shrink mr-4">
+          <c-icon category="films" color="blue-dark" class="text-2xl"/>
+        </div>
+        <div class="flex-grow">
+          <p class="font-light uppercase tracking-wide -mb-1">Episode {{ film.episodeId | romanize }}</p>
+          <h1 class="font-starjedi mb-0">{{ film.title }}</h1>
+        </div>
+      </div>
     </template>
 
     <template slot="main">

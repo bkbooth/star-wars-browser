@@ -1,10 +1,15 @@
 <template>
   <page-wrapper>
     <template slot="hero">
-      <h1 class="font-starjedi">
-        <c-icon category="starships" color="blue-dark"/>
-        {{ starship.name }}
-      </h1>
+      <div class="flex items-center">
+        <div class="flex-no-shrink mr-4">
+          <c-icon category="starships" color="blue-dark" class="text-2xl"/>
+        </div>
+        <div class="flex-grow">
+          <h1 class="font-starjedi">{{ starship.model }}</h1>
+          <p class="font-light uppercase tracking-wide m-0">{{ starship.manufacturer }}</p>
+        </div>
+      </div>
     </template>
 
     <template slot="main">

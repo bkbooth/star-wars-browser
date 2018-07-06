@@ -1,10 +1,14 @@
 <template>
   <page-wrapper>
     <template slot="hero">
-      <h1 class="font-starjedi">
-        <c-icon category="planets" color="blue-dark"/>
-        {{ planet.name }}
-      </h1>
+      <div class="flex items-center">
+        <div class="flex-no-shrink mr-4">
+          <c-icon category="planets" color="blue-dark" class="text-2xl"/>
+        </div>
+        <div class="flex-grow">
+          <h1 class="font-starjedi">{{ planet.name }}</h1>
+        </div>
+      </div>
     </template>
 
     <template slot="main">
