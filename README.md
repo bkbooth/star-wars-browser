@@ -9,6 +9,11 @@ I ended up rolling my own API which pulls data from SWAPI.
 
 Clone the repo and install dependencies
 
+_Note_: I've used some [Font Awesome Pro](https://fontawesome.com/pro) icons so the
+yarn/npm install will fail unless you provide a valid npm auth token for the private
+npm.fontawesome.com registry. Either set an `FA_NPM_TOKEN` environment variable to
+your token, or replace `${FA_NPM_TOKEN}` in _.npmrc_ with your token.
+
 ``` bash
 git clone https://github.com/bkbooth/star-wars-browser.git
 cd star-wars-browser
