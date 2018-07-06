@@ -4,13 +4,13 @@
     @click="$emit('set-order', fieldName, direction === 'asc' ? 'desc' : 'asc')"
   >
     <fa-icon
+      :icon="['fas', 'sort-up']"
       :class="{ 'text-grey': direction !== 'desc' }"
-      icon="sort-up"
       transform="left-2"
     />
     <fa-icon
+      :icon="['fas', 'sort-down']"
       :class="{ 'text-grey': direction !== 'asc' }"
-      icon="sort-down"
       transform="left-2"
     />
   </fa-layers>

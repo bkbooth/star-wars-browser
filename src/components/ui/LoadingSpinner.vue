@@ -2,7 +2,7 @@
   <div class="text-center p-6">
     <fa-icon
       v-if="loading"
-      icon="circle-notch"
+      :icon="['far', 'circle-notch']"
       size="3x"
       spin
     />

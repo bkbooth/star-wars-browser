@@ -3,35 +3,13 @@
  */
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
-  faCar,
-  faChevronCircleRight,
-  faCircle,
-  faCircleNotch,
-  faExclamationTriangle,
-  faFilm,
-  faGenderless,
-  faGlobe,
-  faHome,
-  faInfoCircle,
-  faMars,
-  faRobot,
-  faSortDown,
-  faSortUp,
-  faSpaceShuttle,
-  faTransgenderAlt,
-  faUser,
-  faVenus,
-} from '@fortawesome/free-solid-svg-icons'
-import {
   faGithub,
   faRebel,
   faTwitter,
 } from '@fortawesome/free-brands-svg-icons'
-
-library.add(
+import {
   faCar,
   faChevronCircleRight,
-  faCircle,
   faCircleNotch,
   faExclamationTriangle,
   faFilm,
@@ -41,14 +19,42 @@ library.add(
   faInfoCircle,
   faMars,
   faRobot,
+  faSpaceShuttle,
+  faTransgenderAlt,
+  faUser,
+  faVenus,
+} from '@fortawesome/pro-regular-svg-icons'
+import {
+  faCircle,
   faSortDown,
   faSortUp,
+} from '@fortawesome/pro-solid-svg-icons'
+
+library.add(
+  // Brands
+  faGithub,
+  faRebel,
+  faTwitter,
+
+  // Regular
+  faCar,
+  faChevronCircleRight,
+  faCircleNotch,
+  faExclamationTriangle,
+  faFilm,
+  faGenderless,
+  faGlobe,
+  faHome,
+  faInfoCircle,
+  faMars,
+  faRobot,
   faSpaceShuttle,
   faTransgenderAlt,
   faUser,
   faVenus,
 
-  faGithub,
-  faRebel,
-  faTwitter,
+  // Solid
+  faCircle,
+  faSortDown,
+  faSortUp,
 )

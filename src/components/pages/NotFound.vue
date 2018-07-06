@@ -2,7 +2,7 @@
   <page-wrapper hero-bg-color="red-dark">
     <template slot="hero">
       <h1 class="font-starjedi">
-        <fa-icon icon="exclamation-triangle"/>
+        <fa-icon :icon="['far', 'exclamation-triangle']"/>
         Page Not Found
       </h1>
     </template>

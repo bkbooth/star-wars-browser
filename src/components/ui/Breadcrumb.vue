@@ -2,10 +2,10 @@
   <nav>
     <div class="container mx-auto text-grey-darker">
       <span v-if="routeName === 'home'">
-        <fa-icon icon="home" transform="shrink-3"/> Home
+        <fa-icon :icon="['far', 'home']" transform="shrink-3"/> Home
       </span>
       <router-link v-else to="/">
-        <fa-icon icon="home" transform="shrink-3"/> Home
+        <fa-icon :icon="['far', 'home']" transform="shrink-3"/> Home
       </router-link>
 
       <span v-if="categoryName">

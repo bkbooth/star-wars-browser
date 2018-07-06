@@ -9,11 +9,11 @@
 
 <script>
 const GENDERS_MAP = {
-  'male': ['fas', 'mars'],
-  'female': ['fas', 'venus'],
-  'hermaphrodite': ['fas', 'transgender-alt'],
-  'none': ['fas', 'genderless'],
-  'n/a': ['fas', 'genderless'],
+  'male': ['far', 'mars'],
+  'female': ['far', 'venus'],
+  'hermaphrodite': ['far', 'transgender-alt'],
+  'none': ['far', 'genderless'],
+  'n/a': ['far', 'genderless'],
 }
 
 export default {

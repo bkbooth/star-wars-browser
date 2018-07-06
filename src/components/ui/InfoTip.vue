@@ -1,8 +1,8 @@
 <template>
   <fa-icon
     v-tooltip="content"
+    :icon="['far', 'info-circle']"
     :title="content"
-    icon="info-circle"
     transform="shrink-1"
   />
 </template>

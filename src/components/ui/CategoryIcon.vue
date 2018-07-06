@@ -1,7 +1,7 @@
 <template>
   <fa-layers v-if="size === 'lg'" class="mr-2">
     <fa-icon
-      icon="circle"
+      :icon="['fas', 'circle']"
       transform="grow-8 right-3"
     />
     <fa-icon
@@ -27,12 +27,12 @@ import isNumber from 'lodash/isNumber'
 import { COLORS } from '../../utils/constants'
 
 const ICON_MAP = {
-  films: ['fas', 'film'],
-  planets: ['fas', 'globe'],
-  species: ['fas', 'robot'],
-  characters: ['fas', 'user'],
-  starships: ['fas', 'space-shuttle'],
-  vehicles: ['fas', 'car'],
+  films: ['far', 'film'],
+  planets: ['far', 'globe'],
+  species: ['far', 'robot'],
+  characters: ['far', 'user'],
+  starships: ['far', 'space-shuttle'],
+  vehicles: ['far', 'car'],
 }
 
 export default {
