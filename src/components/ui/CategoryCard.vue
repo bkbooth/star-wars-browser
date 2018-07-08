@@ -11,9 +11,7 @@
       <alert v-if="error" :message="error"/>
 
       <div v-else>
-        <div class="mb-3">
-          Maybe you're interested in...
-        </div>
+        <slot/>
 
         <ul v-if="count" class="list-reset">
           <li v-for="item in items" :key="item.id" class="pt-2 pb-3">
@@ -32,7 +30,7 @@
       </div>
     </div>
 
-    <div class="flex-no-shrink bg-grey-light px-3 py-2 text-right">
+    <div v-if="viewAll" class="flex-no-shrink bg-grey-light px-3 py-2 text-right">
       <router-link :to="category" class="text-grey-darkest">
         view all
         <fa-icon :icon="['far', 'chevron-circle-right']" transform="shrink-2"/>
@@ -56,6 +54,10 @@ export default {
       type: String,
       required: true,
       validator: value => CATEGORIES.includes(value),
+    },
+    viewAll: {
+      type: Boolean,
+      default: false,
     },
   },
   computed: {

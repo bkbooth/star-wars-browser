@@ -13,8 +13,11 @@
           v-for="category in categories"
           :key="category"
           :category="category"
+          :view-all="true"
           class="flex-grow w-64 m-3"
-        />
+        >
+          <p class="mb-3">Maybe you're interested in...</p>
+        </category-card>
       </div>
     </template>
   </page-wrapper>
