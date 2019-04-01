@@ -1,12 +1,6 @@
 [Settings]
 ID = "star-wars-browser"
 
-# SPA routing with history pushState
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-
 # Redirect domain aliases to primary domain
 [[redirects]]
   from = "https://starwars.benbooth.co/*"
@@ -20,3 +14,9 @@ ID = "star-wars-browser"
   to = "https://starwars.benbooth.dev/:splat"
   status = 301
   force = true
+
+# SPA routing with history pushState
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
