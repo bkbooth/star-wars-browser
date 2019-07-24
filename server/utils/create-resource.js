@@ -50,7 +50,7 @@ module.exports = function createResource(Model, { searchAttributes }) {
 
   function parseWhereQuery(queryParams = {}) {
     if (queryParams.q != null) return parseSearchQuery(queryParams.q)
-    let modelAttributes = Object.keys(Model.attributes)
+    let modelAttributes = Object.keys(Model.rawAttributes)
     return pickBy(queryParams, (value, key) => modelAttributes.includes(key))
   }
 
