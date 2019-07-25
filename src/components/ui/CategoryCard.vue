@@ -18,7 +18,7 @@
         </div>
 
         <ul v-if="count">
-          <li v-for="item in items" :key="item.id" class="pt-2 pb-3">
+          <li v-for="item in items" :key="item.id" class="mt-1 mb-2">
             <router-link :to="`${category}/${item.slug}`">
               <fa-icon
                 :icon="['far', 'chevron-circle-right']"
@@ -36,7 +36,7 @@
 
     <div class="flex-shrink-0 bg-gray-300 px-3 py-2 text-right">
       <router-link :to="category" class="text-gray-700">
-        view all
+        View all
         <fa-icon :icon="['far', 'chevron-circle-right']" transform="shrink-2" />
       </router-link>
     </div>

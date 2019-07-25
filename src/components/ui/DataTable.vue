@@ -1,7 +1,7 @@
 <template>
   <div class="table-responsive">
     <table class="table table-striped table-hover m-0">
-      <caption class="text-sm text-gray-600">
+      <caption class="text-sm text-gray-600 pb-0">
         List of {{ category }},
         showing {{ (page - 1) * pageSize + 1 }}
         to {{ page === Math.ceil(data.length / pageSize) ? data.length : page * pageSize }}
