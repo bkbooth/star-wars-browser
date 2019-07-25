@@ -3,23 +3,27 @@
     <template slot="hero">
       <div class="flex items-center">
         <div class="flex-no-shrink mr-4">
-          <c-icon category="starships" color="blue-dark" class="text-2xl"/>
+          <c-icon category="starships" color="blue-dark" class="text-2xl" />
         </div>
         <div class="flex-grow">
-          <h1 class="font-starjedi">{{ starship.model }}</h1>
-          <p class="font-light uppercase tracking-wide mb-1">{{ starship.manufacturer }}</p>
+          <h1 class="font-starjedi">
+            {{ starship.model }}
+          </h1>
+          <p class="font-light uppercase tracking-wide mb-1">
+            {{ starship.manufacturer }}
+          </p>
         </div>
       </div>
     </template>
 
     <template slot="main">
-      <alert v-if="error" :message="error"/>
+      <alert v-if="error" :message="error" />
 
       <div v-if="starship">
         <pre>{{ starship }}</pre>
       </div>
 
-      <loading-spinner v-else-if="loading"/>
+      <loading-spinner v-else-if="loading" />
     </template>
   </page-wrapper>
 </template>

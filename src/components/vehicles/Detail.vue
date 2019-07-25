@@ -3,23 +3,27 @@
     <template slot="hero">
       <div class="flex items-center">
         <div class="flex-no-shrink mr-4">
-          <c-icon category="vehicles" color="blue-dark" class="text-2xl"/>
+          <c-icon category="vehicles" color="blue-dark" class="text-2xl" />
         </div>
         <div class="flex-grow">
-          <h1 class="font-starjedi">{{ vehicle.model }}</h1>
-          <p class="font-light uppercase tracking-wide mb-1">{{ vehicle.manufacturer }}</p>
+          <h1 class="font-starjedi">
+            {{ vehicle.model }}
+          </h1>
+          <p class="font-light uppercase tracking-wide mb-1">
+            {{ vehicle.manufacturer }}
+          </p>
         </div>
       </div>
     </template>
 
     <template slot="main">
-      <alert v-if="error" :message="error"/>
+      <alert v-if="error" :message="error" />
 
       <div v-if="vehicle">
         <pre>{{ vehicle }}</pre>
       </div>
 
-      <loading-spinner v-else-if="loading"/>
+      <loading-spinner v-else-if="loading" />
     </template>
   </page-wrapper>
 </template>

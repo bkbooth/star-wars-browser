@@ -3,22 +3,24 @@
     <template slot="hero">
       <div class="flex items-center">
         <div class="flex-no-shrink mr-4">
-          <c-icon category="planets" color="blue-dark" class="text-2xl"/>
+          <c-icon category="planets" color="blue-dark" class="text-2xl" />
         </div>
         <div class="flex-grow">
-          <h1 class="font-starjedi">{{ planet.name }}</h1>
+          <h1 class="font-starjedi">
+            {{ planet.name }}
+          </h1>
         </div>
       </div>
     </template>
 
     <template slot="main">
-      <alert v-if="error" :message="error"/>
+      <alert v-if="error" :message="error" />
 
       <div v-if="planet">
         <pre>{{ planet }}</pre>
       </div>
 
-      <loading-spinner v-else-if="loading"/>
+      <loading-spinner v-else-if="loading" />
     </template>
   </page-wrapper>
 </template>

@@ -3,13 +3,13 @@
     <portal v-if="!!$slots.hero" to="hero">
       <div :class="heroColors" class="shadow-inner px-6 py-4">
         <div class="container mx-auto">
-          <slot name="hero"/>
+          <slot name="hero" />
         </div>
       </div>
     </portal>
 
     <div class="container mx-auto mt-4 mb-8">
-      <slot name="main"/>
+      <slot name="main" />
     </div>
   </main>
 </template>

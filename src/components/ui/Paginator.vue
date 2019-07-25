@@ -6,7 +6,9 @@
         class="flex-shrink py-2 w-8 border-r"
         title="Previous page"
         @click="$emit('set-page', page - 1)"
-      >«</button>
+      >
+        «
+      </button>
 
       <button
         v-for="pageNumber in pages"
@@ -15,14 +17,18 @@
         :title="`Page ${pageNumber}`"
         class="flex-shrink py-2 w-8 border-r"
         @click="$emit('set-page', pageNumber)"
-      >{{ pageNumber }}</button>
+      >
+        {{ pageNumber }}
+      </button>
 
       <button
         :disabled="page === numberOfPages"
         class="flex-shrink py-2 w-8"
         title="Next page"
         @click="$emit('set-page', page + 1)"
-      >»</button>
+      >
+        »
+      </button>
     </div>
 
     <label class="flex-grow text-right ml-3">

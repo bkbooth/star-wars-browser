@@ -1,7 +1,7 @@
 {
   "name": "star-wars-browser-api",
   "version": "1.0.0",
-  "author": "Ben Booth <bkbooth@gmail.com>",
+  "author": "Ben Booth <bkbooth@gmail.com> (https://benbooth.dev)",
   "private": true,
   "scripts": {
     "deploy": "now --public",

@@ -2,13 +2,13 @@
   <div class="flex flex-col bg-white shadow-md rounded overflow-hidden">
     <div class="flex-no-shrink bg-grey-light p-3">
       <router-link :to="category" class="text-grey-darkest font-starjedi text-lg">
-        <c-icon :category="category"/>
+        <c-icon :category="category" />
         {{ category | capitalize }}
       </router-link>
     </div>
 
     <div class="flex-grow p-3">
-      <alert v-if="error" :message="error"/>
+      <alert v-if="error" :message="error" />
 
       <div v-else>
         <div class="mb-3">
@@ -28,14 +28,14 @@
           </li>
         </ul>
 
-        <loading-spinner v-if="count === 0 && loading"/>
+        <loading-spinner v-if="count === 0 && loading" />
       </div>
     </div>
 
     <div class="flex-no-shrink bg-grey-light px-3 py-2 text-right">
       <router-link :to="category" class="text-grey-darkest">
         view all
-        <fa-icon :icon="['far', 'chevron-circle-right']" transform="shrink-2"/>
+        <fa-icon :icon="['far', 'chevron-circle-right']" transform="shrink-2" />
       </router-link>
     </div>
   </div>

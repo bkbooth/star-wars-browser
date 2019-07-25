@@ -3,11 +3,11 @@
     <template slot="main">
       <div class="bg-white rounded-lg shadow-lg p-6">
         <h3 class="font-starjedi text-grey-darker -mt-1 mb-4">
-          <c-icon category="characters"/>
+          <c-icon category="characters" />
           Characters
         </h3>
 
-        <alert v-if="error" :message="error"/>
+        <alert v-if="error" :message="error" />
 
         <paginator
           v-if="count"
@@ -32,9 +32,13 @@
           <template slot-scope="{ rows }">
             <tr v-for="character in rows" :key="character.id">
               <td scope="row">
-                <router-link :to="`characters/${character.slug}`">{{ character.name }}</router-link>
+                <router-link :to="`characters/${character.slug}`">
+                  {{ character.name }}
+                </router-link>
               </td>
-              <td class="text-center"><gender-icon :gender="character.gender"/></td>
+              <td class="text-center">
+                <gender-icon :gender="character.gender" />
+              </td>
               <td><span v-if="character.birthYear != null">{{ character.birthYear | birthYear }}</span></td>
               <td><span v-if="character.height">{{ character.height }}cm</span></td>
               <td><span v-if="character.mass">{{ character.mass }}kg</span></td>
@@ -42,7 +46,7 @@
           </template>
         </data-table>
 
-        <loading-spinner v-if="loading"/>
+        <loading-spinner v-if="loading" />
       </div>
     </template>
   </page-wrapper>

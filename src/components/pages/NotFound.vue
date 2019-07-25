@@ -3,10 +3,12 @@
     <template slot="hero">
       <div class="flex items-center">
         <div class="flex-no-shrink -ml-1 mr-4">
-          <fa-icon :icon="['far', 'sad-tear']" class="text-3xl"/>
+          <fa-icon :icon="['far', 'sad-tear']" class="text-3xl" />
         </div>
         <div class="flex-grow">
-          <h1 class="font-starjedi">Page Not Found</h1>
+          <h1 class="font-starjedi">
+            Page Not Found
+          </h1>
         </div>
       </div>
     </template>
@@ -17,7 +19,7 @@
       </p>
       <p>
         <router-link to="/">
-          <fa-icon :icon="['far', 'home']"/>
+          <fa-icon :icon="['far', 'home']" />
           Go to the homepage
         </router-link>
       </p>

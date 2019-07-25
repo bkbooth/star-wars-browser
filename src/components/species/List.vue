@@ -3,11 +3,11 @@
     <template slot="main">
       <div class="bg-white rounded-lg shadow-lg p-6">
         <h3 class="font-starjedi text-grey-darker -mt-1 mb-4">
-          <c-icon category="species"/>
+          <c-icon category="species" />
           Species
         </h3>
 
-        <alert v-if="error" :message="error"/>
+        <alert v-if="error" :message="error" />
 
         <paginator
           v-if="count"
@@ -32,19 +32,23 @@
           <template slot-scope="{ rows }">
             <tr v-for="species in rows" :key="species.id">
               <td scope="row">
-                <router-link :to="`species/${species.slug}`">{{ species.name }}</router-link>
+                <router-link :to="`species/${species.slug}`">
+                  {{ species.name }}
+                </router-link>
               </td>
               <td>{{ species.classification }}</td>
               <td>{{ species.language }}</td>
               <td><span v-if="species.averageHeight">{{ species.averageHeight }}cm</span></td>
-              <td class="whitespace-no-wrap"><span v-if="species.averageLifespan">
+              <td class="whitespace-no-wrap">
+                <span v-if="species.averageLifespan">
                 {{ species.averageLifespan }} years
-              </span></td>
+                </span>
+              </td>
             </tr>
           </template>
         </data-table>
 
-        <loading-spinner v-if="loading"/>
+        <loading-spinner v-if="loading" />
       </div>
     </template>
   </page-wrapper>

@@ -1,6 +1,6 @@
 <template>
   <div :class="alertClasses" class="my-4 px-4 py-3 border rounded">
-    <fa-icon :icon="icon" fixed-width/> {{ message }}
+    <fa-icon :icon="icon" fixed-width /> {{ message }}
   </div>
 </template>
 

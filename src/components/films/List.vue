@@ -3,11 +3,11 @@
     <template slot="main">
       <div class="bg-white rounded-lg shadow-lg p-6">
         <h3 class="font-starjedi text-grey-darker -mt-1 mb-4">
-          <c-icon category="films"/>
+          <c-icon category="films" />
           Films
         </h3>
 
-        <alert v-if="error" :message="error"/>
+        <alert v-if="error" :message="error" />
 
         <paginator
           v-if="count"
@@ -32,9 +32,13 @@
         >
           <template slot-scope="{ rows }">
             <tr v-for="film in rows" :key="film.id">
-              <td scope="row">{{ film.episodeId | romanize }}</td>
+              <td scope="row">
+                {{ film.episodeId | romanize }}
+              </td>
               <td>
-                <router-link :to="`films/${film.slug}`">{{ film.title }}</router-link>
+                <router-link :to="`films/${film.slug}`">
+                  {{ film.title }}
+                </router-link>
               </td>
               <td>{{ film.releaseDate | date('Do MMM YYYY') }}</td>
               <td>{{ film.director }}</td>
@@ -43,7 +47,7 @@
           </template>
         </data-table>
 
-        <loading-spinner v-if="loading"/>
+        <loading-spinner v-if="loading" />
       </div>
     </template>
   </page-wrapper>

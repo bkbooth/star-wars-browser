@@ -26,13 +26,13 @@
               class="text-sm uppercase font-semibold cursor-pointer"
               @click="onColLabelClick(col.field)"
             >{{ col.label }}</span>
-            <info-tip v-if="col.info" :content="col.info"/>
+            <info-tip v-if="col.info" :content="col.info" />
           </th>
         </tr>
       </thead>
 
       <tbody>
-        <slot :rows="rows"/>
+        <slot :rows="rows" />
       </tbody>
     </table>
   </div>

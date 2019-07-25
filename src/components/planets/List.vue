@@ -3,11 +3,11 @@
     <template slot="main">
       <div class="bg-white rounded-lg shadow-lg p-6">
         <h3 class="font-starjedi text-grey-darker -mt-1 mb-4">
-          <c-icon category="planets"/>
+          <c-icon category="planets" />
           Planets
         </h3>
 
-        <alert v-if="error" :message="error"/>
+        <alert v-if="error" :message="error" />
 
         <paginator
           v-if="count"
@@ -32,7 +32,9 @@
           <template slot-scope="{ rows }">
             <tr v-for="planet in rows" :key="planet.id">
               <td scope="row">
-                <router-link :to="`planets/${planet.slug}`">{{ planet.name }}</router-link>
+                <router-link :to="`planets/${planet.slug}`">
+                  {{ planet.name }}
+                </router-link>
               </td>
               <td><span v-if="planet.diameter">{{ planet.diameter | number }}km</span></td>
               <td><span v-if="planet.population != null">{{ planet.population | approx-number }}</span></td>
@@ -42,7 +44,7 @@
           </template>
         </data-table>
 
-        <loading-spinner v-if="loading"/>
+        <loading-spinner v-if="loading" />
       </div>
     </template>
   </page-wrapper>
