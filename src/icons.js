@@ -26,6 +26,7 @@ import {
 } from '@fortawesome/pro-regular-svg-icons'
 import {
   faCircle,
+  faExclamationTriangle,
   faSortDown,
   faSortUp,
 } from '@fortawesome/pro-solid-svg-icons'
@@ -55,6 +56,7 @@ library.add(
 
   // Solid
   faCircle,
+  faExclamationTriangle,
   faSortDown,
   faSortUp,
 )
