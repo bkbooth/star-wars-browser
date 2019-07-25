@@ -1,6 +1,6 @@
 <template>
   <page-wrapper>
-    <template slot="main">
+    <template v-slot:main>
       <div class="bg-white rounded-lg shadow-lg p-6">
         <h3 class="font-starjedi text-grey-darker -mt-1 mb-4">
           <c-icon category="species" />
@@ -29,7 +29,7 @@
           category="species"
           @set-order="onSetOrder"
         >
-          <template slot-scope="{ rows }">
+          <template v-slot="{ rows }">
             <tr v-for="species in rows" :key="species.id">
               <td scope="row">
                 <router-link :to="`species/${species.slug}`">

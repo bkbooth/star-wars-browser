@@ -1,6 +1,6 @@
 <template>
   <page-wrapper>
-    <template slot="hero">
+    <template v-slot:hero>
       <div class="flex items-center">
         <div class="flex-no-shrink mr-4">
           <c-icon category="planets" color="blue-dark" class="text-2xl" />
@@ -13,7 +13,7 @@
       </div>
     </template>
 
-    <template slot="main">
+    <template v-slot:main>
       <alert v-if="error" :message="error" />
 
       <div v-if="planet">
