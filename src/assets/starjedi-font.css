@@ -10,6 +10,6 @@
 }
 
 .font-starjedi {
-  @apply lowercase tracking-wide leading-none;
+  @apply lowercase tracking-wider leading-none;
   font-family: "Star Jedi";
 }

@@ -1,16 +1,16 @@
 <template>
   <fa-layers
-    class="cursor-pointer -mr-1"
+    class="cursor-pointer"
     @click="$emit('set-order', fieldName, direction === 'asc' ? 'desc' : 'asc')"
   >
     <fa-icon
       :icon="['fas', 'sort-up']"
-      :class="{ 'text-grey': direction !== 'desc' }"
+      :class="{ 'text-gray-500': direction !== 'desc' }"
       transform="left-2"
     />
     <fa-icon
       :icon="['fas', 'sort-down']"
-      :class="{ 'text-grey': direction !== 'asc' }"
+      :class="{ 'text-gray-500': direction !== 'asc' }"
       transform="left-2"
     />
   </fa-layers>

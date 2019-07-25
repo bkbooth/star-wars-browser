@@ -1,21 +1,21 @@
 <template>
   <nav>
-    <div class="container mx-auto text-grey-darker">
+    <div class="container mx-auto text-gray-700">
       <span v-if="routeName === 'home'">
-        <fa-icon :icon="['far', 'home']" transform="shrink-3"/> Home
+        <fa-icon :icon="['far', 'home']" transform="shrink-3" /> Home
       </span>
       <router-link v-else to="/">
-        <fa-icon :icon="['far', 'home']" transform="shrink-3"/> Home
+        <fa-icon :icon="['far', 'home']" transform="shrink-3" /> Home
       </router-link>
 
       <span v-if="categoryName">
         >
         <span v-if="isList">
-          <c-icon :category="categoryName" size="sm" transform="shrink-3"/>
+          <c-icon :category="categoryName" size="sm" transform="shrink-3" />
           {{ categoryName | capitalize }}
         </span>
         <router-link v-else :to="{ name: `${categoryName}.list` }">
-          <c-icon :category="categoryName" size="sm" transform="shrink-3"/>
+          <c-icon :category="categoryName" size="sm" transform="shrink-3" />
           {{ categoryName | capitalize }}
         </router-link>
 

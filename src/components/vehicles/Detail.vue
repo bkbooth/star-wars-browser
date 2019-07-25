@@ -1,25 +1,29 @@
 <template>
   <page-wrapper>
-    <template slot="hero">
+    <template v-slot:hero>
       <div class="flex items-center">
-        <div class="flex-no-shrink mr-4">
-          <c-icon category="vehicles" color="blue-dark" class="text-2xl"/>
+        <div class="flex-shrink-0 mr-4">
+          <c-icon category="vehicles" color="blue-600" class="text-2xl" />
         </div>
         <div class="flex-grow">
-          <h1 class="font-starjedi">{{ vehicle.model }}</h1>
-          <p class="font-light uppercase tracking-wide mb-1">{{ vehicle.manufacturer }}</p>
+          <h2 class="font-starjedi text-3xl mb-1">
+            {{ vehicle.model }}
+          </h2>
+          <p class="font-light uppercase tracking-wider mb-1">
+            {{ vehicle.manufacturer }}
+          </p>
         </div>
       </div>
     </template>
 
-    <template slot="main">
-      <alert v-if="error" :message="error"/>
+    <template v-slot:main>
+      <alert v-if="error" :message="error" />
 
       <div v-if="vehicle">
         <pre>{{ vehicle }}</pre>
       </div>
 
-      <loading-spinner v-else-if="loading"/>
+      <loading-spinner v-else-if="loading" />
     </template>
   </page-wrapper>
 </template>

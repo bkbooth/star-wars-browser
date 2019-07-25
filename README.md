@@ -23,14 +23,12 @@ yarn
 Start the dev server
 
 ``` bash
-# runs `npm run dev`
 yarn start
 ```
 
 To build a static version into the _dist_ directory
 
 ``` bash
-# runs `npm run build`
 yarn build
 ```
 

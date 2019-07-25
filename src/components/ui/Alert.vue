@@ -1,6 +1,6 @@
 <template>
   <div :class="alertClasses" class="my-4 px-4 py-3 border rounded">
-    <fa-icon :icon="icon" fixed-width/> {{ message }}
+    <fa-icon :icon="icon" fixed-width /> {{ message }}
   </div>
 </template>
 
@@ -22,7 +22,7 @@ export default {
   computed: {
     alertClasses() {
       return {
-        'text-red-darker bg-red-lightest border-red-lighter': this.type === 'error',
+        'text-red-800 bg-red-100 border-red-200': this.type === 'error',
       }
     },
     icon() {

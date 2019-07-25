@@ -1,24 +1,26 @@
 <template>
   <page-wrapper>
-    <template slot="hero">
+    <template v-slot:hero>
       <div class="flex items-center">
-        <div class="flex-no-shrink mr-4">
-          <c-icon category="characters" color="blue-dark" class="text-2xl"/>
+        <div class="flex-shrink-0 mr-4">
+          <c-icon category="characters" color="blue-600" class="text-2xl" />
         </div>
         <div class="flex-grow">
-          <h1 class="font-starjedi">{{ character.name }}</h1>
+          <h2 class="font-starjedi text-3xl mb-2">
+            {{ character.name }}
+          </h2>
         </div>
       </div>
     </template>
 
-    <template slot="main">
-      <alert v-if="error" :message="error"/>
+    <template v-slot:main>
+      <alert v-if="error" :message="error" />
 
       <div v-if="character">
         <pre>{{ character }}</pre>
       </div>
 
-      <loading-spinner v-else-if="loading"/>
+      <loading-spinner v-else-if="loading" />
     </template>
   </page-wrapper>
 </template>
