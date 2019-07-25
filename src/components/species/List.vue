@@ -1,11 +1,11 @@
 <template>
   <page-wrapper>
     <template v-slot:main>
-      <div class="bg-white rounded-lg shadow-lg p-6">
-        <h3 class="font-starjedi text-grey-darker -mt-1 mb-4">
+      <div class="bg-white rounded-lg shadow-xl p-6">
+        <h2 class="font-starjedi text-xl text-gray-700 -mt-1 mb-4">
           <c-icon category="species" />
           Species
-        </h3>
+        </h2>
 
         <alert v-if="error" :message="error" />
 
@@ -41,7 +41,7 @@
               <td><span v-if="species.averageHeight">{{ species.averageHeight }}cm</span></td>
               <td class="whitespace-no-wrap">
                 <span v-if="species.averageLifespan">
-                {{ species.averageLifespan }} years
+                  {{ species.averageLifespan }} years
                 </span>
               </td>
             </tr>

@@ -2,16 +2,16 @@
   <page-wrapper>
     <template v-slot:hero>
       <div class="flex items-center">
-        <div class="flex-no-shrink mr-4">
-          <c-icon category="films" color="blue-dark" class="text-2xl" />
+        <div class="flex-shrink-0 mr-4">
+          <c-icon category="films" color="blue-600" class="text-2xl" />
         </div>
         <div class="flex-grow">
-          <p class="font-light uppercase tracking-wide mb-0">
+          <p class="font-light uppercase tracking-wider mb-0">
             Episode {{ film.episodeId | romanize }}
           </p>
-          <h1 class="font-starjedi">
+          <h2 class="font-starjedi text-3xl mb-2">
             {{ film.title }}
-          </h1>
+          </h2>
         </div>
       </div>
     </template>

@@ -2,13 +2,13 @@
   <page-wrapper>
     <template v-slot:hero>
       <div class="flex items-center">
-        <div class="flex-no-shrink mr-4">
-          <c-icon category="species" color="blue-dark" class="text-2xl" />
+        <div class="flex-shrink-0 mr-4">
+          <c-icon category="species" color="blue-600" class="text-2xl" />
         </div>
         <div class="flex-grow">
-          <h1 class="font-starjedi">
+          <h2 class="font-starjedi text-3xl mb-2">
             {{ species.name }}
-          </h1>
+          </h2>
         </div>
       </div>
     </template>

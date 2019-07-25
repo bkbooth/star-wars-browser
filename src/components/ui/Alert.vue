@@ -22,7 +22,7 @@ export default {
   computed: {
     alertClasses() {
       return {
-        'text-red-darker bg-red-lightest border-red-lighter': this.type === 'error',
+        'text-red-800 bg-red-100 border-red-200': this.type === 'error',
       }
     },
     icon() {

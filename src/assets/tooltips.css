@@ -10,10 +10,10 @@
 }
 
 .tooltip .tooltip-inner {
-  @apply bg-grey-darkest text-grey-lightest px-3 py-1 rounded-lg;
+  @apply bg-gray-800 text-gray-100 px-3 py-1 rounded-lg;
 }
 .tooltip .tooltip-arrow {
-  @apply absolute z-10 m-2 border-grey-darkest;
+  @apply absolute z-10 m-2 border-gray-800;
   border-width: 5px;
 }
 
@@ -66,11 +66,11 @@
 }
 
 .tooltip.popover .popover-inner {
-  @apply bg-grey-lightest text-grey-darkest;
+  @apply bg-gray-100 text-gray-800;
   padding: 24px;
   border-radius: 5px;
   box-shadow: 0 5px 30px rgba(black, .1);
 }
 .tooltip.popover .popover-arrow {
-  @apply border-grey-lightest;
+  @apply border-gray-100;
 }

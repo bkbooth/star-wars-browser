@@ -1,7 +1,3 @@
-h1 {
-  @apply mb-1;
-}
-
 p, pre {
   @apply mb-4;
 }
@@ -11,7 +7,7 @@ pre {
 }
 
 a {
-  @apply text-blue-dark no-underline;
+  @apply text-blue-600;
   transition: opacity .3s ease;
 }
 a:hover {
@@ -19,10 +15,10 @@ a:hover {
 }
 header a,
 footer a {
-  @apply text-yellow-dark;
+  @apply text-yellow-500;
 }
 
 *:disabled,
 select[disabled] > option {
-  @apply text-grey;
+  @apply text-gray-500;
 }

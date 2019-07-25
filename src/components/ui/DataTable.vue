@@ -1,7 +1,7 @@
 <template>
   <div class="table-responsive">
     <table class="table table-striped table-hover m-0">
-      <caption class="text-sm text-grey-dark">
+      <caption class="text-sm text-gray-600">
         List of {{ category }},
         showing {{ (page - 1) * pageSize + 1 }}
         to {{ page === Math.ceil(data.length / pageSize) ? data.length : page * pageSize }}
@@ -26,7 +26,7 @@
               class="text-sm uppercase font-semibold cursor-pointer"
               @click="onColLabelClick(col.field)"
             >{{ col.label }}</span>
-            <info-tip v-if="col.info" :content="col.info" />
+            <info-tip v-if="col.info" :content="col.info" class="ml-1" />
           </th>
         </tr>
       </thead>

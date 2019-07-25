@@ -1,9 +1,9 @@
 <template>
   <div class="flex max-w-full items-center">
-    <div class="flex-shrink inline-flex bg-white border rounded overflow-hidden shadow">
+    <div class="flex-shrink inline-flex bg-white border rounded overflow-hidden">
       <button
         :disabled="page === 1"
-        class="flex-shrink py-2 w-8 border-r"
+        class="flex-shrink py-1 w-8 border-r"
         title="Previous page"
         @click="$emit('set-page', page - 1)"
       >
@@ -15,7 +15,7 @@
         :key="pageNumber"
         :disabled="page === pageNumber"
         :title="`Page ${pageNumber}`"
-        class="flex-shrink py-2 w-8 border-r"
+        class="flex-shrink py-1 w-8 border-r"
         @click="$emit('set-page', pageNumber)"
       >
         {{ pageNumber }}
@@ -23,7 +23,7 @@
 
       <button
         :disabled="page === numberOfPages"
-        class="flex-shrink py-2 w-8"
+        class="flex-shrink py-1 w-8"
         title="Next page"
         @click="$emit('set-page', page + 1)"
       >
@@ -32,7 +32,7 @@
     </div>
 
     <label class="flex-grow text-right ml-3">
-      <span class="hidden sm:inline text-grey-dark mr-1">Per Page</span>
+      <span class="hidden sm:inline text-gray-600 mr-1">Per Page</span>
       <select :value="pageSize" @input="$emit('set-page-size', Number($event.target.value))">
         <option>10</option>
         <option>20</option>

@@ -1,14 +1,14 @@
 <template>
-  <page-wrapper hero-bg-color="red-dark">
+  <page-wrapper hero-bg-color="red-700">
     <template v-slot:hero>
       <div class="flex items-center">
-        <div class="flex-no-shrink -ml-1 mr-4">
+        <div class="flex-shrink-0 -ml-1 mr-4">
           <fa-icon :icon="['far', 'sad-tear']" class="text-3xl" />
         </div>
         <div class="flex-grow">
-          <h1 class="font-starjedi">
+          <h2 class="font-starjedi text-3xl mb-2">
             Page Not Found
-          </h1>
+          </h2>
         </div>
       </div>
     </template>

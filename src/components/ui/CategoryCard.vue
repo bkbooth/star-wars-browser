@@ -1,10 +1,12 @@
 <template>
   <div class="flex flex-col bg-white shadow-md rounded overflow-hidden">
-    <div class="flex-no-shrink bg-grey-light p-3">
-      <router-link :to="category" class="text-grey-darkest font-starjedi text-lg">
-        <c-icon :category="category" />
-        {{ category | capitalize }}
-      </router-link>
+    <div class="flex-shrink-0 bg-gray-300 p-3">
+      <h3 class="font-starjedi text-lg">
+        <router-link :to="category" class="text-gray-700">
+          <c-icon :category="category" />
+          {{ category | capitalize }}
+        </router-link>
+      </h3>
     </div>
 
     <div class="flex-grow p-3">
@@ -15,13 +17,13 @@
           Maybe you're interested in...
         </div>
 
-        <ul v-if="count" class="list-reset">
+        <ul v-if="count">
           <li v-for="item in items" :key="item.id" class="pt-2 pb-3">
             <router-link :to="`${category}/${item.slug}`">
               <fa-icon
                 :icon="['far', 'chevron-circle-right']"
                 transform="shrink-3"
-                class="text-blue"
+                class="text-blue-500"
               />
               {{ item.name || item.title }}
             </router-link>
@@ -32,8 +34,8 @@
       </div>
     </div>
 
-    <div class="flex-no-shrink bg-grey-light px-3 py-2 text-right">
-      <router-link :to="category" class="text-grey-darkest">
+    <div class="flex-shrink-0 bg-gray-300 px-3 py-2 text-right">
+      <router-link :to="category" class="text-gray-700">
         view all
         <fa-icon :icon="['far', 'chevron-circle-right']" transform="shrink-2" />
       </router-link>

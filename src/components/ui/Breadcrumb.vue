@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <div class="container mx-auto text-grey-darker">
+    <div class="container mx-auto text-gray-700">
       <span v-if="routeName === 'home'">
         <fa-icon :icon="['far', 'home']" transform="shrink-3" /> Home
       </span>
