@@ -23,7 +23,7 @@ export function loadData(resource, query = {}) {
     return Promise.reject(new Error(`Unknown API resource: ${resource}`))
   }
 
-  let url = `${process.env.API_ROOT}/${resource}`
+  let url = `${process.env.VUE_APP_API_ROOT}/${resource}`
   let queryString = qs.stringify(query)
   if (queryString) url += `?${queryString}`
 
