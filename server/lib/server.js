@@ -8,7 +8,7 @@ const createResource = require('../utils/create-resource')
 const HttpError = require('../utils/http-error')
 
 const DB_PATH = path.join(__dirname, '..', 'data', 'db.sqlite')
-const API_HOST = process.env.API_HOST || 'localhost'
+const API_HOST = process.env.API_HOST || undefined
 const API_PORT = Number(process.env.PORT) || 8081
 const API_BASE = process.env.API_BASE || '/api'
 const CLIENT_ORIGIN = process.env.CLIENT_ORIGIN || '*'
@@ -52,8 +52,11 @@ app.use((err, req, res, _next) => {
   })
 })
 
-app.listen(
+const listener = app.listen(
   API_PORT,
   API_HOST,
-  () => debug('http')(`Listening at http://${API_HOST}:${API_PORT}${API_BASE}`),
+  () => {
+    const server = listener.address()
+    debug('http')(`Listening at http://${server.address}:${server.port}${API_BASE}`)
+  },
 )
