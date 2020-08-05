@@ -9,7 +9,7 @@ const HttpError = require('../utils/http-error')
 
 const DB_PATH = path.join(__dirname, '..', 'data', 'db.sqlite')
 const API_HOST = process.env.API_HOST || 'localhost'
-const API_PORT = Number(process.env.API_PORT) || 8081
+const API_PORT = Number(process.env.PORT) || 8081
 const API_BASE = process.env.API_BASE || '/api'
 const CLIENT_ORIGIN = process.env.CLIENT_ORIGIN || '*'
 
