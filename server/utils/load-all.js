@@ -1,7 +1,7 @@
 const fetch = require('node-fetch')
 const log = require('debug')('seed:load')
 
-const API_ROOT = 'https://swapi.co/api'
+const API_ROOT = 'https://swapi.info/api'
 
 /**
  * Iterates through a SWAPI resources pages to load all

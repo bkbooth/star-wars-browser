@@ -3,7 +3,7 @@
     <template v-slot:main>
       <p class="mb-8">
         Welcome to the Star Wars Browser! A front-end for
-        <a href="https://swapi.co/">The Star Wars API</a>.
+        <a href="https://swapi.info/">The Star Wars API</a>.
         Except it's not quite that anymore,
         I ended up rolling my own API which pulls data from SWAPI.
       </p>

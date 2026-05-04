@@ -1,6 +1,6 @@
 # star-wars-browser
 
-> A front-end for [The Star Wars API](https://swapi.co/)
+> A front-end for [The Star Wars API](https://swapi.info/)
 
 Except it's not quite that anymore,
 I ended up rolling my own API which pulls data from SWAPI.
@@ -57,9 +57,9 @@ Seed data into the SQLite database
 yarn seed
 ```
 
-By default the seed script will not make requests to https://swapi.co,
+By default the seed script will not make requests to https://swapi.info,
 it will load from locally cached JSON files.
-To load fresh data from https://swapi.co (and regenerate the cached JSON files)
+To load fresh data from https://swapi.info (and regenerate the cached JSON files)
 
 ``` bash
 rm data/*.json
