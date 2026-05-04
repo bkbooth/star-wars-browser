@@ -15,12 +15,15 @@
     "express": "^4.17.1",
     "morgan": "^1.9.1",
     "sequelize": "^5.15.1",
-    "sqlite3": "^4.0.9"
+    "sqlite3": "^5.1.7"
   },
   "devDependencies": {
     "lodash": "^4.17.21",
     "node-fetch": "^2.6.1",
     "nodemon": "^1.19.1",
     "now": "^15.8.5"
+  },
+  "engines": {
+    "node": "20.x"
   }
 }
