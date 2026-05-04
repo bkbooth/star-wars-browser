@@ -19,7 +19,6 @@
   },
   "devDependencies": {
     "lodash": "^4.17.21",
-    "node-fetch": "^2.6.1",
     "nodemon": "^1.19.1",
     "now": "^15.8.5"
   },
